@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="row">
+    <ul class="collapsible">
+        
+        {% for recipe in recipes %}
+            <li>
+            {{recipe.author}}
+            {{recipe.blurb}}
+            {{recipe.prep_time}}
+            {{recipe.cook_time}}
+            {{recipe.serves}}
+            {{recipe.ingredients}}
+            {{recipe.method}}
+            {{recipe.calories}}
+            {{recipe.carbs}}
+            {{recipe.protein}}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
