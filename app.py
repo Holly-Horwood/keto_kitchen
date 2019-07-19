@@ -18,13 +18,24 @@ mongo = PyMongo(app)
 # Home Page
 
 @app.route('/')
-def recipes():
-    return render_template('recipes.html', recipes=mongo.db.recipes.find())
+def home():
+    return render_template('index.html', recipes=mongo.db.recipes.find())
 
+#Gets id for requested recipe and renders the full recipe template
 @app.route('/full_recipe/<recipe_id>')   
 def full_recipe(recipe_id):
-    the_recipe =  mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template('fullrecipe.html', recipe=the_recipe)
+
+#
+@app.route('/add_recipe', methods=['GET', 'POST']) 
+def insert_recipe():
+    if request.method == 'GET':
+        return render_template('addrecipe.html')
+    else:
+        recipes = mongo.db.recipes
+        recipes.insert_one(request.form.to_dict())
+    return redirect(url_for('home'))
 
 
 

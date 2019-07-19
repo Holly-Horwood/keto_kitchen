@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+
+{% block content %}
+{% for recipe in recipes %}
+<div class="row recipe_list">
+    <div class="col-lg-9 rec1">
+        <h4 class="recipe_title">{{recipe.recipe_name}}</h4><br>
+        <h6><i class="tiny material-icons">access_alarm</i> <span class="time_text">Prep Time (min):
+                {{recipe.prep_time}}</span><br> <i class="tiny material-icons">access_alarm</i> <span
+                class="time_text">Cook Time (min): {{recipe.cook_time}}</span><br> <i
+                class="tiny material-icons">local_dining</i> <span class="time_text">Serves: {{recipe.Serves}}</span>
+        </h6>
+        <h6 class="nutrition">Calories: {{recipe.calories}} | Carbs: {{recipe.carbs}} | Protein: {{recipe.protein}}</h6>
+        <h6 class="intro">{{recipe.blurb}}</h6>
+        <a href="{{full_recipe}}">Full Recipe</a>
+    </div>
+    <div class="col-lg-3 rec2">
+        {{recipe.image}}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
