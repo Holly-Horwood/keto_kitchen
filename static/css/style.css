@@ -3,9 +3,7 @@
     padding: 0;
 }
 
-.background  {
-    background-color: #999999;
-}
+
 
 nav .nav-wrapper {
     background: #11ce3a;
@@ -26,7 +24,7 @@ nav .nav-wrapper {
 }
 
 .recipe_title {
-    font-family: 'URW Chancery L', cursive;
+    font-family: 'Agnesa Kyoto', sans-serif;
     margin-bottom: 0;
 }
 
@@ -41,4 +39,12 @@ nav .nav-wrapper {
 
 .intro {
     margin-top: 2%;
+}
+
+input#image_file {
+    margin-top: 5%;
+}
+
+.recipe_field {
+    width: 40%;
 }
