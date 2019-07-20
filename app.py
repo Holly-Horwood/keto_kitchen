@@ -37,6 +37,15 @@ def insert_recipe():
         recipes.insert_one(request.form.to_dict())
     return redirect(url_for('home'))
 
+#Gets form to edit recipe, once completed posts to update then redirects to home page.
+@app.route('/edit_recipe', methods=['GET', 'POST']) 
+def edit_recipe():
+    if request.method == 'GET':
+        return render_template('editrecipe.html')
+    else:
+        recipes = mongo.db.recipes
+        recipes.insert_one(request.form.to_dict())
+    return redirect(url_for('home'))
 
 
 if __name__ == '__main__':

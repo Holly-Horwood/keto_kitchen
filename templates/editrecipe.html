@@ -1,0 +1,93 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+{% if recipe.recipe_author == register.username %}
+
+<h3>Add Recipe</h3>
+<div class="row">
+    <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s12">
+        <!--Recipe Name-->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">local_dining</i>
+                <input class="recipe_field" id="recipe_name" name="recipe_name" type="text" class="validate">
+                <label for="icon_prefix">Recipe Name</label>
+            </div>
+        </div>
+        <!--Author-->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">person</i>
+                <input class="recipe_field" id="recipe_author" name="recipe_author" type="text" class="validate">
+                <label for="icon_prefix">Author</label>
+            </div>
+        </div>
+        <!--Prep Time-->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">watch_later</i>
+                <input class="recipe_field" id="prep_time" name="prep_time" type="text" class="validate">
+                <label for="icon_prefix">Prep Time (mins)</label>
+            </div>
+        </div><!--Cook Time-->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">timer</i>
+                <input class="recipe_field" id="cook_time" name="cook_time" type="text" class="validate">
+                <label for="icon_prefix">Cook Time (mins)</label>
+            </div>
+        </div><!--Serves-->
+        <div class="row">
+            <div class="input-field col s12">
+                    <i class="material-icons prefix">pie_chart</i>
+                <input class="recipe_field" id="serves" name="serves" type="text" class="validate">
+                <label for="icon_prefix">Serves</label>
+            </div>
+        </div>
+        <!--Ingredients-->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">shopping_basket</i>
+                <input class="recipe_field" id="ingredients" name="ingedients" type="text" class="validate">
+                <label for="icon_prefix">Ingredients</label>
+            </div>
+        </div>
+        <!--Method-->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">assignment</i>
+                <input class="recipe_field" id="method" name="method" type="text" class="validate">
+                <label for="icon_prefix">Method</label>
+            </div>
+        </div>
+        <!--Add Image-->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">photo</i>
+                <input id="image_file" type="file"/> 
+                <label for="image_file">Upload Image</label>
+            </div>
+        </div>
+        
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Add Recipe
+                <i class="material-icons right">playlist_add</i>
+            </button>
+        </div>
+    </form>
+</div>
+
+{% else %}
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h4>Recipes can only be edited by the registered author.</h4>
+        </div>
+    
+    </div>
+
+
+{% endif %}
+
+
+{% endblock %}

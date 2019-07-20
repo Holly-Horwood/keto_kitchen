@@ -1,6 +1,60 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<div class="container search_options">
+    <div class="d-flex">
+        <div class="dropdown mr-1">
+            <button type="button" class="btn dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+                Cuisine
+            </button>
+            <div class="dropdown-cuisine" aria-labelledby="dropdownMenuOffset">
+                <a class="dropdown-item" href="#">Chinese</a>
+                <a class="dropdown-item" href="#">Indian</a>
+                <a class="dropdown-item" href="#">African</a>
+                <a class="dropdown-item" href="#">Japanese</a>
+                <a class="dropdown-item" href="#">Thai</a>
+            </div>
+        </div>
+        <div class="dropdown mr-1">
+            <button type="button" class="btn dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+                Meal
+            </button>
+            <div class="dropdown-meal" aria-labelledby="dropdownMenuOffset">
+                <a class="dropdown-item" href="#">Breakfast</a>
+                <a class="dropdown-item" href="#">Lunch</a>
+                <a class="dropdown-item" href="#">Dinner</a>
+                <a class="dropdown-item" href="#">Treats</a>
+            </div>
+        </div>
+    </div>
+    <div class="checkbox">
+        <input id="cheese" type="checkbox" name="ingredients[]" value="Cheese" />
+        <label for="cheese">Keto</label>
+        <br />
+        <input id="olives" type="checkbox" name="ingredients[]" value="Olives" />
+        <label for="olives">Low Carb</label>
+        <br />
+        <input id="pepperoni" type="checkbox" name="ingredients[]" value="Pepperoni" />
+        <label for="pepperoni">Sugar Free</label>
+        <br />
+        <input id="anchovies" type="checkbox" name="ingredients[]" value="Anchovies" />
+        <label for="anchovies">Gluten Free</label>
+        <br />
+        <input id="anchovies" type="checkbox" name="ingredients[]" value="Anchovies" />
+        <label for="anchovies">Vegetarian</label>
+        <br />
+        <input id="anchovies" type="checkbox" name="ingredients[]" value="Anchovies" />
+        <label for="anchovies">Vegan</label>
+    </div>
+
+    <div class="row">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Search
+            <i class="material-icons right">search</i>
+        </button>
+    </div>
+</div>
 {% for recipe in recipes %}
 <div class="row recipe_list">
     <div class="col-lg-9 rec1">

@@ -3,11 +3,128 @@
     padding: 0;
 }
 
+/*********************************COLOURS*/
 
-
-nav .nav-wrapper {
-    background: #11ce3a;
+nav li a:hover{
+    background: #696969;
 }
+
+body {
+    font-family: 'Tahoma', sans-serif;
+    color: rgb(92, 81, 81);
+    background-image: url("../images/soup.jpg");
+    background-size: cover
+}
+
+h3.add_title, h4.recipe_title  {
+    color: #61BF3F;
+}
+
+i.material-icons.prefix {
+    color: #61BF3F;
+}
+
+button.btn.waves-effect.waves-light {
+    background-color: #61BF3F;
+}
+
+.nutrition {
+    color:#61BF3F;
+}
+
+#footer-details {
+    background-color: #69696988;
+}
+
+.social-links i {
+    color: #fff;
+}
+
+.social-links i:hover {
+    color: #61BF3F;
+}
+
+.copyright p {
+    color: #fff;
+}
+
+/*-------------------------------------MOBILE*/
+
+img.logo {
+    float: right;
+    width: 350px;
+    margin-top: -40px;
+    transform: rotate(20deg); 
+}
+
+nav {
+    position: fixed;
+    background: #69696988;
+    padding: 0px 20px;
+}    
+
+.container.search_options {
+    margin-top: 50px;
+    width: 300px;
+}
+
+ /*add recipe*/
+
+.add_row {
+    padding: 5%;
+    padding-top: 2%;
+}
+
+h3.add_title  {
+    font-family: 'Kaushan Script', cursive;
+    text-align: center;
+    margin-top: 70px;
+    font-size: 50px;
+}
+
+h4.recipe_title {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 40px;
+}
+
+button.btn.waves-effect.waves-light {
+    color: #fff;
+    margin-left: 55px;
+}
+
+
+/*----------------------------------------------FOOTER*/
+
+#footer-details {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 2;
+}
+
+
+.social-links {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    margin-top: 1%;
+}
+
+.fab {
+    text-shadow: .10rem .10rem #080808;
+}
+
+.copyright p {
+    font-size: .7rem;
+}
+
+
+/*********************************TABLET*/
+
+
+/********************************DESK TOP*/
+
 
 
 .recipe_list {
@@ -23,17 +140,12 @@ nav .nav-wrapper {
     float: right;
 }
 
-.recipe_title {
-    font-family: 'Agnesa Kyoto', sans-serif;
-    margin-bottom: 0;
-}
 
 .time_text {
     font-weight: 600;
 }
 
 .nutrition {
-    color: #09881e;
     font-weight: 600;
 }
 
