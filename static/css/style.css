@@ -3,17 +3,22 @@
     padding: 0;
 }
 
-/*********************************COLOURS*/
+/*----------------------------------------------GENERAL*/
+
+body {
+    font-family: 'Tahoma', sans-serif;
+    background-image: url("../images/soup.jpg");
+    background-size: cover;
+}
+
+/*----------------------------------------------COLOURS*/
 
 nav li a:hover{
     background: #696969;
 }
 
 body {
-    font-family: 'Tahoma', sans-serif;
     color: rgb(92, 81, 81);
-    background-image: url("../images/soup.jpg");
-    background-size: cover
 }
 
 h3.add_title, h4.recipe_title  {
@@ -48,27 +53,33 @@ button.btn.waves-effect.waves-light {
     color: #fff;
 }
 
-/*-------------------------------------MOBILE*/
+/*----------------------------------------------MOBILE*/
+
+/*---LOGO---*/
 
 img.logo {
     float: right;
-    width: 350px;
+    width: 150px;
     margin-top: -40px;
     transform: rotate(20deg); 
 }
+
+/*---NAVBAR---*/
 
 nav {
     position: fixed;
     background: #69696988;
     padding: 0px 20px;
-}    
+}  
+
+/*---HOME PAGE---*/
 
 .container.search_options {
     margin-top: 50px;
     width: 300px;
 }
 
- /*add recipe*/
+/*---ADD RECIPE PAGE---*/
 
 .add_row {
     padding: 5%;
@@ -78,8 +89,8 @@ nav {
 h3.add_title  {
     font-family: 'Kaushan Script', cursive;
     text-align: center;
-    margin-top: 70px;
-    font-size: 50px;
+    margin-top: 40px;
+    font-size: 40px;
 }
 
 h4.recipe_title {
@@ -87,13 +98,20 @@ h4.recipe_title {
     font-size: 40px;
 }
 
-button.btn.waves-effect.waves-light {
-    color: #fff;
-    margin-left: 55px;
+.row.add_row {
+    width: 95%;
 }
 
+#image_file {
+    margin-top: 20%;
+}
 
-/*----------------------------------------------FOOTER*/
+button.btn.waves-effect.waves-light.add_btn {
+    color: #fff;
+    margin-left: 15%;
+}       
+
+/*---FOOTER---*/
 
 #footer-details {
     width: 100%;
@@ -120,10 +138,10 @@ button.btn.waves-effect.waves-light {
 }
 
 
-/*********************************TABLET*/
+/*----------------------------------------------TABLET*/
 
 
-/********************************DESK TOP*/
+/*---------------------------------------------DESK TOP*/
 
 
 
@@ -151,10 +169,6 @@ button.btn.waves-effect.waves-light {
 
 .intro {
     margin-top: 2%;
-}
-
-input#image_file {
-    margin-top: 5%;
 }
 
 .recipe_field {
