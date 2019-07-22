@@ -21,7 +21,7 @@ body {
     color: rgb(92, 81, 81);
 }
 
-h3.add_title, h4.recipe_title  {
+h3.add_title, h4.recipe_title, .search_title, .recipes_title, .edit_title  {
     color: #61BF3F;
 }
 
@@ -72,25 +72,38 @@ nav {
     padding: 0px 20px;
 }  
 
-/*---HOME PAGE---*/
+/*---INDEX.HTML---*/
 
-.container.search_options {
-    margin-top: 50px;
-    width: 300px;
+.login_btn {
+    margin-left: 40px;
 }
 
-/*---ADD RECIPE PAGE---*/
-
-.search-conatiner {
-    margin-top: 100px;
+.search_container {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
 }
+
+.search_title{
+    font-family: 'Kaushan Script', cursive;
+    text-align: left;
+    font-size: 20px;
+}
+
+.search_btn {
+    text-align: center;
+} 
 
 .add_row {
     padding: 5%;
     padding-top: 2%;
+    width: 95%;
 }
 
-h3.add_title  {
+/*--TITLES--*/
+
+.add_title, .recipes_title, .edit_title  {
     font-family: 'Kaushan Script', cursive;
     text-align: center;
     margin-top: 40px;
@@ -99,11 +112,7 @@ h3.add_title  {
 
 h4.recipe_title {
     font-family: 'Kaushan Script', cursive;
-    font-size: 40px;
-}
-
-.row.add_row {
-    width: 95%;
+    font-size: 30px;
 }
 
 #image_file {
@@ -131,6 +140,10 @@ button.btn.waves-effect.waves-light.add_btn {
     font-size: 1.5rem;
     margin-bottom: 0;
     margin-top: 1%;
+}
+
+li.list-inline-item {
+    display: inline;
 }
 
 .fab {

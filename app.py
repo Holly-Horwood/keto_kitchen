@@ -1,10 +1,12 @@
 #!/usr/bin/python
 import os
+import boto3
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from config import Config
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+
 
 # Init App
 app = Flask(__name__)
@@ -33,9 +35,17 @@ def full_recipe(recipe_id):
 def insert_recipe():
     if request.method == 'GET':
         return render_template('addrecipe.html')
-    else:
+    else:    #user has submitted the form:
+        s3_resource = boto3.resource('s3') #connection to S#
+        keto_bucket = s3_resource.Bucket("ketokitchen") #connection to keto bucket in S3
+        image_file = request.files['image_file'] 
+        keto_bucket.Object(image_file.filename).put(Body=image_file)  #putting the file into our S3 bucket
+        TODO:USE CURRENT DATE AND TIME TO MILLISECONDS TO MAKE A UNIQUE FILE NAME
+        url = "https://ketokitchen.s3-ap-southeast-2.amazonaws.com/" + image_file.filename    #create a URL for the uploaded image in the bucket
         recipes = mongo.db.recipes
-        recipes.insert_one(request.form.to_dict())
+        recipe_dict = request.form.to_dict()
+        recipe_dict.update( {'image_url' : url} ) #appends image_url to the other form data
+        recipes.insert_one(recipe_dict) #adds recipe to database as key value pairs
     return redirect(url_for('home'))
 
 #Gets form to edit recipe, once completed posts to update then redirects to home page.
