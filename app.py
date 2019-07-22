@@ -40,7 +40,6 @@ def insert_recipe():
         keto_bucket = s3_resource.Bucket("ketokitchen") #connection to keto bucket in S3
         image_file = request.files['image_file'] 
         keto_bucket.Object(image_file.filename).put(Body=image_file)  #putting the file into our S3 bucket
-        TODO:USE CURRENT DATE AND TIME TO MILLISECONDS TO MAKE A UNIQUE FILE NAME
         url = "https://ketokitchen.s3-ap-southeast-2.amazonaws.com/" + image_file.filename    #create a URL for the uploaded image in the bucket
         recipes = mongo.db.recipes
         recipe_dict = request.form.to_dict()
