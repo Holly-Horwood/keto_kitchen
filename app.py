@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
@@ -27,7 +28,7 @@ def full_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template('fullrecipe.html', recipe=the_recipe)
 
-#Gets form to add recipe, once completed posts to add then redirects to home page.
+#Gets blank form to add recipe, once completed posts to add then redirects to home page.
 @app.route('/add_recipe', methods=['GET', 'POST']) 
 def insert_recipe():
     if request.method == 'GET':

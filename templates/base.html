@@ -4,16 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--MATERIALIZE ICONS-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--MATERIALIZE CSS-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <!--FONT AWESOME REFERENCE-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <!--BOOTSTRAP REFERENCE-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--FONT FAMILY-->
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <!--CSS STYLESHEET-->
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+    <!--FAVICON-->
     <link rel="shorthcut icon" type="image/png" href="static\images\favicon.png" />
     <title>Keto Kitchen</title>
 </head>
@@ -40,9 +42,9 @@
             <li><a href="addrecipe.html">Add Recipe</a></li>
         </ul>
     </header>
-        <div>
-            <img class="logo" src="static\images\logo.png" alt="logo">
-        </div>
+    <div>
+        <img class="logo" src="static\images\logo.png" alt="logo">
+    </div>
     </div>
     {% block content %} {% endblock %}
     <!--START OF FOOTER-->
@@ -90,7 +92,8 @@
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script>
         $(document).ready(function () {
-            $('.sidenav').sidenav();
+            $('select').material_select();
+            $(".button-collapse").sideNav();
         });
     </script>
 </body>
