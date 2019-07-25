@@ -12,117 +12,114 @@
     <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s12">
         <!--RECIPE NAME-->
         <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">local_dining</i>
-                <input class="recipe_field" name="recipe_name" type="text" class="validate">
-                <label for="icon_prefix">Recipe Name</label>
-            </div>
-        </div>
-        <!--AUTHOR-->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">person</i>
-                <input class="recipe_field" name="recipe_author" type="text" class="validate">
-                <label for="icon_prefix">Author</label>
-            </div>
-        </div>
-        <div class="container search_container">
-            <h4 class="search_title">Choose Search Options</h4>
-            <div class="row select_row">
-                <!--MATERIALIZE SELECT JQERY PLUGIN-->
-                <div class="input-field col s4">
-                    <select>
-                        <option value="" disabled selected>Please select</option>
-                        <option value="1">Breakfast</option>
-                        <option value="2">Lunch</option>
-                        <option value="3">Main</option>
-                        <option value="3">Desert</option>
-                        <option value="3">Baking</option>
-                    </select>
-                    <label>Meal Type</label>
-                </div>
-
-                <div class="input-field col s4">
-                    <select>
-                        <option value="" disabled selected>Please Select</option>
-                        <option value="1">African</option>
-                        <option value="2">Chinese</option>
-                        <option value="3">Carribean</option>
-                        <option value="3">European</option>
-                        <option value="3">Thai</option>
-                    </select>
-                    <label>Cuisine</label>
-                </div>
-
-                <div class="input-field col s4">
-                    <select multiple>
-                        <option value="" disabled selected>Select all that apply</option>
-                        <option value="1">Low Carb</option>
-                        <option value="2">Keto</option>
-                        <option value="3">Gluten Free</option>
-                        <option value="3">Vegan</option>
-                    </select>
-                    <label>Diet Type</label>
+                <div class="input-field col s12">
+                    <i class="fas fa-clipboard-list"></i>
+                    <input class="recipe_field" name="recipe_name" type="text" class="validate">
+                    <label for="icon_prefix">Recipe Name</label>
                 </div>
             </div>
-        </div>
-        <!--PREP TIME-->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">watch_later</i>
-                <input class="recipe_field" name="prep_time" type="text" class="validate">
-                <label for="icon_prefix">Prep Time (mins)</label>
+            <!--AUTHOR-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-user"></i>
+                    <input class="recipe_field" name="recipe_author" type="text" class="validate">
+                    <label for="icon_prefix">Author</label>
+                </div>
             </div>
-        </div>
-        <!--COOK TIME-->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">timer</i>
-                <input class="recipe_field" name="cook_time" type="text" class="validate">
-                <label for="icon_prefix">Cook Time (mins)</label>
+            <div class="container search_container">
+                <h4 class="search_title">Choose Search Options</h4>
+                <div class="row select_row">
+                    <!--MATERIALIZE SELECT JQERY PLUGIN-->
+                    <div class="input-field col s4">
+                        <select>
+                            <option value="" disabled selected>Please select</option>
+                            <option value="1">Breakfast</option>
+                            <option value="2">Lunch</option>
+                            <option value="3">Main</option>
+                            <option value="3">Desert</option>
+                            <option value="3">Baking</option>
+                        </select>
+                        <label>Meal Type</label>
+                    </div>
+    
+                    <div class="input-field col s4">
+                        <select>
+                            <option value="" disabled selected>Please Select</option>
+                            <option value="1">African</option>
+                            <option value="2">Chinese</option>
+                            <option value="3">Carribean</option>
+                            <option value="3">European</option>
+                            <option value="3">Thai</option>
+                        </select>
+                        <label>Cuisine</label>
+                    </div>
+    
+                    <div class="input-field col s4">
+                        <select multiple>
+                            <option value="" disabled selected>Select all that apply</option>
+                            <option value="1">Low Carb</option>
+                            <option value="2">Keto</option>
+                            <option value="3">Gluten Free</option>
+                            <option value="3">Vegan</option>
+                        </select>
+                        <label>Diet Type</label>
+                    </div>
+                </div>
             </div>
-        </div>
-        <!--SERVES-->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">pie_chart</i>
-                <input class="recipe_field" name="serves" type="text" class="validate">
-                <label for="icon_prefix">Serves</label>
+            <!--PREP TIME-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="far fa-clock"></i>
+                    <input class="recipe_field" name="prep_time" type="text" class="validate">
+                    <label for="icon_prefix">Prep Time (mins)</label>
+                </div>
             </div>
-        </div>
-        <!--INGREDIENTS-->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">shopping_basket</i>
-                <input class="recipe_field" name="ingedients" type="text" class="validate">
-                <label for="icon_prefix">Ingredients</label>
+            <!--COOK TIME-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-hourglass-end"></i>
+                    <input class="recipe_field" name="cook_time" type="text" class="validate">
+                    <label for="icon_prefix">Cook Time (mins)</label>
+                </div>
             </div>
-        </div>
-        <!--METHOD-->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">assignment</i>
-                <input class="recipe_field" name="method" type="text" class="validate">
-                <label for="icon_prefix">Method</label>
+            <!--SERVES-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-utensils"></i>
+                    <input class="recipe_field" name="serves" type="text" class="validate">
+                    <label for="icon_prefix">Serves</label>
+                </div>
             </div>
-        </div>
-        <!--ADD IMAGE-->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">photo</i>
-                <input id="image_file" name="image_file" type="file" />
-                <label class="file-title" for="image_file">Upload Image</label>
+            <!--INGREDIENTS-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pepper-hot"></i>
+                    <input class="recipe_field" name="ingedients" type="text" class="validate">
+                    <label for="icon_prefix">Ingredients</label>
+                </div>
             </div>
-        </div>
-        <!--BUTTONS-->
-        <div class="row">
-            <button class="btn waves-effect waves-light edit_btn" type="submit" name="action">Update
-                <i class="material-icons right">add</i>
-            </button>
-            <button class="btn waves-effect waves-light delete_btn" type="submit" name="action">Delete
-                <i class="material-icons right">delete</i>
-            </button>
-        </div>
-    </form>
-</div>
-{% endblock %}
+            <!--METHOD-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-list"></i>
+                    <input class="recipe_field" name="method" type="text" class="validate">
+                    <label for="icon_prefix">Method</label>
+                </div>
+            </div>
+            <!--ADD IMAGE-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">photo</i>
+                    <input id="image_file" name="image_file" type="file" />
+                    <label class="file-title" for="image_file">Upload Image</label>
+                </div>
+            </div>
+            <!--ADD BUTTON-->
+            <div class="row">
+                <button type="button" class="btn btn-success mx-auto add_btn">Add
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+    {% endblock %}

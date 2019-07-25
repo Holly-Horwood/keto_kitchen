@@ -9,28 +9,45 @@ body {
     font-family: 'Tahoma', sans-serif;
     background-image: url("../images/soup.jpg");
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
 }
 
 /*----------------------------------------------COLOURS*/
 
+.navbar {
+    background-color: transparent;
+}
+
+a.nav-link {
+    color: #61BF3F;
+}
+
 nav li a:hover{
-    background: #696969;
+    color: #1a6807;
 }
 
 body {
     color: rgb(92, 81, 81);
 }
 
+.select_row {
+    background-color: #e2dada;
+}
+
+.search_btn, .add_btn {
+    color: #fff;
+    background-color: #61BF3F;
+}
+
 h3.add_title, h4.recipe_title, .search_title, .recipes_title, .edit_title  {
     color: #61BF3F;
 }
 
-i.material-icons.prefix {
-    color: #61BF3F;
-}
-
-button.btn.waves-effect.waves-light {
-    background-color: #61BF3F;
+.recipe_list {
+    background-color: #e2dada; 
 }
 
 .nutrition {
@@ -58,19 +75,51 @@ button.btn.waves-effect.waves-light {
 /*---LOGO---*/
 
 img.logo {
-    float: right;
-    width: 150px;
-    margin-top: -40px;
-    transform: rotate(20deg); 
+    float: left;
+    width: 100px;
+    margin-top: -70px;
+    transform: rotate(340deg); 
 }
 
 /*---NAVBAR---*/
 
-nav {
-    position: fixed;
-    background: #69696988;
-    padding: 0px 20px;
-}  
+.navbar {
+    display: float;
+}
+
+.navbar-toggler {
+    font-size: 2rem;
+    line-height: 1.5;
+    z-index: 2;
+}
+
+.navbar-brand {
+    max-height: 20%;
+    margin-top: 2%;
+    max-width: 20%;
+}    
+
+a.nav-link {
+    font-size: 1rem;
+    padding: 2%;
+    margin-top: 70px;
+    z-index: 1;
+}
+
+.recipe_list {
+    font-size: 0.6em;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 80px;
+    padding: 10px;
+    box-shadow: 10px 15px 18px -6px rgba(148,135,148,1);
+
+}
+
+.recipe_pic {
+    float: right;
+    width: 50vh;
 
 /*---INDEX.HTML---*/
 
@@ -118,11 +167,7 @@ h4.recipe_title {
 #image_file {
     margin-top: 20%;
 }
-
-button.btn.waves-effect.waves-light.add_btn {
-    color: #fff;
-    margin-left: 15%;
-}       
+     
 
 /*---FOOTER---*/
 
@@ -155,39 +200,25 @@ li.list-inline-item {
 }
 
 
-/*----------------------------------------------TABLET*/
+/*----------------------------------------------MEDIA QUERIES*/
 
+/****************************TABLET*********************/
 
-/*---------------------------------------------DESK TOP*/
+@media (min-width: 576px) {
+    
+    *:root {
+        font-size: 15px;
+    }
 
-
-
-.recipe_list {
-    margin-top: 50px;
-    margin-left: 50px;
-    margin-right: 50px;
-    padding: 2%;
-    box-shadow: 13px 12px 16px 0px rgba(0,0,0,0.49);
-    background-color: #d1cdc6;
 }
 
-.rec2 {
-    float: right;
+/****************************DESKTOP*********************/
+
+@media (min-width: 992px) {
+    
+
+img.recipe_pic {
+    width: 50vh;
 }
 
-
-.time_text {
-    font-weight: 600;
-}
-
-.nutrition {
-    font-weight: 600;
-}
-
-.intro {
-    margin-top: 2%;
-}
-
-.recipe_field {
-    width: 40%;
 }

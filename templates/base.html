@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--MATERIALIZE ICONS-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--MATERIALIZE CSS-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <!--FONT AWESOME REFERENCE-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -19,82 +21,111 @@
     <link rel="shorthcut icon" type="image/png" href="static\images\favicon.png" />
     <title>Keto Kitchen</title>
 </head>
-
+<script type="text/javascript">(function(d, t, e, m){
+    
+    // Async Rating-Widget initialization.
+    window.RW_Async_Init = function(){
+                
+        RW.init({
+            huid: "437892",
+            uid: "b8f0489f0ec9dd26a60d071b1b0804b7",
+            options: { "style": "oxygen" } 
+        });
+        RW.render();
+    };
+        // Append Rating-Widget JavaScript library.
+    var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+        l = d.location, ck = "Y" + t.getFullYear() + 
+        "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+        f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+        a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+    if (d.getElementById(id)) return;              
+    rw = d.createElement(e);
+    rw.id = id; rw.async = true; rw.type = "text/javascript";
+    rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+    s.parentNode.insertBefore(rw, s);
+    }(document, new Date(), "script", "rating-widget.com/"));</script>
 <body class="background">
     <header>
-        <!--NAVIGATION-->
-        <nav>
-            <div class="nav-wrapper">
-                <div class="container">
-                    <a href="#" class="brand-logo"></a>
-                    <a href="#" class="sidenav-trigger" data-target="mobile-links">
-                        <i class="material-icons">menu</i>
-                    </a>
-                    <ul class="right hide-on-med-and-down">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="addrecipe.html">Add Recipe</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <ul class="sidenav" id="mobile-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="addrecipe.html">Add Recipe</a></li>
-        </ul>
-    </header>
-    <div>
-        <img class="logo" src="static\images\logo.png" alt="logo">
-    </div>
-    </div>
-    {% block content %} {% endblock %}
-    <!--START OF FOOTER-->
-    <footer class="container-fluid">
-        <div id="footer-details" class="row">
-            <div class="col-sm-12 mx-auto">
-                <ul class="list-inline social-links">
-                    <li class="list-inline-item">
-                        <a target="_blank" href="#">
-                            <i class="fab fa-facebook-square" aria-hidden="true"></i>
-                            <span class="sr-only">Facebook</span>
-                        </a>
+        <!--START OF NAVBAR-->
+        <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link current" href="{{ url_for('home') }}">Recipes <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="list-inline-item">
-                        <a target="_blank" href="#">
-                            <i class="fab fa-twitter" aria-hidden="true"></i>
-                            <span class="sr-only">Twitter</span>
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('insert_recipe') }}">Add Recipe <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="list-inline-item">
-                        <a target="_blank" href="#">
-                            <i class="fab fa-instagram" aria-hidden="true"></i>
-                            <span class="sr-only">Instagram</span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a target="_blank" href="#">
-                            <i class="fab fa-youtube" aria-hidden="true"></i>
-                            <span class="sr-only">Youtube</span>
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('edit_recipe') }}">Edit Recipe <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
-                <div class="copyright">
-                    <p>&copy; Copyright 2019: Holly Horwood</p>
+            </div>
+        </nav>
+        <!--END OF NAVBAR-->
+        <!--START OF LOGO-->
+        <img class="logo sticky-top" src="static\images\logo.png" alt="logo"/>
+        <!--END OF LOGO-->
+        {% block content %} {% endblock %}
+        <!--START OF FOOTER-->
+        <footer class="container-fluid">
+            <div id="footer-details" class="row">
+                <div class="col-sm-12 mx-auto">
+                    <ul class="list-inline social-links">
+                        <li class="list-inline-item">
+                            <a target="_blank" href="#">
+                                <i class="fab fa-facebook-square" aria-hidden="true"></i>
+                                <span class="sr-only">Facebook</span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a target="_blank" href="#">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                                <span class="sr-only">Twitter</span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a target="_blank" href="#">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                                <span class="sr-only">Instagram</span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a target="_blank" href="#">
+                                <i class="fab fa-youtube" aria-hidden="true"></i>
+                                <span class="sr-only">Youtube</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="copyright">
+                        <p>&copy; Copyright 2019: Holly Horwood</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
-    <!--END OF FOOTER-->
+        </footer>
+        <!--END OF FOOTER-->
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <script>
-        $(document).ready(function () {
-            $('select').material_select();
-        });
-    </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script>
+            $(document).ready(function () {
+                $('select').material_select();
+            });
+        </script>
 </body>
 
 </html>

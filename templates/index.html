@@ -3,69 +3,72 @@
 {% block content %}
 <h3 class="recipes_title">Recipes</h3>
 <div class="container search_container">
-    <h4 class="search_title">Choose Search Options</h4>
+    <h4 class="search_title">Search Recipes</h4>
     <div class="row select_row">
-        <!--MATERIALIZE SELECT JQERY PLUGIN-->
-        <div class="input-field col s4">
-            <select>
-                <option value="" disabled selected>Please select</option>
+        <!--SEARCH CRITERIA-->
+        <div class="col-sm-4">
+            <label>Meal Type</label>
+            <select class="custom-select">
+                <option selected>Please select</option>
                 <option value="1">Breakfast</option>
                 <option value="2">Lunch</option>
                 <option value="3">Main</option>
                 <option value="3">Desert</option>
                 <option value="3">Baking</option>
             </select>
-            <label>Meal Type</label>
         </div>
 
-        <div class="input-field col s4">
-            <select>
-                <option value="" disabled selected>Please Select</option>
+        <div class="col-sm-4">
+            <label>Cuisine</label>
+            <select class="custom-select">
+                <option selected>Please Select</option>
                 <option value="1">African</option>
                 <option value="2">Chinese</option>
                 <option value="3">Carribean</option>
                 <option value="3">European</option>
                 <option value="3">Thai</option>
             </select>
-            <label>Cuisine</label>
         </div>
 
-        <div class="input-field col s4">
-            <select multiple>
-                <option value="" disabled selected>Select all that apply</option>
-                <option value="1">Low Carb</option>
-                <option value="2">Keto</option>
-                <option value="3">Gluten Free</option>
-                <option value="3">Vegan</option>
-            </select>
-            <label>Diet Type</label>
+        <div class="col-sm-4">
+            <label>Diet <em> check all that apply</em></label>
+            <form action="" method="post">
+                <input type="checkbox" name="diet1" value="Keto" /> Keto
+                <input type="checkbox" name="diet2" value="Low Carb" /> Low Carb
+                <input type="checkbox" name="diet3" value="Sugar Free" /> Suagr Free
+                <input type="checkbox" name="diet4" value="Gluten Free" /> Gluten Free
+                <input type="checkbox" name="diet5" value="Vegetarian" /> Vegetarian
+                <input type="checkbox" name="diet6" value="Vegan" /> Vegan
+            </form>
         </div>
     </div>
 </div>
 <!--SEARCH BUTTON-->
-<div class="row search_btn">
-    <button class="btn waves-effect waves-light" type="submit" name="action">Search
-        <i class="material-icons right">search</i>
+<div class="row">
+    <button type="button" class="btn btn-success mx-auto  search_btn">Search
+        <i class="fas fa-search"></i>
     </button>
 </div>
 
 <!--DISPLAYS LIST OF RECIPES-->
 {% for recipe in recipes %}
 <div class="row recipe_list">
-    <div class="col-lg-9 rec1">
+    <div class="col-lg-8 rec1">
         <h4 class="recipe_title">{{recipe.recipe_name}}</h4><br>
-        <h6><i class="tiny material-icons">access_alarm</i> <span class="time_text">Prep Time (min):
-                {{recipe.prep_time}}</span><br> <i class="tiny material-icons">access_alarm</i> <span
-                class="time_text">Cook Time (min): {{recipe.cook_time}}</span><br> <i
-                class="tiny material-icons">local_dining</i> <span class="time_text">Serves: {{recipe.Serves}}</span>
+        <h6><i class="far fa-clock"></i>
+            {{recipe.prep_time}}</span><br> <i class="tiny material-icons">access_alarm</i> <span class="time_text">Cook
+                Time (min): {{recipe.cook_time}}</span><br> <i class="tiny material-icons">local_dining</i> <span
+                class="time_text">Serves: {{recipe.Serves}}</span>
         </h6>
         <h6 class="nutrition">Calories: {{recipe.calories}} | Carbs: {{recipe.carbs}} | Protein: {{recipe.protein}}</h6>
         <h6 class="intro">{{recipe.blurb}}</h6>
-        <a href="{{full_recipe}}">Full Recipe</a>
+        <a href="{{ url_for('full_recipe', recipe_id=recipe._id) }}">Full Recipe</a>
     </div>
-    <div class="col-lg-3 rec2">
-        {{recipe.image}}
+    <div class="col-lg-4 rec2">
+        <img class="recipe_pic" src="{{recipe.image_url}}" alt="Photo of dish" />
+        <div class="rw-ui-container"></div>
     </div>
+
 </div>
 {% endfor %}
 {% endblock %}

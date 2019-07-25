@@ -24,11 +24,14 @@ mongo = PyMongo(app)
 def home():
     return render_template('index.html', recipes=mongo.db.recipes.find())
 
-#Gets id for requested recipe and renders the full recipe template
+#Gets id for requested recipe and renders the full recipe template when full recipe link is clicked on in index.html
 @app.route('/full_recipe/<recipe_id>')   
 def full_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template('fullrecipe.html', recipe=the_recipe)
+    #searches fields and splits array at the pipes
+    ingredients_split = the_recipe['ingredients'].split('|')
+    method_split = the_recipe['method'].split('|')
+    return render_template('fullrecipe.html', recipe=the_recipe, ingredients=ingredients_split, method=method_split)
 
 #Gets blank form to add recipe, once completed posts to add then redirects to home page.
 @app.route('/add_recipe', methods=['GET', 'POST']) 
@@ -36,13 +39,15 @@ def insert_recipe():
     if request.method == 'GET':
         return render_template('addrecipe.html')
     else:    #user has submitted the form:
+        #str_replace = str{'method', 'ingredients'}.replace('\n', '|')
         s3_resource = boto3.resource('s3') #connection to S3
         keto_bucket = s3_resource.Bucket("ketokitchen") #connection to keto bucket in S3
         now = datetime.datetime.now() #creates time-stamp string for file names
         now_string = str(now.strftime("%d-%m-%Y_%H%M%S"))
         image_file = request.files['image_file'] 
-        keto_bucket.Object(image_file.filename).put(Body=image_file)  #putting the file into our S3 bucket
-        url = "https://ketokitchen.s3-ap-southeast-2.amazonaws.com/" + image_file.filename + now_string    #create a URL for the uploaded image in the bucket
+        full_file_name = (now_string + image_file.filename)
+        keto_bucket.Object(full_file_name).put(ACL='public-read', Body=image_file, ContentType='image/jpeg')  #putting the file into our S3 bucket
+        url = "https://ketokitchen.s3-ap-southeast-2.amazonaws.com/" + full_file_name   #create a URL for the uploaded image in the bucket
         recipes = mongo.db.recipes
         recipe_dict = request.form.to_dict()
         recipe_dict.update( {'image_url' : url} ) #appends image_url to the other form data
@@ -58,6 +63,9 @@ def edit_recipe():
         recipes = mongo.db.recipes
         recipes.insert_one(request.form.to_dict())
     return redirect(url_for('home'))
+
+
+     
 
 
 if __name__ == '__main__':
