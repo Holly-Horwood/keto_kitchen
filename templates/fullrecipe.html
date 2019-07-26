@@ -1,97 +1,76 @@
 {% extends 'base.html'%} {% block content %}
 
-<h3>{{recipe.recipe_name}}</h3>
-<div class="row">
-    <form action="{{ url_for('full_recipe', recipe_id=recipe._id) }}" method="POST" class="col s12">
-        <div class="row">
+<div class="container full_container">
+    <h3>{{recipe.recipe_name}}</h3>
+    <div class="col-lg-4 rec2">
+        <img class="thumbnail_pic" src="{{recipe.image_url}}" alt="Photo of dish" />
+    </div>
+    <div class="rw-ui-container thumbnail_rw"></div>
+    <!--RECIPE SUMMARY-->
+    <div class="row col-sm-12">
+        <div class="recipe_summary">
+            <i class="fas fa-user recipe_icons"></i>
+            <h6>Author: {{recipe.author}}</h6>
+            <i class="far fa-clock recipe_icons"></i>
+            <h6>Prep Time: {{recipe.prep_time}}</h6>
+            <i class="fas fa-hourglass-end recipe_icons"></i>
+            <h6>Cook Time: {{recipe.cook_time}}</h6>
+            <i class="fas fa-utensils recipe_icons"></i>
+            <h6>Serves: {{recipe.serves}}</h6>
+        </div>
+        <!--INTRO-->
+        <div class="full_intro">
+            <h6 class="nutrition">Calories: {{recipe.calories}} | Carbs: {{recipe.carbs}} | Protein: {{recipe.protein}}
+            </h6>
+            <h6 class="intro">{{recipe.blurb}}</h6>
+        </div>
 
-            <!--RECIPE NAME-->
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="recipe_name" name="recipe_name" type="text" class="validate"
-                        value="{{recipe.recipe_name}}">
-                    <label for="icon_prefix">Recipe Name</label>
-                </div>
-            </div>
-            <!--RECIPE AUTHOR-->
-            <div class="row">
-                <div class="input-field col s12">
-                    <textarea name="author" id="author" class="materialize-textarea">{{recipe.author}}</textarea>
-                    <label for="icon_telephone">Author</label>
-                </div>
-            </div>
-            <!--PREP TIME-->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="far fa-clock"></i>
-                    <input id="recipe_name" name="recipe_name" type="text" class="validate"
-                        value="{{recipe.prep_time}}">
-                    <input class="recipe_field" name="prep_time" type="text" class="validate">
-                    <label for="icon_prefix">Prep Time (mins)</label>
-                </div>
-            </div>
-            <!--COOK TIME-->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-hourglass-end"></i>
-                    <input id="recipe_name" name="recipe_name" type="text" class="validate"
-                        value="{{recipe.cook_time}}">
-                    <input class="recipe_field" name="cook_time" type="text" class="validate">
-                    <label for="icon_prefix">Cook Time (mins)</label>
-                </div>
-            </div>
-            <!--SERVES-->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-utensils"></i>
-                    <input id="recipe_name" name="recipe_name" type="text" class="validate"
-                        value="{{recipe.serves}}">
-                    <input class="recipe_field" name="serves" type="text" class="validate">
-                    <label for="icon_prefix">Serves</label>
-                </div>
-            </div>
-            
-            <!--INGREDIENTS-->
-            <div class="row">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Ingredients</h3>
-                        <div class="card-body">
-                                {% for ingredient in ingredients %}
-                                <input id="recipe_name" name="recipe_name" type="text" class="validate"
-                                value="{{ingredient}}">
-                                {% endfor %}
-                        </div>
+        <!--INGREDIENTS-->
+        <div class="row">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-clipboard-list recipe_icons"></i>
+                    <h6 class="card-title">Ingredients</h6>
+                    <div class="card-body">
+                        {% for ingredient in ingredients %}
+                        <input id="recipe_field" name="ingredient_name" type="text" class="validate"
+                            value="{{ingredient}}">
+                        {% endfor %}
                     </div>
                 </div>
             </div>
-            
-            <!--METHOD-->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-list"></i>
-                    {% for method in method %}
-                    <input id="recipe_name" name="recipe_name" type="text" class="validate"
-                        value="{{method}}">
+        </div>
+
+        <!--METHOD-->
+        <div class="row">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-list recipe_icons"></i>
+                    <h6 class="card-title">Method</h6>
+                    <div class="card-body">
+                        {% for method in method %}
+                        <input id="recipe_field" name="method_name" type="text" class="validate" value="{{method}}">
                         {% endfor %}
-                    <input class="recipe_field" name="method" type="text" class="validate">
-                    <label for="icon_prefix">Method</label>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!--BUTTONS-->
-            <div class="row">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Edit
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
-            <div class="row">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Delete
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
-    </form>
+        <!--BUTTONS-->
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Edit
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Delete
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+        </form>
+    </div>
 </div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">

@@ -21,56 +21,61 @@
     <link rel="shorthcut icon" type="image/png" href="static\images\favicon.png" />
     <title>Keto Kitchen</title>
 </head>
-<script type="text/javascript">(function(d, t, e, m){
-    
-    // Async Rating-Widget initialization.
-    window.RW_Async_Init = function(){
-                
-        RW.init({
-            huid: "437892",
-            uid: "b8f0489f0ec9dd26a60d071b1b0804b7",
-            options: { "style": "oxygen" } 
-        });
-        RW.render();
-    };
+<script type="text/javascript">(function (d, t, e, m) {
+
+        // Async Rating-Widget initialization.
+        window.RW_Async_Init = function () {
+
+            RW.init({
+                huid: "437892",
+                uid: "b8f0489f0ec9dd26a60d071b1b0804b7",
+                options: { "style": "oxygen" }
+            });
+            RW.render();
+        };
         // Append Rating-Widget JavaScript library.
-    var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
-        l = d.location, ck = "Y" + t.getFullYear() + 
-        "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
-        f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
-        a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
-    if (d.getElementById(id)) return;              
-    rw = d.createElement(e);
-    rw.id = id; rw.async = true; rw.type = "text/javascript";
-    rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
-    s.parentNode.insertBefore(rw, s);
+        var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+            l = d.location, ck = "Y" + t.getFullYear() +
+                "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+            f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+            a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+        if (d.getElementById(id)) return;
+        rw = d.createElement(e);
+        rw.id = id; rw.async = true; rw.type = "text/javascript";
+        rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+        s.parentNode.insertBefore(rw, s);
     }(document, new Date(), "script", "rating-widget.com/"));</script>
+
 <body class="background">
     <header>
         <!--START OF NAVBAR-->
         <nav class="navbar navbar-expand-lg navbar-light sticky-top">
-            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link current" href="{{ url_for('home') }}">Recipes <span class="sr-only">(current)</span></a>
+                        <a class="nav-link current" href="{{ url_for('home') }}">Recipes <span
+                                class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('insert_recipe') }}">Add Recipe <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ url_for('insert_recipe') }}">Add Recipe <span
+                                class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('edit_recipe') }}">Edit Recipe <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ url_for('edit_recipe') }}">Edit Recipe <span
+                                class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>
         </nav>
         <!--END OF NAVBAR-->
         <!--START OF LOGO-->
-        <img class="logo sticky-top" src="static\images\logo.png" alt="logo"/>
+        <img class="logo sticky-top" src="static\images\logo.png" alt="logo" />
         <!--END OF LOGO-->
         {% block content %} {% endblock %}
         <!--START OF FOOTER-->
@@ -123,7 +128,9 @@
         <script src="{{ url_for('static', filename='js/main.js') }}"></script>
         <script>
             $(document).ready(function () {
-                $('select').material_select();
+                $("form").submit(function () {
+                    alert("Submitted");
+                });
             });
         </script>
 </body>
