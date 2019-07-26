@@ -72,15 +72,6 @@ h3.add_title, h4.recipe_title, .search_title, .recipes_title, .edit_title  {
 
 /*----------------------------------------------MOBILE*/
 
-/*---LOGO---*/
-
-img.logo {
-    float: left;
-    width: 100px;
-    margin-top: -70px;
-    transform: rotate(340deg); 
-}
-
 /*---NAVBAR---*/
 
 .navbar {
@@ -106,6 +97,76 @@ a.nav-link {
     z-index: 1;
 }
 
+/*--IMAGES--*/
+
+img.logo {
+    float: left;
+    width: 100px;
+    margin-top: -70px;
+    transform: rotate(340deg); 
+}
+
+.recipe_pic {
+    float: right;
+    width: 50vh;
+} 
+
+.thumbnail_pic, .thumbnail_rw {
+    float: right;
+}
+
+#image_file {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+/*--BUTTONS--*/
+
+.login_btn {
+    margin-left: 40px;
+}
+
+.add_btn {
+    margin-bottom: 70px;
+}
+
+.search_btn {
+    text-align: center;
+} 
+
+/*--TITLES--*/
+
+.add_title, .recipes_title, .edit_title  {
+    font-family: 'Kaushan Script', cursive;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 40px;
+}
+
+h4.recipe_title {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 30px;
+}
+
+/*--SEARCH AREAS--*/
+
+.search_container {
+    width: 100%;
+    margin: 8px 0;
+    display: inline-block;
+}
+
+.select_row {
+    padding: 2%;
+}
+
+.search_title{
+    font-family: 'Kaushan Script', cursive;
+    text-align: left;
+    font-size: 20px;
+}
+
+/*--CONTAINERS & ROWS--*/
 
 .recipe_list {
     font-size: 0.6em;
@@ -115,13 +176,7 @@ a.nav-link {
     margin-bottom: 80px;
     padding: 10px;
     box-shadow: 10px 15px 18px -6px rgba(148,135,148,1);
-
 }
-
-.recipe_pic {
-    float: right;
-    width: 50vh;
-} 
 
 .full_container, .recipe_summary {
     width: 90%;
@@ -140,8 +195,7 @@ a.nav-link {
 }
 
 .diet_field {
-    margin-top: 2%;
-    
+    margin-top: 2%;  
 }
 
 .diet_p {
@@ -149,53 +203,15 @@ a.nav-link {
     margin-bottom: 0;
 }
 
-.add_btn {
-    margin-bottom: 70px;
-
-}
-.thumbnail_pic, .thumbnail_rw {
-    float: right;
-}
-
-.card-body{
-    padding: 0;
-}
-
 .input_field {
     vertical-align: middle;
     display: inline-block;
 }
 
-
 .intro_text, .ingredients_text, .method_text {
     margin-bottom: 3%;
     padding: 1%;
 }
-/*---INDEX.HTML---*/
-
-.login_btn {
-    margin-left: 40px;
-}
-
-.search_container {
-    width: 100%;
-    margin: 8px 0;
-    display: inline-block;
-}
-
-.select_row {
-    padding: 2%;
-}
-
-.search_title{
-    font-family: 'Kaushan Script', cursive;
-    text-align: left;
-    font-size: 20px;
-}
-
-.search_btn {
-    text-align: center;
-} 
 
 .add_row {
     padding: 5%;
@@ -205,25 +221,6 @@ a.nav-link {
 .textareas {
     overflow: hidden;
 }
-/*--TITLES--*/
-
-.add_title, .recipes_title, .edit_title  {
-    font-family: 'Kaushan Script', cursive;
-    text-align: center;
-    margin-top: 40px;
-    font-size: 40px;
-}
-
-h4.recipe_title {
-    font-family: 'Kaushan Script', cursive;
-    font-size: 30px;
-}
-
-#image_file {
-    margin-top: 3%;
-    margin-bottom: 3%;
-}
-     
 
 /*---FOOTER---*/
 
@@ -235,7 +232,6 @@ h4.recipe_title {
     position: fixed;
     z-index: 2;
 }
-
 
 .social-links {
     font-size: 1.5rem;

@@ -5,7 +5,7 @@
 <div class="container-fluid recipe_form">
     <h3 class="add_title">Add Recipe</h3>
     <div class="row add_row">
-        <form action="{{ url_for('insert_recipe') }}" method="POST" enctype="multipart/form-data" class="col-sm-12">
+        <form action="{{ url_for('insert_recipe') }}" method="POST" enctype="multipart/form-data" class="form-group col-sm-12">
             <!--RECIPE NAME-->
             <div class="row field_row">
                 <div class="input-field col-sm-12">
@@ -34,8 +34,8 @@
                             <option value="1">Breakfast</option>
                             <option value="2">Lunch</option>
                             <option value="3">Main</option>
-                            <option value="3">Desert</option>   
-                            <option value="3">Baking</option>
+                            <option value="3">Dessert</option>   
+                            <option value="3">Sweet Treats</option>
                         </select>
                     </div>
 
@@ -70,14 +70,12 @@
                     <div class="diet_field col-sm-12">
                         <label>Diet</label>
                         <p class="diet_p"><em>check all that apply</em></p>
-                        <form action="" method="post">
                             <input type="checkbox" name="diet1" value="Keto" /> Keto
                             <input type="checkbox" name="diet2" value="Low Carb" /> Low Carb
                             <input type="checkbox" name="diet3" value="Sugar Free" /> Suagr Free
                             <input type="checkbox" name="diet4" value="Gluten Free" /> Gluten Free
                             <input type="checkbox" name="diet5" value="Vegetarian" /> Vegetarian
                             <input type="checkbox" name="diet6" value="Vegan" /> Vegan
-                        </form>
                     </div>
                 </div>
             </div>
@@ -147,11 +145,12 @@
             <!--END OF NUMBER FIELDS-->
 
             <!--START OF TEXT AREAS-->
-            <div class="textareas">
+            <div class="textareas form-group">
                 <!--INTRO-->
-                <label for="icon_prefix">Intro</label>
-                <textarea class="intro_text" rows="4" cols="50"
-                    placeholder="Please add a short introduction about your recipe"></textarea>
+                <div class="input-field">
+                    <textarea name="recipe_intro" id="recipe_intro" class="recipe_intro"></textarea>
+                    <label for="recipe_ingredients">Recipe Ingredients</label>
+                </div>
                 <!--INGREDIENTS-->
                 <label for="icon_prefix">Ingredients</label>
                 <textarea class="ingredients_text" rows="4" cols="50"
