@@ -1,74 +1,93 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h3 class="recipes_title">Recipes</h3>
-<div class="container search_container">
-    <h4 class="search_title">Search Recipes</h4>
-    <div class="row select_row">
-        <!--SEARCH CRITERIA-->
-        <div class="col-sm-4">
-            <label>Meal Type</label>
-            <select class="custom-select">
-                <option selected>Please select</option>
-                <option value="1">Breakfast</option>
-                <option value="2">Lunch</option>
-                <option value="3">Main</option>
-                <option value="3">Desert</option>
-                <option value="3">Baking</option>
-            </select>
-        </div>
+<div class="container home_container">
+    <h3 class="recipes_title">Recipes</h3>
+    <div class="container search_container">
+        <h4 class="search_title">Search Recipes</h4>
+        <div class="row select_row">
+            <!--SEARCH CRITERIA-->
+            <div class="col-sm-4">
+                <label>Course</label>
+                <select class="custom-select">
+                    <option selected>Please select</option>
+                    <option value="1">Breakfast</option>
+                    <option value="2">Lunch</option>
+                    <option value="3">Main</option>
+                    <option value="3">Desert</option>
+                    <option value="3">Baking</option>
+                </select>
+            </div>
 
-        <div class="col-sm-4">
-            <label>Cuisine</label>
-            <select class="custom-select">
-                <option selected>Please Select</option>
-                <option value="1">African</option>
-                <option value="2">Chinese</option>
-                <option value="3">Carribean</option>
-                <option value="3">European</option>
-                <option value="3">Thai</option>
-            </select>
-        </div>
+            <div class="col-sm-4">
+                <label>Cuisine</label>
+                <select class="custom-select">
+                    <option selected>Please Select</option>
+                    <option value="1">African</option>
+                    <option value="2">Chinese</option>
+                    <option value="3">Carribean</option>
+                    <option value="3">European</option>
+                    <option value="3">Thai</option>
+                </select>
+            </div>
 
-        <div class="col-sm-4">
-            <label>Diet <em> check all that apply</em></label>
-            <form action="" method="post">
-                <input type="checkbox" name="diet1" value="Keto" /> Keto
-                <input type="checkbox" name="diet2" value="Low Carb" /> Low Carb
-                <input type="checkbox" name="diet3" value="Sugar Free" /> Suagr Free
-                <input type="checkbox" name="diet4" value="Gluten Free" /> Gluten Free
-                <input type="checkbox" name="diet5" value="Vegetarian" /> Vegetarian
-                <input type="checkbox" name="diet6" value="Vegan" /> Vegan
-            </form>
+            <div class="col-sm-4">
+                <label>Diet <em> check all that apply</em></label>
+                <form action="" method="post">
+                    <input type="checkbox" name="diet1" value="Keto" /> Keto
+                    <input type="checkbox" name="diet2" value="Low Carb" /> Low Carb
+                    <input type="checkbox" name="diet3" value="Sugar Free" /> Suagr Free
+                    <input type="checkbox" name="diet4" value="Gluten Free" /> Gluten Free
+                    <input type="checkbox" name="diet5" value="Vegetarian" /> Vegetarian
+                    <input type="checkbox" name="diet6" value="Vegan" /> Vegan
+                </form>
+            </div>
         </div>
     </div>
-</div>
-<!--SEARCH BUTTON-->
-<div class="row">
-    <button type="button" class="btn btn-success mx-auto  search_btn">Search
-        <i class="fas fa-search"></i>
-    </button>
-</div>
-
-<!--DISPLAYS LIST OF RECIPES-->
-{% for recipe in recipes %}
-<div class="row recipe_list">
-    <div class="col-lg-8 rec1">
-        <h4 class="recipe_title">{{recipe.recipe_name}}</h4><br>
-        <h6><i class="far fa-clock"></i>
-            {{recipe.prep_time}}</span><br> <i class="tiny material-icons">access_alarm</i> <span class="time_text">Cook
-                Time (min): {{recipe.cook_time}}</span><br> <i class="tiny material-icons">local_dining</i> <span
-                class="time_text">Serves: {{recipe.Serves}}</span>
-        </h6>
-        <h6 class="nutrition">Calories: {{recipe.calories}} | Carbs: {{recipe.carbs}} | Protein: {{recipe.protein}}</h6>
-        <h6 class="intro">{{recipe.blurb}}</h6>
-        <a href="{{ url_for('full_recipe', recipe_id=recipe._id) }}">Full Recipe</a>
-    </div>
-    <div class="col-lg-4 rec2">
-        <img class="recipe_pic" src="{{recipe.image_url}}" alt="Photo of dish" />
-        <div class="rw-ui-container"></div>
+    <!--SEARCH BUTTON-->
+    <div class="row">
+        <button type="button" class="btn btn-success mx-auto  search_btn">Search
+            <i class="fas fa-search"></i>
+        </button>
     </div>
 
+    <!--DISPLAYS LIST OF RECIPES-->
+    {% for recipe in recipes %}
+    <div class="container recipe_container">
+        <div class="card recipe_card">
+            <div class="row recipe_row">
+                <div class="col">
+                    <img class="card-img-top recipe_pic mx-auto d-block" src="{{recipe.image_url}}" alt="Photo of finished dish">
+                    <div class="rw-ui-container"></div>
+                    <div class="card-body recipe-body">
+                        <h5 class="recipe_title">{{recipe.recipe_name}}</h5>
+                        <div class="input-field col-sm-12">
+                            <i class="far fa-clock recipe_icons"></i>
+                            <label class="time_text" for="icon_prefix">Prep Time (mins)</label>
+                            <h6 class="time">{{recipe.prep_time}}</h6>
+                        </div>
+                        <div class="input-field col-sm-10">
+                            <i class="fas fa-hourglass-end recipe_icons"></i>
+                            <label class="time_text" for="icon_prefix">Cook Time (mins)</label>
+                            <h6 class="time">{{recipe.cook_time}}</h6>
+                        </div>
+                        <div class="input-field col-sm-10">
+                            <i class="fas fa-utensils recipe_icons"></i>
+                            <label class="time_text" for="icon_prefix">Serves</label>
+                            <h6 class="time">{{recipe.serves}}</h6>
+                        </div>
+                        <h6 class="nutrition">Calories: {{recipe.calories}} | Carbs: {{recipe.carbs}} | Protein:
+                            {{recipe.protein}}
+                        </h6>
+                        <p class="card-text intro">{{recipe.blurb}}</p>
+                        <a href="{{ url_for('full_recipe', recipe_id=recipe._id) }}" class="btn btn-primary full_btn">Full
+                            Recipe</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 </div>
-{% endfor %}
+
 {% endblock %}

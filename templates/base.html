@@ -18,7 +18,7 @@
     <!--CSS STYLESHEET-->
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
     <!--FAVICON-->
-    <link rel="shorthcut icon" type="image/png" href="static\images\favicon.png" />
+    <link rel="shorthcut icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png')}}" />
     <title>Keto Kitchen</title>
 </head>
 <script type="text/javascript">(function (d, t, e, m) {
@@ -75,7 +75,7 @@
         </nav>
         <!--END OF NAVBAR-->
         <!--START OF LOGO-->
-        <img class="logo sticky-top" src="static\images\logo.png" alt="logo" />
+        <img class="logo sticky-top" src="{{ url_for('static', filename='images/logo.png')}}" alt="logo" />
         <!--END OF LOGO-->
         {% block content %} {% endblock %}
         <!--START OF FOOTER-->
