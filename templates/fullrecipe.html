@@ -1,25 +1,25 @@
 {% extends 'base.html'%} {% block content %}
 
-<div class="container full_container">
+<div class="container full-container">
     <h3>{{recipe.recipe_name}}</h3>
     <div class="col-lg-4 rec2">
-        <img class="thumbnail_pic" src="{{recipe.image_url}}" alt="Photo of dish" />
+        <img class="thumbnail-pic" src="{{recipe.image_url}}" alt="Photo of dish" />
     </div>
-    <div class="rw-ui-container thumbnail_rw"></div>
+    <div class="rw-ui-container thumbnail-rw"></div>
     <!--RECIPE SUMMARY-->
     <div class="row col-sm-12">
-        <div class="recipe_summary">
-            <i class="fas fa-user recipe_icons"></i>
+        <div class="recipe-summary">
+            <i class="fas fa-user recipe-icons"></i>
             <h6>Author: {{recipe.author}}</h6>
-            <i class="far fa-clock recipe_icons"></i>
+            <i class="far fa-clock recipe-icons"></i>
             <h6>Prep Time: {{recipe.prep_time}}</h6>
-            <i class="fas fa-hourglass-end recipe_icons"></i>
+            <i class="fas fa-hourglass-end recipe-icons"></i>
             <h6>Cook Time: {{recipe.cook_time}}</h6>
-            <i class="fas fa-utensils recipe_icons"></i>
+            <i class="fas fa-utensils recipe-icons"></i>
             <h6>Serves: {{recipe.serves}}</h6>
         </div>
         <!--INTRO-->
-        <div class="full_intro">
+        <div class="full-intro">
             <h6 class="nutrition">Calories: {{recipe.calories}} | Carbs: {{recipe.carbs}} | Protein: {{recipe.protein}}
             </h6>
             <h6 class="intro">{{recipe.blurb}}</h6>
@@ -29,11 +29,11 @@
         <div class="row">
             <div class="card">
                 <div class="card-header">
-                    <i class="fas fa-clipboard-list recipe_icons"></i>
+                    <i class="fas fa-clipboard-list recipe-icons"></i>
                     <h6 class="card-title">Ingredients</h6>
                     <div class="card-body">
                         {% for ingredient in ingredients %}
-                        <input id="recipe_field" name="ingredient_name" type="text" class="validate"
+                        <input id="recipe-field" name="ingredient-name" type="text" class="validate"
                             value="{{ingredient}}">
                         {% endfor %}
                     </div>
@@ -45,11 +45,11 @@
         <div class="row">
             <div class="card">
                 <div class="card-header">
-                    <i class="fas fa-list recipe_icons"></i>
+                    <i class="fas fa-list recipe-icons"></i>
                     <h6 class="card-title">Method</h6>
                     <div class="card-body">
                         {% for method in method %}
-                        <input id="recipe_field" name="method_name" type="text" class="validate" value="{{method}}">
+                        <input id="recipe-field" name="method-name" type="text" class="validate" value="{{method}}">
                         {% endfor %}
                     </div>
                 </div>

@@ -1,11 +1,11 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<div class="container home_container">
-    <h3 class="recipes_title">Recipes</h3>
-    <div class="container search_container">
-        <h4 class="search_title">Search Recipes</h4>
-        <div class="row select_row">
+<div class="container home-container">
+    <h3 class="recipes-title">Recipes</h3>
+    <div class="container search-container">
+        <h4 class="search-title">Search Recipes</h4>
+        <div class="row select-row">
             <!--SEARCH CRITERIA-->
             <div class="col-sm-4">
                 <label>Course</label>
@@ -46,48 +46,51 @@
     </div>
     <!--SEARCH BUTTON-->
     <div class="row">
-        <button type="button" class="btn btn-success mx-auto  search_btn">Search
+        <button type="button" class="btn btn-success mx-auto  search-btn">Search
             <i class="fas fa-search"></i>
         </button>
     </div>
 
     <!--DISPLAYS LIST OF RECIPES-->
-    {% for recipe in recipes %}
-    <div class="container recipe_container">
-        <div class="card recipe_card">
-            <div class="row recipe_row">
-                <div class="col">
-                    <img class="card-img-top recipe_pic mx-auto d-block" src="{{recipe.image_url}}" alt="Photo of finished dish">
+
+    <div class="container recipe-container">
+        <div class="row recipe-row">
+            {% for recipe in recipes %}
+            <div class="col-lg-4">
+                <div class="card recipe-card">
+                    <img class="card-img-top recipe-pic mx-auto d-block" src="{{recipe.image_url}}"
+                        alt="Photo of finished dish">
                     <div class="rw-ui-container"></div>
                     <div class="card-body recipe-body">
-                        <h5 class="recipe_title">{{recipe.recipe_name}}</h5>
+                        <h5 class="recipe-title">{{recipe.recipe_name}}</h5>
                         <div class="input-field col-sm-12">
-                            <i class="far fa-clock recipe_icons"></i>
-                            <label class="time_text" for="icon_prefix">Prep Time (mins)</label>
+                            <i class="far fa-clock recipe-icons"></i>
+                            <label class="time-text" for="icon-prefix">Prep Time (mins)</label>
                             <h6 class="time">{{recipe.prep_time}}</h6>
                         </div>
                         <div class="input-field col-sm-10">
-                            <i class="fas fa-hourglass-end recipe_icons"></i>
-                            <label class="time_text" for="icon_prefix">Cook Time (mins)</label>
+                            <i class="fas fa-hourglass-end recipe-icons"></i>
+                            <label class="time-text" for="icon-prefix">Cook Time (mins)</label>
                             <h6 class="time">{{recipe.cook_time}}</h6>
                         </div>
                         <div class="input-field col-sm-10">
-                            <i class="fas fa-utensils recipe_icons"></i>
-                            <label class="time_text" for="icon_prefix">Serves</label>
+                            <i class="fas fa-utensils recipe-icons"></i>
+                            <label class="time-text" for="icon-prefix">Serves</label>
                             <h6 class="time">{{recipe.serves}}</h6>
                         </div>
                         <h6 class="nutrition">Calories: {{recipe.calories}} | Carbs: {{recipe.carbs}} | Protein:
                             {{recipe.protein}}
                         </h6>
                         <p class="card-text intro">{{recipe.blurb}}</p>
-                        <a href="{{ url_for('full_recipe', recipe_id=recipe._id) }}" class="btn btn-primary full_btn">Full
+                        <a href="{{ url_for('full_recipe', recipe_id=recipe._id) }}"
+                            class="btn btn-primary full-btn">Full
                             Recipe</a>
-                        </div>
-                </div>
+                    </div>
+                </div>                
             </div>
+            {% endfor %}
         </div>
     </div>
-    {% endfor %}
 </div>
 
 {% endblock %}
