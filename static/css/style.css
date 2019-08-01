@@ -230,10 +230,10 @@ h5.recipe-title {
     margin-left: 3%;
 }
 
-.intro, .ingredients-text, .method-text {
+.intro-text, .ingredients-text, .method-text {
     margin-bottom: 3%;
     padding: 1%;
-    font-size: 1.8em;
+    font-size: 1.em;
 }
 
 .add-row {
@@ -243,6 +243,10 @@ h5.recipe-title {
 
 .textareas {
     overflow: hidden;
+}
+
+.change-btns {
+    margin-bottom: 200px;
 }
 
 /*---FOOTER---*/

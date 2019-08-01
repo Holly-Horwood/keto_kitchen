@@ -5,13 +5,14 @@
 <div class="container-fluid recipe-form">
     <h3 class="add-title">Add Recipe</h3>
     <div class="row add-row">
-        <form action="{{ url_for('insert_recipe') }}" method="POST" enctype="multipart/form-data" class="form-group col-sm-12">
+        <form action="{{ url_for('insert_recipe') }}" method="POST" enctype="multipart/form-data"
+            class="form-group col-sm-12">
             <!--RECIPE NAME-->
             <div class="row field-row">
                 <div class="input-field col-sm-12">
                     <i class="fas fa-clipboard-list recipe-icons"></i>
                     <label for="icon-prefix">Recipe Name</label>
-                    <input class="recipe-field" name="recipe-name" type="text" class="validate">
+                    <input class="recipe-field" name="recipe_name" type="text" class="validate">
                 </div>
             </div>
             <!--AUTHOR-->
@@ -19,7 +20,7 @@
                 <div class="input-field col-sm-12">
                     <i class="fas fa-user recipe-icons"></i>
                     <label for="icon-prefix">Author</label>
-                    <input class="recipe-field" name="recipe-author" type="text" class="validate">
+                    <input class="recipe-field" name="recipe_author" type="text" class="validate">
                 </div>
             </div>
 
@@ -28,20 +29,20 @@
                     <h4 class="search-title">Choose Search Options</h4>
                     <!--SEARCH OPTIONS-->
                     <div class="meal-field col-sm-4">
-                        <label>Meal Type</label>
-                        <select>
+                        <label>Course</label>
+                        <select name="course">
                             <option value="">--select one--</option>
-                            <option value="1">Breakfast</option>
-                            <option value="2">Lunch</option>
-                            <option value="3">Main</option>
-                            <option value="3">Dessert</option>   
-                            <option value="3">Sweet Treats</option>
+                            <option value="breakfast">Breakfast</option>
+                            <option value="lunch">Lunch</option>
+                            <option value="main">Main</option>
+                            <option value="dessert">Dessert</option>
+                            <option value="sweet-treats">Sweet Treats</option>
                         </select>
                     </div>
 
                     <div class="cuisine-field col-sm-4">
                         <label>Cuisine</label>
-                        <select>
+                        <select name="cuisine">
                             <option value="">-- select one --</option>
                             <option value="american">American</option>
                             <option value="argentinean">Argentinean</option>
@@ -70,12 +71,12 @@
                     <div class="diet-field col-sm-12">
                         <label>Diet</label>
                         <p class="diet-p"><em>check all that apply</em></p>
-                            <input type="checkbox" name="diet1" value="Keto" /> Keto
-                            <input type="checkbox" name="diet2" value="Low Carb" /> Low Carb
-                            <input type="checkbox" name="diet3" value="Sugar Free" /> Suagr Free
-                            <input type="checkbox" name="diet4" value="Gluten Free" /> Gluten Free
-                            <input type="checkbox" name="diet5" value="Vegetarian" /> Vegetarian
-                            <input type="checkbox" name="diet6" value="Vegan" /> Vegan
+                        <input type="checkbox" name="diet" value="Keto" /> Keto
+                        <input type="checkbox" name="diet" value="Low Carb" /> Low Carb
+                        <input type="checkbox" name="diet" value="Sugar Free" /> Suagr Free
+                        <input type="checkbox" name="diet" value="Gluten Free" /> Gluten Free
+                        <input type="checkbox" name="diet" value="Vegetarian" /> Vegetarian
+                        <input type="checkbox" name="diet" value="Vegan" /> Vegan
                     </div>
                 </div>
             </div>
@@ -88,7 +89,7 @@
                         <label for="icon-prefix">Prep Time (mins)</label>
                     </div>
                     <div class="col-sm-2">
-                        <input class="number-field" name="prep-time" type="text" class="validate">
+                        <input class="number-field" name="prep_time" type="text" class="validate">
                     </div>
                 </div>
                 <!--COOK TIME-->
@@ -98,7 +99,7 @@
                         <label for="icon-prefix">Cook Time (mins)</label>
                     </div>
                     <div class="col-sm-2">
-                        <input class="number-field" name="cook-time" type="text" class="validate">
+                        <input class="number-field" name="cook_time" type="text" class="validate">
                     </div>
                 </div>
                 <!--SERVES-->
@@ -145,20 +146,26 @@
             <!--END OF NUMBER FIELDS-->
 
             <!--START OF TEXT AREAS-->
-            <div class="textareas form-group">
-                <!--INTRO-->
-                <div class="input-field">
-                    <textarea name="recipe-intro" id="recipe-intro" class="recipe-intro"></textarea>
-                    <label for="recipe-ingredients">Recipe Ingredients</label>
+            <div class="row">
+                <div class="textareas form-group">
+                    <!--INTRO-->
+                    <div class="input-field">
+                        <label for="intro">Introduction</label>
+                        <textarea class="intro-text" rows="4" cols="50" name="blurb" id="blurb" placeholder="Please enter a short blurb about your recipe"></textarea>
+                    </div>
+                    <!--INGREDIENTS-->
+                    <div class="input-field">
+                        <label for="icon-prefix">Ingredients</label>
+                        <textarea class="ingredients-text" rows="4" cols="50" name="ingredients" id="ingredients"
+                            placeholder="Please hit enter after each ingredient so it is on a new line"></textarea>
+                    </div>
+                    <!--METHOD-->
+                    <div class="input-field">
+                        <label for="icon-prefix">Method</label>
+                        <textarea class="method-text" rows="4" cols="50" name="method" id="method"
+                            placeholder="Please hit enter after each instruction so it is on a new line"></textarea>
+                    </div>
                 </div>
-                <!--INGREDIENTS-->
-                <label for="icon-prefix">Ingredients</label>
-                <textarea class="ingredients-text" rows="4" cols="50"
-                    placeholder="Please hit enter after each ingredient so it is on a new line"></textarea>
-                <!--METHOD-->
-                <label for="icon-prefix">Method</label>
-                <textarea class="method-text" rows="4" cols="50"
-                    placeholder="Please hit enter after each instruction so it is on a new line"></textarea>
             </div>
             <!--END OF TEXT AREAS-->
 
@@ -168,7 +175,7 @@
                 <div class="input-field col-sm-12">
                     <label class="file-title" for="image-file">Upload Image</label>
                     <i class="recipe-icons">photo</i>
-                    <input id="image-file" name="image-file" type="file" />
+                    <input id="image_file" name="image_file" type="file" />
                 </div>
             </div>
             <!--ADD BUTTON-->
