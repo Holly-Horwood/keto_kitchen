@@ -52,8 +52,8 @@ def insert_recipe():
         recipe_dict = request.form.to_dict()
         recipe_dict.update( {'image_url' : url} ) #appends image_url to the other form data
         recipe_dict.update( {'date' : now}) # appends date recipe is created
-        recipe_dict['ingredients'] = request.form['ingredients'].replace('\n', '|') #takes whats added by user and replaces | with new lines
-        recipe_dict['method'] = request.form['method'].replace('\n', '|')
+        recipe_dict['ingredients'] = request.form['ingredients'].replace('\n', '|').strip() #takes whats added by user and replaces | with new lines
+        recipe_dict['method'] = request.form['method'].replace('\n', '|').strip()
         recipe_dict['diet'] = request.form.getlist('diet') #saves all values from diet checkboxes
         recipes.insert_one(recipe_dict) #adds recipe to database as key value pairs
     return redirect(url_for('home'))

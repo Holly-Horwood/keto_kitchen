@@ -172,10 +172,11 @@
 
             <!--ADD IMAGE-->
             <div class="row">
-                <div class="input-field col-sm-12">
-                    <label class="file-title" for="image-file">Upload Image</label>
-                    <i class="recipe-icons">photo</i>
-                    <input id="image_file" name="image_file" type="file" />
+                <div class="image-preview">
+                    <img id="output" class="img-thumbnail img-fluid" src="{{recipe.image_url}}"alt="Photo of finished dish">
+                </div> 
+                <div class="updated-image">
+                    <input type="file" accept="image/*" onchange="previewFile(event)">
                 </div>
             </div>
             <!--ADD BUTTON-->
