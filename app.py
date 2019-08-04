@@ -58,6 +58,19 @@ def insert_recipe():
         recipes.insert_one(recipe_dict) #adds recipe to database as key value pairs
     return redirect(url_for('home'))
 
+@app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST']) 
+def edit_recipe(recipe_id):
+    if request.method == 'GET':
+        the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+        print(the_recipe)
+        #searches fields and splits array at the pipes
+        ingredients_edit = the_recipe['ingredients'].replace('|', '\n')
+        method_edit = the_recipe['method'].replace('|', '\n')
+        return render_template('editrecipe.html' , recipe=the_recipe, ingredients=ingredients_edit, method=method_edit)  
+    return redirect(url_for('home'))
+
+   
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP', '127.0.0.1'),

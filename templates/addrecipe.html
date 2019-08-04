@@ -28,19 +28,17 @@
                 <div class="row select-row">
                     <h4 class="search-title">Choose Search Options</h4>
                     <!--SEARCH OPTIONS-->
-                    <div class="meal-field col-sm-4">
+                    <div class="edit-course-field col-sm-12">
                         <label>Course</label>
-                        <select name="course">
-                            <option value="">--select one--</option>
-                            <option value="breakfast">Breakfast</option>
-                            <option value="lunch">Lunch</option>
-                            <option value="main">Main</option>
-                            <option value="dessert">Dessert</option>
-                            <option value="sweet-treats">Sweet Treats</option>
-                        </select>
+                        <p class="diet-p"><em>check all that apply</em></p>
+                        <input type="checkbox" name="course" value="Breakfast" /> Breakfast
+                        <input type="checkbox" name="course" value="Lunch" /> Lunch
+                        <input type="checkbox" name="course" value="Main" /> Main
+                        <input type="checkbox" name="course" value="Dessert" /> Dessert
+                        <input type="checkbox" name="course" value="Sweet Treats" /> Sweet Treats
                     </div>
 
-                    <div class="cuisine-field col-sm-4">
+                    <div class="cuisine-field col-sm-12">
                         <label>Cuisine</label>
                         <select name="cuisine">
                             <option value="">-- select one --</option>
@@ -51,6 +49,7 @@
                             <option value="british">British</option>
                             <option value="chinese">Chinese</option>
                             <option value="colombian">Colombian</option>
+                            <option value="French">French</option>
                             <option value="greek">Greek</option>
                             <option value="indian">Indian</option>
                             <option value="indonesian">Indonesian</option>
@@ -151,7 +150,8 @@
                     <!--INTRO-->
                     <div class="input-field">
                         <label for="intro">Introduction</label>
-                        <textarea class="intro-text" rows="4" cols="50" name="blurb" id="blurb" placeholder="Please enter a short blurb about your recipe"></textarea>
+                        <textarea class="intro-text" rows="4" cols="50" name="blurb" id="blurb"
+                            placeholder="Please enter a short blurb about your recipe"></textarea>
                     </div>
                     <!--INGREDIENTS-->
                     <div class="input-field">

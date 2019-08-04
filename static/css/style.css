@@ -30,11 +30,15 @@ nav li a:hover{
 }
 
 body {
-    color: rgb(92, 81, 81);
+    color: #5c5151;
 }
 
-.select-row {
-    background-color: #e2dada;
+.recipe-card, .select-row, .full-container, .search-container {
+    background-color: #dee2e6;
+}
+
+.full-instructions .card-title {
+    color: #61BF3F;
 }
 
 .search-btn, .add-btn, .login-btn {
@@ -52,12 +56,8 @@ body {
     border-color: #1a6807;
 }
 
-h3.add-title, h5.recipe-title, .search-title, .recipes-title, .edit-title  {
+h3.add-title, h5.recipe-title, .search-title, .recipes-title, .edit-title, .full-recipe-name, .recipe-icons {
     color: #61BF3F;
-}
-
-.recipe-card {
-    background-color: #e2dada; 
 }
 
 .nutrition, .time {
@@ -124,6 +124,10 @@ img.logo {
     margin-bottom: 3%;
 }
 
+.thumbnail-pic {
+    max-width: 100%;
+}
+
 /*--BUTTONS--*/
 
 .login-btn {
@@ -140,11 +144,25 @@ img.logo {
 
 /*--TITLES--*/
 
-.add-title, .recipes-title, .edit-title  {
+.add-title, .recipes-title, .edit-title {
     font-family: 'Kaushan Script', cursive;
     text-align: center;
     margin-top: 60px;
     font-size: 3em;
+}
+
+.full-recipe-name  {
+    font-family: 'Kaushan Script', cursive;
+    text-align: center;
+    margin-top: 2%;
+    font-size: 3em;
+}
+
+.full-instructions .card-title {
+    font-family: 'Kaushan Script', cursive;
+    margin-top: 2%;
+    font-size: 2em;
+    display: inline-block;
 }
 
 h5.recipe-title {
@@ -179,17 +197,35 @@ h5.recipe-title {
     margin-right: 10px;
     margin-bottom: 80px;
     padding: 10px;
-    box-shadow: 10px 15px 18px -6px rgba(148,135,148,1);
+    box-shadow: 10px 15px 18px -6px #948794;
 }
 
-.full-container, .recipe-summary, .recipe-container, .home-container {
+.full-container, .recipe-summary, .recipe-container, .home-container, .full-row {
     width: 100%;
+}
+
+.container-info {
+    margin: auto;
+    height: 100%;
+    text-align: left;
+    width: 50%;
+}
+
+.recipe-summary {
+    position: relative;
+}
+
+.full-container {
+    box-shadow: 10px 10px 5px 0px #b5b1b5;
+    padding: 2%;
+    margin-bottom: 2%;
 }
 
 .rw-ui-container {
     margin-left: 2%;
     margin-top: 2%;
 }
+
 
 .recipe-row {
     padding: 2%;
@@ -223,6 +259,11 @@ h5.recipe-title {
 
 .recipe-icons, .label, .time-text {
     font-size: 1.5em;
+    margin-right: 2%;
+}
+
+.summary-div {
+    padding: 1%;
 }
 
 .time {
@@ -234,6 +275,10 @@ h5.recipe-title {
     margin-bottom: 3%;
     padding: 1%;
     font-size: 1.em;
+}
+
+.intro {
+    margin-top: 2%;
 }
 
 .add-row {

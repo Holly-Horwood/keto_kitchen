@@ -1,190 +1,213 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h3 class="edit_title">Edit Recipe</h3>
-<!--LOGIN BUTTON-->
-<div class="row">
-    <div class="login">
-        <button class="btn btn-primary login_btn" type="submit">Login</button>
-        <p class="login-note"><em>Only the author can edit this recipe</em></p>
-    </div>
+
+<div class="container-fluid recipe-form">
+    <h3 class="add-title">Edit Recipe</h3>
     <div class="row add-row">
-            <form action="{{ url_for('insert_recipe') }}" method="POST" enctype="multipart/form-data" class="form-group col-sm-12">
-                <!--RECIPE NAME-->
-                <div class="row field-row">
-                    <div class="input-field col-sm-12">
-                        <i class="fas fa-clipboard-list recipe-icons"></i>
-                        <label for="icon-prefix">Recipe Name</label>
-                        <input class="recipe-field" name="recipe-name" type="text" class="validate">
+        <form action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" method="POST" enctype="multipart/form-data"
+            class="form-group col-sm-12">
+            <!--RECIPE NAME-->
+            <div class="row field-row">
+                <div class="input-field col-sm-12">
+                    <i class="fas fa-clipboard-list recipe-icons"></i>
+                    <label for="icon-prefix">Recipe Name</label>
+                    <input class="recipe-field" name="recipe_name" type="text" class="validate"
+                        value="{{recipe.recipe_name}}">
+                </div>
+            </div>
+            <!--AUTHOR-->
+            <div class="row">
+                <div class="input-field col-sm-12">
+                    <i class="fas fa-user recipe-icons"></i>
+                    <label for="icon-prefix">Author</label>
+                    <input class="recipe-field" name="recipe_author" type="text" class="validate"
+                        value="{{recipe.recipe_author}}">
+                </div>
+            </div>
+
+            <div class="container search-container">
+                <div class="row select-row">
+                    <h4 class="search-title">Choose Search Options</h4>
+                    <!--SEARCH OPTIONS-->
+                    <div class="edit-meal-field col-sm-12">
+                        <label>Course</label>
+                        <p class="diet-p"><em>check all that apply</em></p>
+                        <input type="checkbox" name="course" value="Breakfast"
+                            {{'checked' if 'Breakfast' in recipe.course else ''}} /> Breakfast
+                        <input type="checkbox" name="course" value="Lunch"
+                            {{'checked' if 'Lunch' in recipe.course else ''}} /> Lunch
+                        <input type="checkbox" name="course" value="Main"
+                            {{'checked' if 'Main' in recipe.course else ''}} /> Main
+                        <input type="checkbox" name="course" value="Dessert"
+                            {{'checked' if 'Dessert' in recipe.course else ''}} /> Dessert
+                        <input type="checkbox" name="course" value="Sweet-Treats"
+                            {{'checked' if 'Sweet Treats' in recipe.course else ''}} /> Sweet Treats
+                    </div>
+
+                    <div class="cuisine-field col-sm-12">
+                        <label>Cuisine</label>
+                        <select name="cuisine">
+                            <option value="">-- select one --</option>
+                            <option value="american">American</option>
+                            <option value="argentinean">Argentinean</option>
+                            <option value="armenian">Armenian</option>
+                            <option value="brazilian">Brazilian</option>
+                            <option value="british">British</option>
+                            <option value="chinese">Chinese</option>
+                            <option value="colombian">Colombian</option>
+                            <option value="greek">Greek</option>
+                            <option value="indian">Indian</option>
+                            <option value="indonesian">Indonesian</option>
+                            <option value="israeli">Israeli</option>
+                            <option value="italian">Italian</option>
+                            <option value="jamaican">Jamaican</option>
+                            <option value="japanese">Japanese</option>
+                            <option value="lebanese">Lebanese</option>
+                            <option value="malaysian">Malaysian</option>
+                            <option value="mexican">Mexican</option>
+                            <option value="moroccan">Moroccan</option>
+                            <option value="thai">Thai</option>
+                            <option value="turkish">Turkish</option>
+                            <option value="vietnamese">Vietnamese</option>
+                        </select>
+                    </div>
+
+                    <div class="diet-field col-sm-12">
+                        <label>Diet</label>
+                        <p class="diet-p"><em>check all that apply</em></p>
+                        <input type="checkbox" name="diet" value="Keto"
+                            {{'checked' if 'Keto' in recipe.diet else ''}} /> Keto
+                        <input type="checkbox" name="diet" value="Low Carb"
+                            {{'checked' if 'Low Carb' in recipe.diet else ''}} /> Low Carb
+                        <input type="checkbox" name="diet" value="Sugar Free"
+                            {{'checked' if 'Sugar Free' in recipe.diet else ''}} /> Suagr Free
+                        <input type="checkbox" name="diet" value="Gluten Free"
+                            {{'checked' if 'Gluten Free' in recipe.diet else ''}} /> Gluten Free
+                        <input type="checkbox" name="diet" value="Vegetarian"
+                            {{'checked' if 'Vegetarian' in recipe.diet else ''}} /> Vegetarian
+                        <input type="checkbox" name="diet" value="Vegan"
+                            {{'checked' if 'Vegan' in recipe.diet else ''}} /> Vegan
                     </div>
                 </div>
-                <!--AUTHOR-->
+            </div>
+            <!--START OF NUMBER FIELDS-->
+            <div class="container number-box">
+                <!--PREP TIME-->
                 <div class="row">
-                    <div class="input-field col-sm-12">
-                        <i class="fas fa-user recipe-icons"></i>
-                        <label for="icon-prefix">Author</label>
-                        <input class="recipe-field" name="recipe-author" type="text" class="validate">
+                    <div class="input-field col-sm-10">
+                        <i class="far fa-clock recipe-icons"></i>
+                        <label for="icon-prefix">Prep Time (mins)</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <input class="number-field" name="prep_time" type="text" class="validate"
+                            value="{{recipe.prep_time}}">
                     </div>
                 </div>
-    
-                <div class="container search-container">
-                    <div class="row select-row">
-                        <h4 class="search-title">Choose Search Options</h4>
-                        <!--SEARCH OPTIONS-->
-                        <div class="meal-field col-sm-4">
-                            <label>Course</label>
-                            <select>
-                                <option value="">--select one--</option>
-                                <option value="1">Breakfast</option>
-                                <option value="2">Lunch</option>
-                                <option value="3">Main</option>
-                                <option value="3">Dessert</option>   
-                                <option value="3">Sweet Treats</option>
-                            </select>
-                        </div>
-    
-                        <div class="cuisine-field col-sm-4">
-                            <label>Cuisine</label>
-                            <select>
-                                <option value="">-- select one --</option>
-                                <option value="american">American</option>
-                                <option value="argentinean">Argentinean</option>
-                                <option value="armenian">Armenian</option>
-                                <option value="brazilian">Brazilian</option>
-                                <option value="british">British</option>
-                                <option value="chinese">Chinese</option>
-                                <option value="colombian">Colombian</option>
-                                <option value="greek">Greek</option>
-                                <option value="indian">Indian</option>
-                                <option value="indonesian">Indonesian</option>
-                                <option value="israeli">Israeli</option>
-                                <option value="italian">Italian</option>
-                                <option value="jamaican">Jamaican</option>
-                                <option value="japanese">Japanese</option>
-                                <option value="lebanese">Lebanese</option>
-                                <option value="malaysian">Malaysian</option>
-                                <option value="mexican">Mexican</option>
-                                <option value="moroccan">Moroccan</option>
-                                <option value="thai">Thai</option>
-                                <option value="turkish">Turkish</option>
-                                <option value="vietnamese">Vietnamese</option>
-                            </select>
-                        </div>
-    
-                        <div class="diet-field col-sm-12">
-                            <label>Diet</label>
-                            <p class="diet-p"><em>check all that apply</em></p>
-                                <input type="checkbox" name="diet1" value="Keto" /> Keto
-                                <input type="checkbox" name="diet2" value="Low Carb" /> Low Carb
-                                <input type="checkbox" name="diet3" value="Sugar Free" /> Suagr Free
-                                <input type="checkbox" name="diet4" value="Gluten Free" /> Gluten Free
-                                <input type="checkbox" name="diet5" value="Vegetarian" /> Vegetarian
-                                <input type="checkbox" name="diet6" value="Vegan" /> Vegan
-                        </div>
+                <!--COOK TIME-->
+                <div class="row">
+                    <div class="input-field col-sm-10">
+                        <i class="fas fa-hourglass-end recipe-icons"></i>
+                        <label for="icon-prefix">Cook Time (mins)</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <input class="number-field" name="cook_time" type="text" class="validate"
+                            value="{{recipe.cook_time}}">
                     </div>
                 </div>
-                <!--START OF NUMBER FIELDS-->
-                <div class="container number-box">
-                    <!--PREP TIME-->
-                    <div class="row">
-                        <div class="input-field col-sm-10">
-                            <i class="far fa-clock recipe-icons"></i>
-                            <label for="icon-prefix">Prep Time (mins)</label>
-                        </div>
-                        <div class="col-sm-2">
-                            <input class="number-field" name="prep-time" type="text" class="validate">
-                        </div>
+                <!--SERVES-->
+                <div class="row">
+                    <div class="input-field col-sm-10">
+                        <i class="fas fa-utensils recipe-icons"></i>
+                        <label for="icon-prefix">Serves</label>
                     </div>
-                    <!--COOK TIME-->
-                    <div class="row">
-                        <div class="input-field col-sm-10">
-                            <i class="fas fa-hourglass-end recipe-icons"></i>
-                            <label for="icon-prefix">Cook Time (mins)</label>
-                        </div>
-                        <div class="col-sm-2">
-                            <input class="number-field" name="cook-time" type="text" class="validate">
-                        </div>
-                    </div>
-                    <!--SERVES-->
-                    <div class="row">
-                        <div class="input-field col-sm-10">
-                            <i class="fas fa-utensils recipe-icons"></i>
-                            <label for="icon-prefix">Serves</label>
-                        </div>
-                        <div class="col-sm-2">
-                            <input class="number-field" name="serves" type="text" class="validate">
-                        </div>
-                    </div>
-                    <!--CALORIES-->
-                    <div class="row">
-                        <div class="input-field col-sm-10">
-                            <i class="fas fa-balance-scale recipe-icons"></i>
-                            <label for="icon-prefix">Calories</label>
-                        </div>
-                        <div class="col-sm-2">
-                            <input class="number-field" name="calories" type="text" class="validate">
-                        </div>
-                    </div>
-                    <!--CARBS-->
-                    <div class="row">
-                        <div class="input-field col-sm-10">
-                            <i class="fas fa-pizza-slice recipe-icons"></i>
-                            <label for="icon-prefix">Carbs</label>
-                        </div>
-                        <div class="col-sm-2">
-                            <input class="number-field" name="carbs" type="text" class="validate">
-                        </div>
-                    </div>
-                    <!--PROTEIN-->
-                    <div class="row">
-                        <div class="input-field col-sm-10">
-                            <i class="fas fa-drumstick-bite recipe-icons"></i>
-                            <label for="icon-prefix">Protein</label>
-                        </div>
-                        <div class="col-sm-2">
-                            <input class="number-field" name="protein" type="text" class="validate">
-                        </div>
+                    <div class="col-sm-2">
+                        <input class="number-field" name="serves" type="text" class="validate"
+                            value="{{recipe.serves}}">
                     </div>
                 </div>
-                <!--END OF NUMBER FIELDS-->
-    
-                <!--START OF TEXT AREAS-->
+                <!--CALORIES-->
+                <div class="row">
+                    <div class="input-field col-sm-10">
+                        <i class="fas fa-balance-scale recipe-icons"></i>
+                        <label for="icon-prefix">Calories</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <input class="number-field" name="calories" type="text" class="validate"
+                            value="{{recipe.calories}}">
+                    </div>
+                </div>
+                <!--CARBS-->
+                <div class="row">
+                    <div class="input-field col-sm-10">
+                        <i class="fas fa-pizza-slice recipe-icons"></i>
+                        <label for="icon-prefix">Carbs</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <input class="number-field" name="carbs" type="text" class="validate" value="{{recipe.carbs}}">
+                    </div>
+                </div>
+                <!--PROTEIN-->
+                <div class="row">
+                    <div class="input-field col-sm-10">
+                        <i class="fas fa-drumstick-bite recipe-icons"></i>
+                        <label for="icon-prefix">Protein</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <input class="number-field" name="protein" type="text" class="validate"
+                            value="{{recipe.protein}}">
+                    </div>
+                </div>
+            </div>
+            <!--END OF NUMBER FIELDS-->
+
+            <!--START OF TEXT AREAS-->
+            <div class="row">
                 <div class="textareas form-group">
                     <!--INTRO-->
                     <div class="input-field">
-                        <textarea name="recipe-intro" id="recipe-intro" class="recipe-intro"></textarea>
-                        <label for="recipe-ingredients">Recipe Ingredients</label>
+                        <label for="intro">Introduction</label>
+                        <textarea class="intro-text" rows="4" cols="50" name="blurb"
+                            id="blurb">{{recipe.blurb}}</textarea>
                     </div>
                     <!--INGREDIENTS-->
-                    <label for="icon-prefix">Ingredients</label>
-                    <textarea class="ingredients-text" rows="4" cols="50"
-                        placeholder="Please hit enter after each ingredient so it is on a new line"></textarea>
+                    <div class="input-field">
+                        <label for="icon-prefix">Ingredients</label>
+                        <textarea class="ingredients-text" rows="4" cols="50" name="ingredients"
+                            id="ingredients">{{ingredients}}</textarea>
+                    </div>
                     <!--METHOD-->
-                    <label for="icon-prefix">Method</label>
-                    <textarea class="method-text" rows="4" cols="50"
-                        placeholder="Please hit enter after each instruction so it is on a new line"></textarea>
-                </div>
-                <!--END OF TEXT AREAS-->
-    
-    
-                <!--ADD IMAGE-->
-                <div class="row">
-                    <div class="input-field col-sm-12">
-                        <label class="file-title" for="image-file">Upload Image</label>
-                        <i class="recipe-icons">photo</i>
-                        <input id="image-file" name="image-file" type="file" />
+                    <div class="input-field">
+                        <label for="icon-prefix">Method</label>
+                        <textarea class="method-text" rows="4" cols="50" name="method" id="method">{{method}}</textarea>
                     </div>
                 </div>
-                <!--ADD BUTTON-->
-                <div class="row">
-                    <div class="col-sm-12 text-center">
-                        <button type="submit" class="btn btn-success add-btn">Add Recipe
-                            <i class="fas fa-plus recipe-icons"></i>
-                        </button>
-                    </div>
+            </div>
+            <!--END OF TEXT AREAS-->
+
+
+            <!--ADD IMAGE-->
+            <div class="row">
+                <div class="image-preview">
+                    <img class="card-img-top recipe-pic mx-auto d-block" src="{{recipe.image_url}}"
+                        alt="Photo of finished dish">
                 </div>
-            </form>
-        </div>
+                <div class="input-field col-sm-12">
+                    <label class="file-title" for="image-file">Upload Image</label>
+                    <i class="recipe-icons">photo</i>
+                    <input id="image_file" name="image_file" type="file" />
+                </div>
+            </div>
+            <!--ADD BUTTON-->
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <button type="submit" class="btn btn-success add-btn">Add Recipe
+                        <i class="fas fa-plus recipe-icons"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
-    
-    {% endblock %}
+</div>
+
+{% endblock %}

@@ -9,14 +9,15 @@
             <!--SEARCH CRITERIA-->
             <div class="col-sm-4">
                 <label>Course</label>
-                <select class="custom-select">
-                    <option selected>Please select</option>
-                    <option value="1">Breakfast</option>
-                    <option value="2">Lunch</option>
-                    <option value="3">Main</option>
-                    <option value="3">Desert</option>
-                    <option value="3">Baking</option>
-                </select>
+                <div class="edit-course-field col-sm-12">
+                    <label>Course</label>
+                    <p class="diet-p"><em>check all that apply</em></p>
+                    <input type="checkbox" name="course" value="Breakfast" /> Breakfast
+                    <input type="checkbox" name="course" value="Lunch" /> Lunch
+                    <input type="checkbox" name="course" value="Main" /> Main
+                    <input type="checkbox" name="course" value="Dessert" /> Dessert
+                    <input type="checkbox" name="course" value="Sweet-Treats" /> Sweet Treats
+                </div>
             </div>
 
             <div class="col-sm-4">
@@ -78,6 +79,7 @@
                             <label class="time-text" for="icon-prefix">Serves</label>
                             <h6 class="time">{{recipe.serves}}</h6>
                         </div>
+                        <h6>Per Serve:</h6>
                         <h6 class="nutrition">Calories: {{recipe.calories}} | Carbs: {{recipe.carbs}} | Protein:
                             {{recipe.protein}}
                         </h6>
@@ -86,7 +88,7 @@
                             class="btn btn-primary full-btn">Full
                             Recipe</a>
                     </div>
-                </div>                
+                </div>
             </div>
             {% endfor %}
         </div>
