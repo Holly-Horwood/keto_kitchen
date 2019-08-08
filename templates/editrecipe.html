@@ -49,7 +49,7 @@
             class="form-group col-sm-12">
             <!--RECIPE NAME-->
             <div class="row field-row">
-                <div class="input-field col-sm-12">
+                <div class="input-field col-sm-12 col-md-6">
                     <i class="fas fa-clipboard-list recipe-icons"></i>
                     <label for="icon-prefix">Recipe Name</label>
                     <input class="recipe-field" name="recipe_name" type="text" class="validate"
@@ -58,7 +58,7 @@
             </div>
             <!--AUTHOR-->
             <div class="row">
-                <div class="input-field col-sm-12">
+                <div class="input-field col-sm-12 col-md-6">
                     <i class="fas fa-user recipe-icons"></i>
                     <label for="icon-prefix">Author</label>
                     <input class="recipe-field" name="recipe_author" type="text" class="validate"
@@ -66,12 +66,12 @@
                 </div>
             </div>
 
-            <div class="container search-container">
+            <div class="container search-container col-md-6">
                 <div class="row select-row">
                     <h4 class="search-title">Choose Search Options</h4>
                     <!--SEARCH OPTIONS-->
-                    <div class="edit-meal-field col-sm-12">
-                        <label>Course</label>
+                    <div class="course-field col-sm-12">
+                        <label>Course:</label>
                         <p class="diet-p"><em>check all that apply</em></p>
                         <input type="checkbox" name="course" value="Breakfast"
                             {{'checked' if 'Breakfast' in recipe.course else ''}} /> Breakfast
@@ -86,7 +86,7 @@
                     </div>
 
                     <div class="cuisine-field col-sm-12">
-                        <label>Cuisine</label>
+                        <label>Cuisine:</label>
                         <select name="cuisine">
                             <option value="">-- select one --</option>
                             <option value="American">American</option>
@@ -115,7 +115,7 @@
                     </div>
 
                     <div class="diet-field col-sm-12">
-                        <label>Diet</label>
+                        <label>Diet:</label>
                         <p class="diet-p"><em>check all that apply</em></p>
                         <input type="checkbox" name="diet" value="Keto"
                             {{'checked' if 'Keto' in recipe.diet else ''}} /> Keto
@@ -136,65 +136,53 @@
             <div class="container number-box">
                 <!--PREP TIME-->
                 <div class="row">
-                    <div class="input-field col-sm-10">
+                    <div class="input-field col-sm-12">
                         <i class="far fa-clock recipe-icons"></i>
                         <label for="icon-prefix">Prep Time (mins)</label>
-                    </div>
-                    <div class="col-sm-2">
                         <input class="number-field" name="prep_time" type="text" class="validate"
                             value="{{recipe.prep_time}}">
                     </div>
                 </div>
                 <!--COOK TIME-->
                 <div class="row">
-                    <div class="input-field col-sm-10">
+                    <div class="input-field col-sm-12">
                         <i class="fas fa-hourglass-end recipe-icons"></i>
                         <label for="icon-prefix">Cook Time (mins)</label>
-                    </div>
-                    <div class="col-sm-2">
                         <input class="number-field" name="cook_time" type="text" class="validate"
                             value="{{recipe.cook_time}}">
                     </div>
                 </div>
                 <!--SERVES-->
                 <div class="row">
-                    <div class="input-field col-sm-10">
+                    <div class="input-field col-sm-12">
                         <i class="fas fa-utensils recipe-icons"></i>
                         <label for="icon-prefix">Serves</label>
-                    </div>
-                    <div class="col-sm-2">
                         <input class="number-field" name="serves" type="text" class="validate"
                             value="{{recipe.serves}}">
                     </div>
                 </div>
                 <!--CALORIES-->
                 <div class="row">
-                    <div class="input-field col-sm-10">
+                    <div class="input-field col-sm-12">
                         <i class="fas fa-balance-scale recipe-icons"></i>
                         <label for="icon-prefix">Calories</label>
-                    </div>
-                    <div class="col-sm-2">
                         <input class="number-field" name="calories" type="text" class="validate"
                             value="{{recipe.calories}}">
                     </div>
                 </div>
                 <!--CARBS-->
                 <div class="row">
-                    <div class="input-field col-sm-10">
+                    <div class="input-field col-sm-12">
                         <i class="fas fa-pizza-slice recipe-icons"></i>
                         <label for="icon-prefix">Carbs</label>
-                    </div>
-                    <div class="col-sm-2">
                         <input class="number-field" name="carbs" type="text" class="validate" value="{{recipe.carbs}}">
                     </div>
                 </div>
                 <!--PROTEIN-->
                 <div class="row">
-                    <div class="input-field col-sm-10">
+                    <div class="input-field col-sm-12">
                         <i class="fas fa-drumstick-bite recipe-icons"></i>
                         <label for="icon-prefix">Protein</label>
-                    </div>
-                    <div class="col-sm-2">
                         <input class="number-field" name="protein" type="text" class="validate"
                             value="{{recipe.protein}}">
                     </div>
@@ -234,7 +222,7 @@
                         alt="Photo of finished dish">
                 </div>
                 <div class="updated-image">
-                    <input type="file" accept="image/*" onchange="previewFile(event)">
+                    <input type="file" accept="image/*" name= "image_file" onchange="previewFile(event)">
                 </div>
             </div>
             <!--ADD BUTTON-->

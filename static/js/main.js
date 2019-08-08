@@ -4,3 +4,7 @@
     output.src = URL.createObjectURL(event.target.files[0]);
   };
 
+/*Bootstrap autofocus for modal - not sure if needed??????????
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+});

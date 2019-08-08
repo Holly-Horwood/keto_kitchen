@@ -20,6 +20,31 @@ db = client.keto_kitchen
 mongo = PyMongo(app)
 
 # Home Page
+def update(is_edit, recipe_id=0 ):
+    s3_resource = boto3.resource('s3') #connection to S3
+    keto_bucket = s3_resource.Bucket("ketokitchen") #connection to keto bucket in S3
+    now = datetime.datetime.now() #creates time-stamp string for file names
+    now_string = str(now.strftime("%d-%m-%Y_%H%M%S"))
+    image_file = request.files['image_file'] 
+    full_file_name = (now_string + image_file.filename)
+    keto_bucket.Object(full_file_name).put(ACL='public-read', Body=image_file, ContentType='image/jpeg')  #putting the file into our S3 bucket
+    url = "https://ketokitchen.s3-ap-southeast-2.amazonaws.com/" + full_file_name   #create a URL for the uploaded image in the bucket
+
+    recipes = mongo.db.recipes
+    print(request.form)
+    recipe_dict = request.form.to_dict()
+    recipe_dict.update( {'image_url' : url} ) #appends image_url to the other form data
+    recipe_dict.update( {'date' : now}) # appends date recipe is created
+    recipe_dict['ingredients'] = request.form['ingredients'].strip().replace('\n', '|') #takes whats added by user and replaces | with new lines
+    recipe_dict['method'] = request.form['method'].strip().replace('\n', '|')
+    recipe_dict['diet'] = request.form.getlist('diet') #saves all values from diet checkboxes
+    if is_edit:
+        print("before update")
+        print(recipe_dict)
+        recipes.update_one({'_id':ObjectId(recipe_id)}, {"$set": recipe_dict}, upsert=False) #updates recipe in database
+        print("yay")
+    else:
+        recipes.insert_one(recipe_dict) #adds recipe to database as key value pairs
 
 @app.route('/')
 def home():
@@ -36,26 +61,11 @@ def full_recipe(recipe_id):
 
 #Gets blank form to add recipe, once completed posts to add then redirects to home page.
 @app.route('/add_recipe', methods=['GET', 'POST']) 
-def insert_recipe():
+def add_recipe():
     if request.method == 'GET':
         return render_template('addrecipe.html')
     else:    #user has submitted the form:
-        s3_resource = boto3.resource('s3') #connection to S3
-        keto_bucket = s3_resource.Bucket("ketokitchen") #connection to keto bucket in S3
-        now = datetime.datetime.now() #creates time-stamp string for file names
-        now_string = str(now.strftime("%d-%m-%Y_%H%M%S"))
-        image_file = request.files['image_file'] 
-        full_file_name = (now_string + image_file.filename)
-        keto_bucket.Object(full_file_name).put(ACL='public-read', Body=image_file, ContentType='image/jpeg')  #putting the file into our S3 bucket
-        url = "https://ketokitchen.s3-ap-southeast-2.amazonaws.com/" + full_file_name   #create a URL for the uploaded image in the bucket
-        recipes = mongo.db.recipes
-        recipe_dict = request.form.to_dict()
-        recipe_dict.update( {'image_url' : url} ) #appends image_url to the other form data
-        recipe_dict.update( {'date' : now}) # appends date recipe is created
-        recipe_dict['ingredients'] = request.form['ingredients'].replace('\n', '|').strip() #takes whats added by user and replaces | with new lines
-        recipe_dict['method'] = request.form['method'].replace('\n', '|').strip()
-        recipe_dict['diet'] = request.form.getlist('diet') #saves all values from diet checkboxes
-        recipes.insert_one(recipe_dict) #adds recipe to database as key value pairs
+        update(False)
     return redirect(url_for('home'))
 
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST']) 
@@ -66,11 +76,13 @@ def edit_recipe(recipe_id):
         #searches fields and splits array at the pipes
         ingredients_edit = the_recipe['ingredients'].replace('|', '\n')
         method_edit = the_recipe['method'].replace('|', '\n')
-        return render_template('editrecipe.html' , recipe=the_recipe, ingredients=ingredients_edit, method=method_edit)  
-    return redirect(url_for('home'))
+        return render_template('editrecipe.html' , recipe=the_recipe, ingredients=ingredients_edit, method=method_edit) 
+    else:
+        update(True, recipe_id)
+        return redirect(url_for('home'))
 
    
-
+   
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP', '127.0.0.1'),
