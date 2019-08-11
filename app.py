@@ -68,6 +68,7 @@ def add_recipe():
         update(False)
     return redirect(url_for('home'))
 
+#Gets full recipe in an editable form for updating then redirects to home page pnce posted
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST']) 
 def edit_recipe(recipe_id):
     if request.method == 'GET':
@@ -81,8 +82,24 @@ def edit_recipe(recipe_id):
         update(True, recipe_id)
         return redirect(url_for('home'))
 
-   
-   
+#Searches for recipes with matching fields
+@app.route("/results", methods=['GET'])
+def display_results():
+    recipes = mongo.db.recipes
+    db.recipe.find(
+    {
+        $or : [
+            {"course": "Breakfast"},
+            {"course": "Lunch"},
+            {"course": "Main"},
+            {"course": "Dessert"},
+            {"course": "Sweet Treat"}
+        ]
+    }
+    )
+    
+    return render_template("results.html")
+  
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP', '127.0.0.1'),

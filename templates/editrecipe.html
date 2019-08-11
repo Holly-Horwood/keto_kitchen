@@ -4,45 +4,7 @@
 
 <div class="container-fluid recipe-form">
     <h3 class="add-title">Edit Recipe</h3>
-    <!-- BUTTON TRIGGER MODAL -->
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#loginModal">
-        Login
-    </button>
-
-    <!-- START OF LOGIN MODAL -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalTitle">Only the original author can edit this recipe</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="loginEmail">Email address</label>
-                            <input type="email" class="form-control" id="loginEmail"
-                                aria-describedby="emailHelp" placeholder="Enter email address">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                                else.</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="loginPassword">Password</label>
-                            <input type="password" class="form-control" id="loginPassword"
-                                placeholder="Enter your password">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Login</button>
-                </div>
-            </div>
-        </div>   
-    </div>
-    <!-- END OF LOGIN MODAL -->
+    
 
     <div class="row add-row">
         <form action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" method="POST" enctype="multipart/form-data"
@@ -70,7 +32,7 @@
                 <div class="row select-row">
                     <h4 class="search-title">Choose Search Options</h4>
                     <!--SEARCH OPTIONS-->
-                    <div class="course-field col-sm-12">
+                    <div class="edit-course-field col-sm-12">
                         <label>Course:</label>
                         <p class="diet-p"><em>check all that apply</em></p>
                         <input type="checkbox" name="course" value="Breakfast"
@@ -114,7 +76,7 @@
                         </select>
                     </div>
 
-                    <div class="diet-field col-sm-12">
+                    <div class="edit-diet-field col-sm-12">
                         <label>Diet:</label>
                         <p class="diet-p"><em>check all that apply</em></p>
                         <input type="checkbox" name="diet" value="Keto"
@@ -236,5 +198,44 @@
         </form>
     </div>
 </div>
+<!-- BUTTON TRIGGER MODAL -->
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#loginModal">
+    Login
+</button>
+
+<!-- START OF LOGIN MODAL -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalTitle">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="loginEmail">Email address</label>
+                        <input type="email" class="form-control" id="loginEmail"
+                            aria-describedby="emailHelp" placeholder="Enter email address">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" class="form-control" id="loginPassword"
+                            placeholder="Enter your password">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Login</button>
+            </div>
+        </div>
+    </div>   
+</div>
+<!-- END OF LOGIN MODAL -->
 
 {% endblock %}

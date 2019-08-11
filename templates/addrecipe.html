@@ -28,7 +28,7 @@
                 <div class="row select-row">
                     <h4 class="search-title">Choose Search Options</h4>
                     <!--SEARCH OPTIONS-->
-                    <div class="edit-course-field col-sm-12">
+                    <div class="add-course-field col-sm-12">
                         <label>Course</label>
                         <p class="diet-p"><em>check all that apply</em></p>
                         <input type="checkbox" name="course" value="Breakfast" /> Breakfast
@@ -67,15 +67,16 @@
                         </select>
                     </div>
 
-                    <div class="diet-field col-sm-12">
-                        <label>Diet</label>
-                        <p class="diet-p"><em>check all that apply</em></p>
-                        <input type="checkbox" name="diet" value="Keto" /> Keto
-                        <input type="checkbox" name="diet" value="Low Carb" /> Low Carb
-                        <input type="checkbox" name="diet" value="Sugar Free" /> Suagr Free
-                        <input type="checkbox" name="diet" value="Gluten Free" /> Gluten Free
-                        <input type="checkbox" name="diet" value="Vegetarian" /> Vegetarian
-                        <input type="checkbox" name="diet" value="Vegan" /> Vegan
+                    <div class="col-sm-4">
+                        <label>Diet <em>- check all that apply</em></label>
+                        <form class="add-diet-checkbox" action="" method="post">
+                            <input type="checkbox" name="diet1" value="Keto" /> Keto
+                            <input type="checkbox" name="diet2" value="Low Carb" /> Low Carb
+                            <input type="checkbox" name="diet3" value="Sugar Free" /> Suagr Free
+                            <input type="checkbox" name="diet4" value="Gluten Free" /> Gluten Free
+                            <input type="checkbox" name="diet5" value="Vegetarian" /> Vegetarian
+                            <input type="checkbox" name="diet6" value="Vegan" /> Vegan
+                        </form>
                     </div>
                 </div>
             </div>
