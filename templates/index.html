@@ -10,11 +10,9 @@
             <div class="course-checkbox">
                 <form action="" method="post">
                     <label><strong>Course</strong> <em>- check all that apply </em>
-                        <input type="checkbox" name="course" value="Breakfast" /> Breakfast
-                        <input type="checkbox" name="course" value="Lunch" /> Lunch
-                        <input type="checkbox" name="course" value="Main" /> Main
-                        <input type="checkbox" name="course" value="Dessert" /> Dessert
-                        <input type="checkbox" name="course" value="Sweet-Treats" /> Sweet Treats
+                        {% for course in courses %}
+                        <input type="checkbox" name="course" value="{{course.course}}" /> {{course.course}}
+                        {% endfor %}
                     </label>
                 </form>
             </div>
@@ -22,7 +20,8 @@
                 <label><strong>Cuisine - </strong> 
                     <select class="cusine-select">
                         <option value="">-- select one --</option>
-                        <option value="American">American</option>
+                        {% for cuisine in cuisines %}
+                        <option value="{{cuisine.cuisine}}">{{cuisine.cuisine}}</option>
                         <option value="Argentinean">Argentinean</option>
                         <option value="Armenian">Armenian</option>
                         <option value="Brazilian">Brazilian</option>
@@ -44,18 +43,16 @@
                         <option value="Thai">Thai</option>
                         <option value="Turkish">Turkish</option>
                         <option value="Vietnamese">Vietnamese</option>
+                        {% endfor %}
                     </select>    
                 </label>
             </div>
             <div class="diet-checkbox">
                 <form action="" method="post">
                     <label><strong>Diet</strong> <em>- check all that apply </em>
-                        <input type="checkbox" name="diet1" value="Keto" /> Keto
-                        <input type="checkbox" name="diet2" value="Low Carb" /> Low Carb
-                        <input type="checkbox" name="diet3" value="Sugar Free" /> Suagr Free
-                        <input type="checkbox" name="diet4" value="Gluten Free" /> Gluten Free
-                        <input type="checkbox" name="diet5" value="Vegetarian" /> Vegetarian
-                        <input type="checkbox" name="diet6" value="Vegan" /> Vegan
+                        {% for diet in diets %}
+                        <input type="checkbox" name="diet1" value="{{diet.diet}}" /> {{diet.diet}}
+                        {% endfor %}
                     </label>
                 </form>
             </div>

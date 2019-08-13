@@ -77,20 +77,24 @@
     </div>
 </div>
 
-    <!--BUTTONS-->
-    <div class="container change-btns">
-        <div class="row">
-            <div class="col-sm-6 text-center">
-                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn btn-success edit-btn">Edit</a>
-                <i class="fas fa-plus recipe-icons"></i>
-            </div>
-            <div class="col-sm-6 text-center">
-                    <a href="#" class="btn btn-success delete-btn">Delete</a>
-                    <i class="fas fa-plus recipe-icons"></i>
-                </div>
-            TODO:on submit
+<!--BUTTONS-->
+<div class="container change-btns">
+    <div class="row">
+        <div class="col-sm-6 text-center">
+            <button type="submit" class="btn btn-success edit-btn"
+                href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit
+                <i class="fas fa-plus change-icons"></i>
+            </button>
+            <button type="submit" class="btn btn-success delete-btn"
+                href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Delete
+                <i class="fas fa-trash-alt change-icons"></i>
+            </button>
         </div>
     </div>
+</div>
+TODO:on submit
+</div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">

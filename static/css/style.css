@@ -33,7 +33,7 @@ body {
     color: #5c5151;
 }
 
-.recipe-card, .select-row, .full-container, .search-container {
+.recipe-card, .select-row, .full-container, .search-container, .change-icons {
     background-color: #dee2e6;
 }
 
@@ -41,7 +41,7 @@ body {
     color: #61BF3F;
 }
 
-.search-btn, .add-btn, .login-btn {
+.search-btn, .add-btn, .login-btn, .edit-btn, .delete-btn {
     color: #fff;
     background-color: #61BF3F;
 }
@@ -56,7 +56,7 @@ body {
     border-color: #1a6807;
 }
 
-h3.add-title, h5.recipe-title, .search-title, .recipes-title, .edit-title, .full-recipe-name, .recipe-icons {
+.add-title, .recipe-title, .search-title, .recipes-title, .edit-title, .delete-btn, .full-recipe-name, .recipe-icons, .matching-title {
     color: #61BF3F;
 }
 
@@ -140,13 +140,12 @@ img.logo {
 }
 
 .search-btn {
-    text-align: center;
-    
+    text-align: center;  
 } 
 
 /*--TITLES--*/
 
-.add-title, .recipes-title, .recipe-title, .edit-title {
+.add-title, .recipes-title, .recipe-title, .edit-title, .matching-title {
     font-family: 'Kaushan Script', cursive;
     text-align: center;
     margin-top: 2%;

@@ -48,7 +48,7 @@ def update(is_edit, recipe_id=0 ):
 
 @app.route('/')
 def home():
-    return render_template('index.html', recipes=mongo.db.recipes.find().sort('date', pymongo.DESCENDING))
+    return render_template('index.html', recipes=mongo.db.recipes.find().sort('date', pymongo.DESCENDING), courses=mongo.db.courses.find(), cuisines=mongo.db.cuisines.find(), diets=mongo.db.diets.find())
 
 #Gets id for requested recipe and renders the full recipe template when full recipe link is clicked on in index.html
 @app.route('/full_recipe/<recipe_id>')   
@@ -82,23 +82,21 @@ def edit_recipe(recipe_id):
         update(True, recipe_id)
         return redirect(url_for('home'))
 
-#Searches for recipes with matching fields
-@app.route("/results", methods=['GET'])
+#Searches for recipes with matching data
+@app.route("/display_results", methods=['GET'])
 def display_results():
-    recipes = mongo.db.recipes
-    db.recipe.find(
-    {
-        $or : [
-            {"course": "Breakfast"},
-            {"course": "Lunch"},
-            {"course": "Main"},
-            {"course": "Dessert"},
-            {"course": "Sweet Treat"}
-        ]
-    }
-    )
     
-    return render_template("results.html")
+    return render_template("results.html", recipes=mongo.db.recipes.find({
+        "course": {"$in": ["Lunch"]} ,
+        "diet": {"$in": ["Keto"]},
+        "cuisine": "French"
+    }))
+
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    the_recipe = mongo.db.recipe.find_one({'_id': ObjectId(recipe_id)})
+    mongo.db.recipe.remove({'_id': ObjectId(recipe_id)})
+    return redirect(url_for('home'))   
   
 
 if __name__ == '__main__':
