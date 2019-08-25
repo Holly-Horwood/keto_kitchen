@@ -2,76 +2,11 @@
 
 {% block content %}
 <div class="container home-container">
-    <h3 class="recipes-title">Recipes</h3>
-    <div class="search-container"></div>
-    <div class="row select-row">
-        <h4 class="search-title">Search Recipes</h4>
-        <div class="col-sm-10">
-            <div class="course-checkbox">
-                <form action="" method="post">
-                    <label><strong>Course</strong> <em>- check all that apply </em>
-                        <input type="checkbox" name="course" value="Breakfast" /> Breakfast
-                        <input type="checkbox" name="course" value="Lunch" /> Lunch
-                        <input type="checkbox" name="course" value="Main" /> Main
-                        <input type="checkbox" name="course" value="Dessert" /> Dessert
-                        <input type="checkbox" name="course" value="Sweet-Treats" /> Sweet Treats
-                    </label>
-                </form>
-            </div>
-            <div class="cuisine-list">
-                <label><strong>Cuisine - </strong>
-                    <select class="cusine-select">
-                        <option value="">-- select one --</option>
-                        <option value="American">American</option>
-                        <option value="Argentinean">Argentinean</option>
-                        <option value="Armenian">Armenian</option>
-                        <option value="Brazilian">Brazilian</option>
-                        <option value="British">British</option>
-                        <option value="Chinese">Chinese</option>
-                        <option value="Colombian">Colombian</option>
-                        <option value="Greek">Greek</option>
-                        <option value="French">Freek</option>
-                        <option value="Indian">Indian</option>
-                        <option value="Indonesian">Indonesian</option>
-                        <option value="Israeli">Israeli</option>
-                        <option value="Italian">Italian</option>
-                        <option value="Jamaican">Jamaican</option>
-                        <option value="Japanese">Japanese</option>
-                        <option value="Lebanese">Lebanese</option>
-                        <option value="Malaysian">Malaysian</option>
-                        <option value="Mexican">Mexican</option>
-                        <option value="Moroccan">Moroccan</option>
-                        <option value="Thai">Thai</option>
-                        <option value="Turkish">Turkish</option>
-                        <option value="Vietnamese">Vietnamese</option>
-                    </select>
-                </label>
-            </div>
-            <div class="diet-checkbox">
-                <form action="" method="post">
-                    <label><strong>Diet</strong> <em>- check all that apply </em>
-                        <input type="checkbox" name="diet1" value="Keto" /> Keto
-                        <input type="checkbox" name="diet2" value="Low Carb" /> Low Carb
-                        <input type="checkbox" name="diet3" value="Sugar Free" /> Suagr Free
-                        <input type="checkbox" name="diet4" value="Gluten Free" /> Gluten Free
-                        <input type="checkbox" name="diet5" value="Vegetarian" /> Vegetarian
-                        <input type="checkbox" name="diet6" value="Vegan" /> Vegan
-                    </label>
-                </form>
-            </div>
-        </div>
-        <div class="col-sm-2">
-            <button type="button" class="btn btn-success mx-auto  search-btn">Search
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
-    </div>
-</div>
+    <h3 class="matching-title">Matching Recipes:</h3>
+    {% include 'search_container.html' %}
 </div>
 
-<div class="row">
-    <h4 class="matching-title">Matching Recipes:</h4>
-</div>
+
 
 <!--DISPLAYS LIST OF RECIPES-->
 

@@ -21,9 +21,28 @@ body {
     background-color: transparent;
 }
 
-a.nav-link {
+.navbar-light .navbar-nav .nav-link {
     color: #61BF3F;
 }
+
+.navbar-light.scroll {
+    background-color: #fff;
+}
+
+.page-link {
+    color: #887f7f;
+}
+
+.page-item.active .page-link {
+    color: #fff;
+    background-color: #61BF3F;
+    border-color: #61BF3F;
+}
+
+.page-link:hover {
+    color: #fff;
+    background-color: #887f7f;
+}    
 
 nav li a:hover{
     color: #1a6807;
@@ -34,7 +53,7 @@ body {
 }
 
 .recipe-card, .select-row, .full-container, .search-container, .change-icons {
-    background-color: #dee2e6;
+    background-color: #f1f3f6;
 }
 
 .full-instructions .card-title {
@@ -56,7 +75,7 @@ body {
     border-color: #1a6807;
 }
 
-.add-title, .recipe-title, .search-title, .recipes-title, .edit-title, .delete-btn, .full-recipe-name, .recipe-icons, .matching-title {
+.add-title, .recipe-title, .search-title, .recipes-title, .edit-title, .full-recipe-name, .recipe-icons, .matching-title, .per-serve {
     color: #61BF3F;
 }
 
@@ -114,8 +133,8 @@ a.nav-link {
 img.logo {
     float: left;
     width: 100px;
-    margin-top: -70px;
     transform: rotate(340deg); 
+    position: fixed;
 }
 
 
@@ -124,10 +143,10 @@ img.logo {
     margin-bottom: 3%;
 }
 
-.thumbnail-pic {
-    max-width: 100%;
+.image-preview {
+    width: 300px;
+    height: 300px;
 }
-
 
 /*--BUTTONS--*/
 
@@ -138,10 +157,6 @@ img.logo {
 .add-btn {
     margin-bottom: 70px;
 }
-
-.search-btn {
-    text-align: center;  
-} 
 
 /*--TITLES--*/
 
@@ -168,9 +183,10 @@ img.logo {
 
 .search-title{
     font-family: 'Kaushan Script', cursive;
-    text-align: center;
+    text-align: left;
     font-size: 2em;
     margin: 0;
+    padding: 2%;
 }
 
 /*--SEARCH AREAS--*/
@@ -178,11 +194,14 @@ img.logo {
 .search-container {
     width: 100%;
     margin: 8px 0;
-
 }
 
 .select-row {
     padding: 2%;
+}
+
+.search-list {
+    max-width: 100%;
 }
 
 /*--CONTAINERS & ROWS--*/
@@ -194,6 +213,7 @@ img.logo {
     margin-right: 10px;
     margin-bottom: 80px;
     padding: 10px;
+    width: 100%;
     box-shadow: 10px 15px 18px -6px #948794;
 }
 
@@ -241,11 +261,6 @@ img.logo {
 
 .diet-field {
     margin-top: 2%;  
-}
-
-.diet-p {
-    font-size: .70em;
-    margin-bottom: 0;
 }
 
 .input-field {
@@ -332,6 +347,8 @@ li.list-inline-item {
         font-size: 15px;
     }
 
+    
+
 }
 
 /****************************DESKTOP*********************/
@@ -347,12 +364,12 @@ li.list-inline-item {
     width: 1600px;
 }    
 
-img.logo.sticky-top {
+img.logo {
     width: 30vh;
-    margin-top: -130px;
 }
 
 .recipe-form {
     width: 70%;
+}
 
 }

@@ -12,7 +12,7 @@
                 <div class="input-field col-sm-12">
                     <i class="fas fa-clipboard-list recipe-icons"></i>
                     <label for="icon-prefix">Recipe Name</label>
-                    <input class="recipe-field" name="recipe_name" type="text" class="validate">
+                    <input class="recipe-field" required name="recipe_name" type="text" class="validate">
                 </div>
             </div>
             <!--AUTHOR-->
@@ -20,7 +20,7 @@
                 <div class="input-field col-sm-12">
                     <i class="fas fa-user recipe-icons"></i>
                     <label for="icon-prefix">Author</label>
-                    <input class="recipe-field" name="recipe_author" type="text" class="validate">
+                    <input class="recipe-field" required name="recipe_author" type="text" class="validate">
                 </div>
             </div>
 
@@ -30,53 +30,32 @@
                     <!--SEARCH OPTIONS-->
                     <div class="add-course-field col-sm-12">
                         <label>Course</label>
-                        <p class="diet-p"><em>check all that apply</em></p>
-                        <input type="checkbox" name="course" value="Breakfast" /> Breakfast
-                        <input type="checkbox" name="course" value="Lunch" /> Lunch
-                        <input type="checkbox" name="course" value="Main" /> Main
-                        <input type="checkbox" name="course" value="Dessert" /> Dessert
-                        <input type="checkbox" name="course" value="Sweet Treats" /> Sweet Treats
+                        <label><strong>Course</strong> <em> &nbsp;- check all that apply &nbsp;</em>
+                            {% for course in courses %}
+                            <input type="checkbox" name="course" value="{{course.course}}" /> {{course.course}}
+                            {% endfor %}
+                        </label>
                     </div>
 
                     <div class="cuisine-field col-sm-12">
-                        <label>Cuisine</label>
-                        <select name="cuisine">
-                            <option value="">-- select one --</option>
-                            <option value="American">American</option>
-                            <option value="Argentinean">Argentinean</option>
-                            <option value="Armenian">Armenian</option>
-                            <option value="Brazilian">Brazilian</option>
-                            <option value="British">British</option>
-                            <option value="Chinese">Chinese</option>
-                            <option value="Colombian">Colombian</option>
-                            <option value="Greek">Greek</option>
-                            <option value="French">Freek</option>
-                            <option value="Indian">Indian</option>
-                            <option value="Indonesian">Indonesian</option>
-                            <option value="Israeli">Israeli</option>
-                            <option value="Italian">Italian</option>
-                            <option value="Jamaican">Jamaican</option>
-                            <option value="Japanese">Japanese</option>
-                            <option value="Lebanese">Lebanese</option>
-                            <option value="Malaysian">Malaysian</option>
-                            <option value="Mexican">Mexican</option>
-                            <option value="Moroccan">Moroccan</option>
-                            <option value="Thai">Thai</option>
-                            <option value="Turkish">Turkish</option>
-                            <option value="Vietnamese">Vietnamese</option>
-                        </select>
+                        <label><strong>Cuisine - </strong>
+                            <select class="cusine-select" name="cuisine">
+                                <option value="">-- select one --</option>
+                                {% for cuisine in cuisines %}
+                                <option value="{{cuisine.cuisine}}">{{cuisine.cuisine}}</option>
+                                {% endfor %}
+                            </select>
+                        </label>
                     </div>
 
                     <div class="col-sm-4">
-                        <label>Diet <em>- check all that apply</em></label>
-                        <form class="add-diet-checkbox" action="" method="post">
-                            <input type="checkbox" name="diet1" value="Keto" /> Keto
-                            <input type="checkbox" name="diet2" value="Low Carb" /> Low Carb
-                            <input type="checkbox" name="diet3" value="Sugar Free" /> Suagr Free
-                            <input type="checkbox" name="diet4" value="Gluten Free" /> Gluten Free
-                            <input type="checkbox" name="diet5" value="Vegetarian" /> Vegetarian
-                            <input type="checkbox" name="diet6" value="Vegan" /> Vegan
-                        </form>
+                        <div class="add-diet-checkbox" >
+                            <label><strong>Diet</strong> <em> &nbsp;&nbsp;&nbsp;&nbsp; - check all that apply &nbsp;</em>
+                                {% for diet in diets %}
+                                <input type="checkbox" name="diet" value="{{diet.diet}}" /> {{diet.diet}}
+                                {% endfor %}
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -89,7 +68,7 @@
                         <label for="icon-prefix">Prep Time (mins)</label>
                     </div>
                     <div class="col-sm-2">
-                        <input class="number-field" name="prep_time" type="text" class="validate">
+                        <input class="number-field" required name="prep_time" type="text" class="validate">
                     </div>
                 </div>
                 <!--COOK TIME-->
@@ -99,7 +78,7 @@
                         <label for="icon-prefix">Cook Time (mins)</label>
                     </div>
                     <div class="col-sm-2">
-                        <input class="number-field" name="cook_time" type="text" class="validate">
+                        <input class="number-field" required name="cook_time" type="text" class="validate">
                     </div>
                 </div>
                 <!--SERVES-->
@@ -109,7 +88,7 @@
                         <label for="icon-prefix">Serves</label>
                     </div>
                     <div class="col-sm-2">
-                        <input class="number-field" name="serves" type="text" class="validate">
+                        <input class="number-field" required name="serves" type="text" class="validate">
                     </div>
                 </div>
                 <!--CALORIES-->
@@ -119,7 +98,7 @@
                         <label for="icon-prefix">Calories</label>
                     </div>
                     <div class="col-sm-2">
-                        <input class="number-field" name="calories" type="text" class="validate">
+                        <input class="number-field" required name="calories" type="text" class="validate">
                     </div>
                 </div>
                 <!--CARBS-->
@@ -129,7 +108,7 @@
                         <label for="icon-prefix">Carbs</label>
                     </div>
                     <div class="col-sm-2">
-                        <input class="number-field" name="carbs" type="text" class="validate">
+                        <input class="number-field" required name="carbs" type="text" class="validate">
                     </div>
                 </div>
                 <!--PROTEIN-->
@@ -139,7 +118,7 @@
                         <label for="icon-prefix">Protein</label>
                     </div>
                     <div class="col-sm-2">
-                        <input class="number-field" name="protein" type="text" class="validate">
+                        <input class="number-field" required name="protein" type="text" class="validate">
                     </div>
                 </div>
             </div>
@@ -151,19 +130,19 @@
                     <!--INTRO-->
                     <div class="input-field">
                         <label for="intro">Introduction</label>
-                        <textarea class="intro-text" rows="4" cols="50" name="blurb" id="blurb"
+                        <textarea class="intro-text" rows="4" cols="50" required name="blurb" id="blurb"
                             placeholder="Please enter a short blurb about your recipe"></textarea>
                     </div>
                     <!--INGREDIENTS-->
                     <div class="input-field">
                         <label for="icon-prefix">Ingredients</label>
-                        <textarea class="ingredients-text" rows="4" cols="50" name="ingredients" id="ingredients"
+                        <textarea class="ingredients-text" rows="4" cols="50" required name="ingredients" id="ingredients"
                             placeholder="Please hit enter after each ingredient so it is on a new line"></textarea>
                     </div>
                     <!--METHOD-->
                     <div class="input-field">
                         <label for="icon-prefix">Method</label>
-                        <textarea class="method-text" rows="4" cols="50" name="method" id="method"
+                        <textarea class="method-text" rows="4" cols="50" required name="method" id="method"
                             placeholder="Please hit enter after each instruction so it is on a new line"></textarea>
                     </div>
                 </div>
@@ -174,12 +153,13 @@
             <!--ADD IMAGE-->
             <div class="row">
                 <div class="image-preview">
-                    <img id="output" class="img-thumbnail img-fluid" src="static/images/placeholder.png"
+                    <img id="output" class="img-thumbnail img-fluid placeholder-img" src="static/images/placeholder.png"
                         alt="Photo of finished dish">
                 </div>
                 <div class="updated-image">
-                    <input type="file" accept="image/*" name="image_file" onchange="previewFile(event)">
+                    <input type="file" accept="image/*" required name="image_file" id="image_file" onchange="checkImageSize(event); previewFile(event)">
                 </div>
+                <p id="size-warning">Please select a file between 10kb and 20Mb to upload</p>
             </div>
             <!--ADD BUTTON-->
             <div class="row">

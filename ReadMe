@@ -2,3 +2,5 @@ Star ratings app from reating widget https://rating-widget.com/get/rating/javasc
 
 MongoDB Schema
 relational schema we are using nesting.  Diet and course are not likely to be edited by users, they are administratively designed data.  The other rational is that they are simple data as they have only one field and that is tyheir name.  However the recipe collection could be quite large so for the simple purpose of populating checkboxes or search and editing we store them in their own collectiona as well.
+
+Google fonts: Kaushan Script

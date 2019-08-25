@@ -1,73 +1,17 @@
-{% extends 'base.html'%} 
+{% extends 'base.html'%}
 
 {% block content %}
 <div class="container home-container">
     <h3 class="recipes-title">Recipes</h3>
-    <div class="search-container"></div>
-    <div class="row select-row">
-        <h4 class="search-title">Search Recipes</h4>
-        <div class="col-sm-10">
-            <div class="course-checkbox">
-                <form action="" method="post">
-                    <label><strong>Course</strong> <em>- check all that apply </em>
-                        {% for course in courses %}
-                        <input type="checkbox" name="course" value="{{course.course}}" /> {{course.course}}
-                        {% endfor %}
-                    </label>
-                </form>
-            </div>
-            <div class="cuisine-list">
-                <label><strong>Cuisine - </strong> 
-                    <select class="cusine-select">
-                        <option value="">-- select one --</option>
-                        {% for cuisine in cuisines %}
-                        <option value="{{cuisine.cuisine}}">{{cuisine.cuisine}}</option>
-                        <option value="Argentinean">Argentinean</option>
-                        <option value="Armenian">Armenian</option>
-                        <option value="Brazilian">Brazilian</option>
-                        <option value="British">British</option>
-                        <option value="Chinese">Chinese</option>
-                        <option value="Colombian">Colombian</option>
-                        <option value="Greek">Greek</option>
-                        <option value="French">Freek</option>
-                        <option value="Indian">Indian</option>
-                        <option value="Indonesian">Indonesian</option>
-                        <option value="Israeli">Israeli</option>
-                        <option value="Italian">Italian</option>
-                        <option value="Jamaican">Jamaican</option>
-                        <option value="Japanese">Japanese</option>
-                        <option value="Lebanese">Lebanese</option>
-                        <option value="Malaysian">Malaysian</option>
-                        <option value="Mexican">Mexican</option>
-                        <option value="Moroccan">Moroccan</option>
-                        <option value="Thai">Thai</option>
-                        <option value="Turkish">Turkish</option>
-                        <option value="Vietnamese">Vietnamese</option>
-                        {% endfor %}
-                    </select>    
-                </label>
-            </div>
-            <div class="diet-checkbox">
-                <form action="" method="post">
-                    <label><strong>Diet</strong> <em>- check all that apply </em>
-                        {% for diet in diets %}
-                        <input type="checkbox" name="diet1" value="{{diet.diet}}" /> {{diet.diet}}
-                        {% endfor %}
-                    </label>
-                </form>
-            </div>
-        </div>
-        <div class="col-sm-2">
-                <i class="fas fa-search"></i>
-                <a href="{{ url_for('display_results') }}" class="btn btn-success mx-auto search-btn">Search</a>
-        </div>
-    </div>
+    {% include 'search_container.html' %}
 </div>
-</div>
+
+
 
 <!--DISPLAYS LIST OF RECIPES-->
 
 <div class="container recipe-container">
+    </nav>
     <div class="row recipe-row">
         {% for recipe in recipes %}
         <div class="col-lg-4">
@@ -92,9 +36,9 @@
                         <label class="time-text" for="icon-prefix">Serves</label>
                         <h6 class="time">{{recipe.serves}}</h6>
                     </div>
-                    <h6>Per Serve:</h6>
-                    <h6 class="nutrition">Calories: {{recipe.calories}} | Carbs: {{recipe.carbs}} | Protein:
-                        {{recipe.protein}}
+                    <h6 class="per-serve">Per Serve - </h6>
+                    <h6 class="nutrition">Calories: {{recipe.calories}} | Carbs: {{recipe.carbs}}g | Protein:
+                        {{recipe.protein}}g
                     </h6>
                     <p class="card-text intro">{{recipe.blurb}}</p>
                     <a href="{{ url_for('full_recipe', recipe_id=recipe._id) }}" class="btn btn-primary full-btn">Full

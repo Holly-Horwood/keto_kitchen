@@ -4,7 +4,7 @@
 
 <div class="container-fluid recipe-form">
     <h3 class="add-title">Edit Recipe</h3>
-    
+
 
     <div class="row add-row">
         <form action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" method="POST" enctype="multipart/form-data"
@@ -35,62 +35,27 @@
                     <div class="edit-course-field col-sm-12">
                         <label>Course:</label>
                         <p class="diet-p"><em>check all that apply</em></p>
-                        <input type="checkbox" name="course" value="Breakfast"
-                            {{'checked' if 'Breakfast' in recipe.course else ''}} /> Breakfast
-                        <input type="checkbox" name="course" value="Lunch"
-                            {{'checked' if 'Lunch' in recipe.course else ''}} /> Lunch
-                        <input type="checkbox" name="course" value="Main"
-                            {{'checked' if 'Main' in recipe.course else ''}} /> Main
-                        <input type="checkbox" name="course" value="Dessert"
-                            {{'checked' if 'Dessert' in recipe.course else ''}} /> Dessert
-                        <input type="checkbox" name="course" value="Sweet-Treats"
-                            {{'checked' if 'Sweet Treats' in recipe.course else ''}} /> Sweet Treats
+                        {% for course in courses %}
+                            <input type="checkbox" name="course" value="{{course.course}}" {{'checked' if course.course in recipe.course else ''}} />{{course.course}}
+                            {% endfor %}
                     </div>
 
                     <div class="cuisine-field col-sm-12">
                         <label>Cuisine:</label>
                         <select name="cuisine">
                             <option value="">-- select one --</option>
-                            <option value="American">American</option>
-                            <option value="Argentinean">Argentinean</option>
-                            <option value="Armenian">Armenian</option>
-                            <option value="Brazilian">Brazilian</option>
-                            <option value="British">British</option>
-                            <option value="Chinese">Chinese</option>
-                            <option value="Colombian">Colombian</option>
-                            <option value="Greek">Greek</option>
-                            <option value="French">Freek</option>
-                            <option value="Indian">Indian</option>
-                            <option value="Indonesian">Indonesian</option>
-                            <option value="Israeli">Israeli</option>
-                            <option value="Italian">Italian</option>
-                            <option value="Jamaican">Jamaican</option>
-                            <option value="Japanese">Japanese</option>
-                            <option value="Lebanese">Lebanese</option>
-                            <option value="Malaysian">Malaysian</option>
-                            <option value="Mexican">Mexican</option>
-                            <option value="Moroccan">Moroccan</option>
-                            <option value="Thai">Thai</option>
-                            <option value="Turkish">Turkish</option>
-                            <option value="Vietnamese">Vietnamese</option>
+                            {% for cuisine in cuisines %}
+                            <option value="{{cuisine.cuisine}}" {{'selected' if cuisine.cuisine == recipe.cuisine else ''}}>{{cuisine.cuisine}}</option>
+                            {% endfor %}
                         </select>
                     </div>
 
                     <div class="edit-diet-field col-sm-12">
                         <label>Diet:</label>
                         <p class="diet-p"><em>check all that apply</em></p>
-                        <input type="checkbox" name="diet" value="Keto"
-                            {{'checked' if 'Keto' in recipe.diet else ''}} /> Keto
-                        <input type="checkbox" name="diet" value="Low Carb"
-                            {{'checked' if 'Low Carb' in recipe.diet else ''}} /> Low Carb
-                        <input type="checkbox" name="diet" value="Sugar Free"
-                            {{'checked' if 'Sugar Free' in recipe.diet else ''}} /> Suagr Free
-                        <input type="checkbox" name="diet" value="Gluten Free"
-                            {{'checked' if 'Gluten Free' in recipe.diet else ''}} /> Gluten Free
-                        <input type="checkbox" name="diet" value="Vegetarian"
-                            {{'checked' if 'Vegetarian' in recipe.diet else ''}} /> Vegetarian
-                        <input type="checkbox" name="diet" value="Vegan"
-                            {{'checked' if 'Vegan' in recipe.diet else ''}} /> Vegan
+                        {% for diet in diets %}
+                            <input type="checkbox" name="diet" value="{{diet.diet}}" {{'checked' if diet.diet in recipe.diet else ''}} />{{diet.diet}}
+                            {% endfor %}
                     </div>
                 </div>
             </div>
@@ -184,13 +149,15 @@
                         alt="Photo of finished dish">
                 </div>
                 <div class="updated-image">
-                    <input type="file" accept="image/*" name= "image_file" onchange="previewFile(event)">
+                    <input type="file" accept="image/*" name="image_file" id="image_file"
+                        onchange="checkImageSize(event); previewFile(event)">
                 </div>
+                <p id="size-warning">Please select a file between 10kb and 20Mb to upload</p>
             </div>
             <!--ADD BUTTON-->
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <button type="submit" class="btn btn-success add-btn">Edit Recipe
+                    <button type="submit" class="btn btn-success add-btn">Update Recipe
                         <i class="fas fa-plus recipe-icons"></i>
                     </button>
                 </div>
@@ -218,8 +185,8 @@
                 <form>
                     <div class="form-group">
                         <label for="loginEmail">Email address</label>
-                        <input type="email" class="form-control" id="loginEmail"
-                            aria-describedby="emailHelp" placeholder="Enter email address">
+                        <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp"
+                            placeholder="Enter email address">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                             else.</small>
                     </div>
@@ -234,7 +201,7 @@
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Login</button>
             </div>
         </div>
-    </div>   
+    </div>
 </div>
 <!-- END OF LOGIN MODAL -->
 
