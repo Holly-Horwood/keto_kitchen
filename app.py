@@ -119,8 +119,6 @@ def delete_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('home'))   
-
-
   
 
 if __name__ == '__main__':

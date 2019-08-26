@@ -52,7 +52,7 @@ body {
     color: #5c5151;
 }
 
-.recipe-card, .select-row, .full-container, .search-container, .change-icons {
+.card-deck, .select-row, .full-container, .search-container, .change-icons {
     background-color: #f1f3f6;
 }
 
@@ -206,7 +206,7 @@ img.logo {
 
 /*--CONTAINERS & ROWS--*/
 
-.recipe-card {
+.card-deck {
     font-size: 0.6em;
     margin-top: 10px;
     margin-left: 10px;
