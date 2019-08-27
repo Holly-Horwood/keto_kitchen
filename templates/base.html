@@ -109,7 +109,8 @@
         </nav>
         <!--END OF NAVBAR-->
         <!--START OF LOGO-->
-        <img class="logo sticky-top" src="{{ url_for('static', filename='images/logo.png')}}" alt="logo" />
+        <a href="{{ url_for('home') }}">
+        <img class="logo sticky-top" src="{{ url_for('static', filename='images/logo.png')}}" alt="logo" /></a>
         <!--END OF LOGO-->
         {% block content %} {% endblock %}
         <!--START OF FOOTER-->

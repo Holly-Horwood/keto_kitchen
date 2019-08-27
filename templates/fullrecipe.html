@@ -4,7 +4,7 @@
     <div class="row full-row">
         <div class="col-lg-6 col-sm-12 rec2">
             <h3 class="full-recipe-name">{{recipe.recipe_name}}</h3>
-            <img class="img-thumbnail img-fluid" src="{{recipe.image_url}}" alt="Photo of dish" />
+            <img class="full-img img-fluid img-thumbnail" src="{{recipe.image_url}}" alt="Photo of dish" />
             <div class="rw-ui-container thumbnail-rw"></div>
             <h6 class="intro">{{recipe.blurb}}</h6>
         </div>
@@ -81,23 +81,18 @@
 <!--BUTTONS-->
 <div class="container change-btns">
     <div class="row">
-        <div class="col-sm-6 text-center">
-            <button >
-                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn btn-primary edit-btn">Edit
-                    Recipe</a>
-                <i class="fas fa-plus change-icons"></i>
-            </button>
-            <button class="delete-btn-div">
-                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn btn-primary edit-btn">Delete
-                    Recipe</a>
-                <i class="fas fa-trash-alt change-icons"></i>
-            </button>
+        <div class="btn-toolbar mx-5">
+            
+                <button class="btn btn-success edit-btn"><i class="fas fa-plus change-icons"></i> Edit Recipe</button>
+            
+            
+                <button class="btn btn-success edit-btn"><i class="fas fa-trash-alt change-icons"></i> Delete
+                    Recipe</button>
+            
         </div>
     </div>
 </div>
-</div>
-</div>
-</div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">

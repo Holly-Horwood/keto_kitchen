@@ -49,8 +49,9 @@
                     </div>
 
                     <div class="col-sm-4">
-                        <div class="add-diet-checkbox" >
-                            <label><strong>Diet</strong> <em> &nbsp;&nbsp;&nbsp;&nbsp; - check all that apply &nbsp;</em>
+                        <div class="add-diet-checkbox">
+                            <label><strong>Diet</strong> <em> &nbsp;&nbsp;&nbsp;&nbsp; - check all that apply
+                                    &nbsp;</em>
                                 {% for diet in diets %}
                                 <input type="checkbox" name="diet" value="{{diet.diet}}" /> {{diet.diet}}
                                 {% endfor %}
@@ -136,7 +137,8 @@
                     <!--INGREDIENTS-->
                     <div class="input-field">
                         <label for="icon-prefix">Ingredients</label>
-                        <textarea class="ingredients-text" rows="4" cols="50" required name="ingredients" id="ingredients"
+                        <textarea class="ingredients-text" rows="4" cols="50" required name="ingredients"
+                            id="ingredients"
                             placeholder="Please hit enter after each ingredient so it is on a new line"></textarea>
                     </div>
                     <!--METHOD-->
@@ -157,16 +159,17 @@
                         alt="Photo of finished dish">
                 </div>
                 <div class="updated-image">
-                    <input type="file" accept="image/*" required name="image_file" id="image_file" onchange="checkImageSize(event); previewFile(event)">
+                    <input type="file" accept="image/*" required name="image_file" id="image_file"
+                        onchange="checkImageSize(event); previewFile(event)">
                 </div>
-                <p id="size-warning">Please select a file between 10kb and 20Mb to upload</p>
+                <div>
+                    <p id="size-warning">Please select a file between 10kb and 20Mb to upload</p>
+                </div>
             </div>
             <!--ADD BUTTON-->
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <button type="submit" class="btn btn-success add-btn">Add Recipe
-                        <i class="fas fa-plus recipe-icons"></i>
-                    </button>
+                    <button type="submit" class="btn btn-success add-btn"><i class="fa fa-plus"></i> Add Recipe</button>
                 </div>
             </div>
         </form>
