@@ -160,8 +160,9 @@ img.logo {
 }
 
 #size-warning {
+    display: none;
     padding: 2%;
-    font-size: 1.5em;
+    font-size: 1.5em;   
 }
 
 /*--BUTTONS--*/
