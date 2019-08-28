@@ -10,7 +10,7 @@ This website was designed for educational purposes only for the Code Institute. 
 ---
 
 ## **Motivation/Purpose**
-This is my third milestone project for the Full Stack Software Development course through Code Institute.  The decision to create this site came from a passion for exploring New Zealand's wilderness with family and friends.  I wanted to put together a simple site that gave the user fast access to key camping information like huts and campsites around the country.  I wanted to display each site on a simple easy to follow map so that locations could be identified quickly and the end user could narrow down their search in the shortest amount of time.
+This is my third milestone project for the Full Stack Software Development course through Code Institute.  I decided to create this website because I am a Type 1 Diabetic.  Myself and others with the condition often struggle to find good recipes and meal ideas that will not affect our blood glucose levels dramatically.  The only diet that has worked to help control this has been a low carb one so I wanted to make a site where other diabetics and followers of a low carb lifestyle can easily find delicious and healthy recipes.
 
 ---
 
@@ -20,11 +20,11 @@ This is my third milestone project for the Full Stack Software Development cours
 
 **Research:**
 
- I spoke with travellers staying at three local camping grounds to ask what they thought would be most helpful in an app to assist them with their travel plans.  I also spoke to friends and family as well as hunters that use DOC (Department of Conservation) land regularly.  The overall consensus was that a simple responsive map was all that was needed so that users could quickly locate places to stay as well as some key information about each site.  It was important that it could be used on a mobile phone especially for travellers as they were often on the road already when looking for the next place to stay.
+ I consider myself quite knowledgable in this area as I have lived the low carb lifestyle for many years now. I also created my own low carb Facebook page for diabetics in New Zealand that at the time of writting this has over 1500 members and continues to grow almost daily.  Via my Facebook page I am able to discuss, learn, teach and share ideas, the page was a great inspiration for this project which I intend to eventually extend on to include restaurant recommendation for people looking for somewhere to eat the offer low carb friendly options.  My facebook page alone has already changed so many lives for the better and I see this project as the start of another venture that will continue to help make diabetics lives easier and improve their health along the way.
 
 **Audience:** 
 
- This site was designed for travellers and the general public looking places to stay within the DOC areas or New Zealand wilderness.
+ Anyone with diabetes or anyone following a low carb lifestyle.
 
 ### **_Scope_**
 
