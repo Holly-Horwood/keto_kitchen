@@ -1,9 +1,9 @@
 {% extends 'base.html'%} {% block content %}
 
 <div class="container full-container">
+    <h3 class="full-recipe-name">{{recipe.recipe_name}}</h3>
     <div class="row full-row">
-        <div class="col-lg-6 col-sm-12 rec2">
-            <h3 class="full-recipe-name">{{recipe.recipe_name}}</h3>
+        <div class="col-lg-6 col-sm-12 text-center">  
             <img class="full-img img-fluid img-thumbnail" src="{{recipe.image_url}}" alt="Photo of dish" />
             <div class="rw-ui-container thumbnail-rw"></div>
             <h6 class="intro">{{recipe.blurb}}</h6>
