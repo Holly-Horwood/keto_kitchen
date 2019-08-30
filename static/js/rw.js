@@ -1,4 +1,4 @@
-<script type="text/javascript">(function (d, t, e, m) {
+(function (d, t, e, m) {
 
 // Async Rating-Widget initialization.
 window.RW_Async_Init = function () {
@@ -21,4 +21,4 @@ rw = d.createElement(e);
 rw.id = id; rw.async = true; rw.type = "text/javascript";
 rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
 s.parentNode.insertBefore(rw, s);
-}(document, new Date(), "script", "rating-widget.com/"));</script>
+}(document, new Date(), "script", "rating-widget.com/"));
