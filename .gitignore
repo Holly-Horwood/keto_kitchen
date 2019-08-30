@@ -1,3 +1,2 @@
-.flaskenv
-config.py
 *.pyc
+env\bin\activate
