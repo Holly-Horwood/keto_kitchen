@@ -1,0 +1,38 @@
+<div class="row recipe-row">
+    {% for recipe in recipes %}
+    <div class="col-lg-4 deck-col">
+        <div class="card-deck">
+            <div class="card">
+                <a href="{{ url_for('full_recipe', recipe_id=recipe._id) }}">
+                    <img class="card-img-top recipe-pic" src="{{recipe.image_url}}" alt="Photo of finished dish"></a>
+                <div class="rw-ui-container"></div>
+                <div class="card-body recipe-body">
+                    <h5 class="recipe-title">{{recipe.recipe_name}}</h5>
+                    <div class="input-field col-sm-12">
+                        <i class="far fa-clock recipe-icons"></i>
+                        <label class="time-text" for="icon-prefix">Prep Time (mins)</label>
+                        <h6 class="time">{{recipe.prep_time}}</h6>
+                    </div>
+                    <div class="input-field col-sm-10">
+                        <i class="fas fa-hourglass-end recipe-icons"></i>
+                        <label class="time-text" for="icon-prefix">Cook Time (mins)</label>
+                        <h6 class="time">{{recipe.cook_time}}</h6>
+                    </div>
+                    <div class="input-field col-sm-10">
+                        <i class="fas fa-utensils recipe-icons"></i>
+                        <label class="time-text" for="icon-prefix">Serves</label>
+                        <h6 class="time">{{recipe.serves}}</h6>
+                    </div>
+                    <h6 class="per-serve">Per Serve - </h6>
+                    <h6 class="nutrition">Calories: {{recipe.calories}} | Carbs: {{recipe.carbs}}g | Protein:
+                        {{recipe.protein}}g
+                    </h6>
+                    <p class="card-text intro">{{recipe.blurb}}</p>
+                    <a href="{{ url_for('full_recipe', recipe_id=recipe._id) }}" class="btn btn-success full-btn">Full
+                        Recipe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

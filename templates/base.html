@@ -14,34 +14,12 @@
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap" rel="stylesheet">
     <!--CSS STYLESHEET-->
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+    <!--RW.JS REFERENCE-->
+    <link rel="stylesheet" href="{{url_for('static', filename='js/rw.js')}}" type="text/javascript" />
     <!--FAVICON-->
     <link rel="shorthcut icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png')}}" />
     <title>Keto Kitchen</title>
 </head>
-<script type="text/javascript">(function (d, t, e, m) {
-
-    // Async Rating-Widget initialization.
-    window.RW_Async_Init = function () {
-
-        RW.init({
-            huid: "437892",
-            uid: "b8f0489f0ec9dd26a60d071b1b0804b7",
-            options: { "style": "oxygen" }
-        });
-        RW.render();
-    };
-    // Append Rating-Widget JavaScript library.
-    var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
-        l = d.location, ck = "Y" + t.getFullYear() +
-            "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
-        f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
-        a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
-    if (d.getElementById(id)) return;
-    rw = d.createElement(e);
-    rw.id = id; rw.async = true; rw.type = "text/javascript";
-    rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
-    s.parentNode.insertBefore(rw, s);
-}(document, new Date(), "script", "rating-widget.com/"));</script>
 
 <body class="background">
     <header>

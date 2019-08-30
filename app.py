@@ -18,6 +18,22 @@ db = client.keto_kitchen
 
 mongo = PyMongo(app)
 
+# Home Page
+@app.route('/')
+def home():
+    return render_template('index.html', recipes=mongo.db.recipes.find().sort('date', pymongo.DESCENDING), courses=mongo.db.courses.find(), cuisines=mongo.db.cuisines.find(), diets=mongo.db.diets.find())
+
+#Gets id for requested recipe and renders the full recipe template when full recipe link is clicked on in index.html
+@app.route('/full_recipe/<recipe_id>')   
+def full_recipe(recipe_id):
+    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    #searches fields and splits array at the pipes
+    ingredients_split = the_recipe['ingredients'].split('|')
+    method_split = the_recipe['method'].split('|')
+    dietString = ", ".join(the_recipe['diet'])
+    courseString = ", ".join(the_recipe['course'])
+    return render_template('fullrecipe.html', recipe=the_recipe, ingredients=ingredients_split, method=method_split, dietString=dietString, courseString=courseString)
+
 # Add and Edit Pages
 def update(is_edit, recipe_id=0 ):
     recipe_dict = request.form.to_dict()
@@ -49,22 +65,6 @@ def update(is_edit, recipe_id=0 ):
     else:
         recipes.insert_one(recipe_dict) #adds recipe to database as key value pairs
 
-# Home Page
-@app.route('/')
-def home():
-    return render_template('index.html', recipes=mongo.db.recipes.find().sort('date', pymongo.DESCENDING), courses=mongo.db.courses.find(), cuisines=mongo.db.cuisines.find(), diets=mongo.db.diets.find())
-
-#Gets id for requested recipe and renders the full recipe template when full recipe link is clicked on in index.html
-@app.route('/full_recipe/<recipe_id>')   
-def full_recipe(recipe_id):
-    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    #searches fields and splits array at the pipes
-    ingredients_split = the_recipe['ingredients'].split('|')
-    method_split = the_recipe['method'].split('|')
-    dietString = ", ".join(the_recipe['diet'])
-    courseString = ", ".join(the_recipe['course'])
-    return render_template('fullrecipe.html', recipe=the_recipe, ingredients=ingredients_split, method=method_split, dietString=dietString, courseString=courseString)
-
 #Gets blank form to add recipe, once completed posts to add then redirects to home page.
 @app.route('/add_recipe', methods=['GET', 'POST']) 
 def add_recipe():
@@ -73,7 +73,6 @@ def add_recipe():
     else:    #user has submitted the form:
         update(False)
     return redirect(url_for('home'))
-
 
 #Gets full recipe in an editable form for updating then redirects to home page once posted
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST']) 
@@ -90,29 +89,31 @@ def edit_recipe(recipe_id):
         return redirect(url_for('home'))
 
 #Searches for recipes with matching data
+def search_recipes(cuisineSelected, courseSelected, dietSelected):
+    query = {}
+    if (cuisineSelected): # appends to query the users selected cuisine
+        query.update({'cuisine' : cuisineSelected})
+
+    # if user has made a selection appends to query
+    if len(list(courseSelected)) != 0 and courseSelected[0] != "":
+        query.update({'course' : {"$in": courseSelected} })
+
+    if len(list(dietSelected)) != 0 and dietSelected[0] != "":
+        query.update({'diet' : {"$in": dietSelected} })
+
+    return mongo.db.recipes.find(query)
+
+#Display search results page based on user selections
 @app.route("/display_results", methods=['GET'])
 def display_results():
-    query = {}
-    if (request.args['cuisine']): # appends to query the users selected cuisine
-        query.update({'cuisine' : request.args['cuisine']})
-
-    getCourse = request.args.getlist('course') # if user has made a selection appends to query
-    if len(list(getCourse)) != 0 and getCourse[0] != "":
-        query.update({'course' : {"$in": getCourse} })
-
-    getDiet = request.args.getlist('diet')
-    if len(list(getDiet)) != 0 and getDiet[0] != "":
-        query.update({'diet' : {"$in": getDiet} })
-
-    #sets URL parameters
-    courseSelected = request.args['course']
+    #read in user selections from query string
+    courseSelected = request.args.getlist('course')
     cuisineSelected = request.args['cuisine']
-    dietSelected = request.args['diet']
+    dietSelected = request.args.getlist('diet')
 
-    print(query)
-    print(getCourse, getDiet)
+    recipe_results = search_recipes(cuisineSelected, courseSelected, dietSelected)
 
-    return render_template("results.html", recipes=mongo.db.recipes.find(query), courses=mongo.db.courses.find(), cuisines=mongo.db.cuisines.find(), diets=mongo.db.diets.find(), courseSelected=courseSelected, cuisineSelected=cuisineSelected, dietSelected=dietSelected) #executes the query
+    return render_template("results.html", recipes=recipe_results, courses=mongo.db.courses.find(), cuisines=mongo.db.cuisines.find(), diets=mongo.db.diets.find(), courseSelected=courseSelected, cuisineSelected=cuisineSelected, dietSelected=dietSelected) #executes the query
 
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
