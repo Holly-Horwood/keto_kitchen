@@ -17,14 +17,12 @@ const checkImageSize = function(event) {
     document.getElementById('size-warning').style.visibility = "visible";
   } 
 };
-
   
-   
 
 //Bootstrap autofocus for modal 
-/*$('#loginModal').on('shown.bs.modal', function () {
+$('#loginModal').on('shown.bs.modal', function () {
   $('#loginModal').trigger('focus')
-});*/
+});
 
 // Change nav colour on scroll - Code courtesy of System 22 I.T. Solutions https://www.youtube.com/watch?v=AM-GT_0Uu5w
 $(window).scroll(function() {

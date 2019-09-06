@@ -1,7 +1,7 @@
 {% extends 'base.html'%}
 
 {% block content %}
-
+<!--ADD RECIPE PAGE-->
 <div class="container-fluid recipe-form">
     <h3 class="add-title">Add Recipe</h3>
     <div class="row add-row">
@@ -23,12 +23,12 @@
                     <input class="recipe-field" required name="recipe_author" type="text" class="validate">
                 </div>
             </div>
-
+            <!--SEARCH OPTIONS-->
             <div class="container search-container">
                 <div class="row select-row">
                     <h4 class="search-title">Choose Search Options</h4>
-                    <!--SEARCH OPTIONS-->
                     <div class="add-course-field col-sm-12">
+                    <!--COURSE-->    
                         <label>Course</label>
                         <label><strong>Course</strong> <em> &nbsp;- check all that apply &nbsp;</em>
                             {% for course in courses %}
@@ -36,7 +36,7 @@
                             {% endfor %}
                         </label>
                     </div>
-
+                    <!--CUISINE-->
                     <div class="cuisine-field col-sm-12">
                         <label><strong>Cuisine - </strong>
                             <select class="cusine-select" name="cuisine">
@@ -47,7 +47,7 @@
                             </select>
                         </label>
                     </div>
-
+                    <!--DIET-->
                     <div class="col-sm-4">
                         <div class="add-diet-checkbox">
                             <label><strong>Diet</strong> <em> &nbsp;&nbsp;&nbsp;&nbsp; - check all that apply
@@ -150,7 +150,6 @@
                 </div>
             </div>
             <!--END OF TEXT AREAS-->
-
 
             <!--ADD IMAGE-->
             <div class="row">

@@ -30,23 +30,23 @@ This is my third milestone project for the Full Stack Software Development cours
 
 **Features:**
 
-On a mobile phone or tablet sized device the site simply displays the site title map and search options.  The user only needs to select the parameters for their search and the map will zoom to that location to show them what is available in that area.  Once that map has loaded, markers can be clicked on to show an info window with more details about the site as well as a link to the DOC website for that particular site.
+**Home Page**
 
-On larger devices there are additional left and right side bars.  The left side bar shows photos from around New Zealand for user inspiration and on the right there are some links to helpful related websites and newsletter sign up form. 
+On a smaller device like a mobile phone all recipes will display vertically one by one and on larger devices they will show as a Bootsrap card-deck side by side 3 across at a time.  As search box has been placed at the top of the screen so it is easy for the user to find what they are looking for quickly.  A navigation bar offers a way to add, login or return to the recipes page easily.  The logo can be clicked for quick access to the home page and each recipe contains a clickable image and a full recipe button that will both take the user to the full screen recipe. 
 
-### **_Structure_**
+Each recipe includes some basic information like and overview blurb about the recipe, image, cooking time, calories, carbs, ratings etc to help the user decide which recipe they would like to make. 
 
-**Navigation:**
+**Full Recipe Page**
 
-It is essential that the site is easy to navigate on different sized devices and that it is obvious how to use it. This was designed mobile first and is a single page static site for easy navigation, any external links can be clicked on and will open on a separate page so the user still has the original page open to easily return to. 
+**Recipe Search Results Page**
 
-The map uses both a dropdown and radio buttons.  The user can select which Island they would like to search from the drop down, once they select either campsite or hut from the radio buttons the page will them automatically zoom to their selected location, switch to terrain view and populate with markers.  If there are a lot of matching sites in a particular area the markers will cluster, the user can then click on the cluster to zoom in more.  When the user has found a site they are interested in they can click on the marker to view more information about the site in a pop up info window.  The info window also offers a link to the DOC website with more information about that particular site.  The site also uses a loader/spinner to indicate to the user when the page is loading.
+**Login Page**
+
+This is linked to a modal that is not functioning as this is not required for this project.
 
 ### **_Skeleton_**
 
-**Wireframes:**
-
-![Balsamic Mockup](assets/images/mockup.png)
+**Wireframes:**![Balsamic Mockup](assets/images/mockup.png)
 
 ### **_Surface_**
 
