@@ -52,11 +52,11 @@ body {
     color: #5c5151;
 }
 
-.card-deck, .select-row, .full-container, .search-container {
+.card-deck, .select-row, .full-container, .search-container, .add-search-container {
     background-color: #f1f3f6;
 }
 
-.full-instructions .card-title {
+.full-instructions .card-title, .add-intro-title, .add-ingredients-title, .add-method-title {
     color: #61BF3F;
 }
 
@@ -192,7 +192,7 @@ img.logo {
     font-size: 3em;
 }
 
-.full-instructions .card-title {
+.full-instructions .card-title, .add-intro-title, .add-ingredients-title, .add-method-title {
     font-family: 'Kaushan Script', cursive;
     margin-top: 2%;
     font-size: 2em;
@@ -202,20 +202,25 @@ img.logo {
 .search-title{
     font-family: 'Kaushan Script', cursive;
     text-align: left;
-    font-size: 1.5em;
+    font-size: 1.7em;
     margin: 0;
-    padding: 2%;
+    padding-bottom: 1%;
+}
+
+.row-titles {
+    margin-top: 5%;
 }
 
 /*--SEARCH AREAS--*/
 
 .search-container {
-    width: 100%;
+    width: 90%;
     margin: 8px 0;
 }
 
 .select-row {
     padding: 2%;
+    padding-right: 0%;
 }
 
 .search-list {
@@ -236,6 +241,11 @@ img.logo {
     box-shadow: 10px 15px 18px -6px #948794;
 }
 
+.card-deck .card {
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .deck-col {
     margin-bottom: 3%;
 }
@@ -253,7 +263,7 @@ img.logo {
 
 .recipe-summary {
     position: relative;
-}
+}  
 
 .full-container {
     box-shadow: 10px 10px 5px 0px #b5b1b5;
@@ -265,7 +275,6 @@ img.logo {
     margin-left: 2%;
     margin-top: 2%;
 }
-
 
 .recipe-row {
     padding: 2%;
@@ -282,7 +291,22 @@ img.logo {
     float: right;
 }
 
-.diet-field {
+.add-search-container {
+    padding: 2%;
+    margin-top: 2%;
+}
+
+.add-number-field {
+    width: 40%;
+    display: inline;
+    float: right;
+}
+
+.add-input-field {
+    display: inline;
+}
+
+.diet-field, .add-recipe-form {
     margin-top: 2%;  
 }
 
@@ -290,6 +314,14 @@ img.logo {
     vertical-align: middle;
     display: inline-block;
     padding-left: 0;
+}
+
+.recipe-name {
+    width: 70%;
+}
+
+.recipe-author {
+    width: 40%;
 }
 
 .recipe-icons, .label, .time-text {
@@ -309,17 +341,13 @@ img.logo {
 .intro-text, .ingredients-text, .method-text {
     margin-bottom: 3%;
     padding: 1%;
+    height: 20vh;
     
 }
 
 .intro {
     margin-top: 2%;
     font-size: 1rem;
-}
-
-.add-row {
-    padding: 5%;
-    padding-top: 2%;
 }
 
 .textareas {
@@ -387,7 +415,7 @@ img.logo {
     width: 30vh;
 }
 
-.recipe-form {
+.add-recipe-form {
     width: 70%;
 }
 

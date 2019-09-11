@@ -46,7 +46,7 @@ This is linked to a modal that is not functioning as this is not required for th
 
 ### **_Skeleton_**
 
-**Wireframes:**![Balsamic Mockup](assets/images/mockup.png)
+**Wireframes:**![Balsamic Mockup](static/images/mockup.png)
 
 ### **_Surface_**
 
