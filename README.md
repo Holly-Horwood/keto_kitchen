@@ -46,9 +46,13 @@ This is linked to a modal that is not functioning as this is not required for th
 
 ### **_Skeleton_**
 
-**Wireframes:**![Balsamic Mockup](static/images/mockup.png)
+**Wireframes:**
+![Balsamic Mockup1](static/images/kitchen-mockup4.png)
+![Balsamic Mockup2](static/images/kitchen-mockup3.png)
+![Balsamic Mockup3](static/images/kitchen-mockup2.png)
+![Balsamic Mockup4](static/images/kitchen-mockup1.png)
 
-### **_Surface_**
+### **_Surface_** 
 
 I designed this site using modern neutral colours.  Different variations of green are used throughout the site to represent the element of nature.  I chose grey and white for the map so as not to detract from the marker colours.  The site is very simplistic making it easier for the user to identify key areas quickly so they can use the site effectively.  The map does offer some extra features like the ability to switch from terrain view to satellite so that the user can see more detail on the map.  On the larger view there are more images and links to help and inspire the user.
 
