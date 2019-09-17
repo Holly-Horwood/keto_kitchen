@@ -25,27 +25,12 @@ body {
     color: #61BF3F;
 }
 
-.navbar-light.scroll {
-    background-color: #fff;
-}
-
-.page-link {
-    color: #887f7f;
-}
-
-.page-item.active .page-link {
-    color: #fff;
-    background-color: #61BF3F;
-    border-color: #61BF3F;
-}
-
-.page-link:hover {
-    color: #fff;
-    background-color: #887f7f;
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #1a6807;
 }    
 
-nav li a:hover{
-    color: #1a6807;
+.navbar-light.scroll {
+    background-color: #fff;
 }
 
 body {
@@ -60,19 +45,28 @@ body {
     color: #61BF3F;
 }
 
-.search-btn, .add-btn, .login-btn, .edit-btn, .delete-btn, #size-warning, .full-btn {
+.search-btn, .add-btn, .login-btn, .edit-btn, #size-warning, .full-btn {
     color: #fff;
     background-color: #61BF3F;
-}
-
-.btn-primary {
     border-color: #61BF3F;
-    background-color: #61BF3F;
 }
 
-.btn-primary:hover {
+.btn:hover {
+    color: #fff;
     background-color: #1a6807;
     border-color: #1a6807;
+}
+
+.delete-btn {
+    color: #fff;
+    background-color: #389bd4;
+    border-color: #389bd4;
+}
+
+.delete-btn:hover {
+    color: #fff;
+    background-color: #0c527a;
+    border-color: #0c527a;
 }
 
 .add-title, .recipe-title, .search-title, .recipes-title, .edit-title, .full-recipe-name, .recipe-icons, .matching-title, .per-serve {
@@ -173,6 +167,10 @@ img.logo {
 
 .add-btn {
     margin-bottom: 70px;
+}
+
+.edit-form {
+    margin-right: 30px;
 }
 
 /*--TITLES--*/
@@ -301,7 +299,7 @@ img.logo {
     float: right;
 }
 
-.add-input-field {
+.add-input-field, .edit-input-field {
     display: inline;
 }
 

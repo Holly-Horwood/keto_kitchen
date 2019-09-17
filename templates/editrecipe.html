@@ -4,8 +4,6 @@
 
 <div class="container-fluid recipe-form">
     <h3 class="add-title">Edit Recipe</h3>
-
-
     <div class="row add-row">
         <form action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" method="POST" enctype="multipart/form-data"
             class="form-group col-sm-12">
@@ -133,7 +131,7 @@
                             id="ingredients">{{ingredients}}</textarea>
                     </div>
                     <!--METHOD-->
-                    <div class="input-field">
+                    <div class="edit-input-field">
                         <label for="icon-prefix">Method</label>
                         <textarea class="method-text" rows="4" cols="50" name="method" id="method">{{method}}</textarea>
                     </div>

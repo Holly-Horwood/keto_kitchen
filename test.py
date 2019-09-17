@@ -46,12 +46,29 @@ class WebTests(unittest.TestCase):
     def tearDown(self):
         pass 
 
-# Test that the add_recipe page can be found
     def test_that_add_recipe_page_found(self):
         response = app.test_client(self).get('/add_recipe', follow_redirects=True)
         self.assertEqual(response.status_code, 200, "add_recipe returned status code %s should be 200" % str(response.status_code)) 
- # Coph abpve and try for different pages, id will be needed for edit and full recipe ie '/edit_recipe/52156632566'  TODO: to run test python test.py
 
+
+    def test_that_edit_recipe_page_found(self):
+        response = app.test_client(self).get('/edit_recipe/5d58f86d4f2214bd76ef9a21', follow_redirects=True)
+        self.assertEqual(response.status_code, 200, "edit_recipe returned status code %s should be 200" % str(response.status_code))
+
+
+    def test_that_full_recipe_page_found(self):
+        response = app.test_client(self).get('/full_recipe/5d58f86d4f2214bd76ef9a21', follow_redirects=True)
+        self.assertEqual(response.status_code, 200, "full_recipe returned status code %s should be 200" % str(response.status_code))
+
+
+    def test_that_results_page_found(self):
+        response = app.test_client(self).get('/display_results?course=Main&course=&cuisine=&diet=Low+Carb&diet=', follow_redirects=True)
+        self.assertEqual(response.status_code, 200, "display_results returned status code %s should be 200" % str(response.status_code)) 
+
+
+    def test_that_index_page_found(self):
+        response = app.test_client(self).get('/', follow_redirects=True)
+        self.assertEqual(response.status_code, 200, "index page returned status code %s should be 200" % str(response.status_code))       
 
 if __name__=="__main__":
     unittest.main()
