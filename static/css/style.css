@@ -214,8 +214,7 @@ img.logo {
 /*--SEARCH AREAS--*/
 
 .search-container {
-    width: 90%;
-    margin: 8px 0;
+    width: 100%;
 }
 
 .select-row {
