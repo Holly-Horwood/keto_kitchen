@@ -37,11 +37,11 @@ body {
     color: #5c5151;
 }
 
-.card-deck, .select-row, .full-container, .search-container, .add-search-container {
+.card-deck, .select-row, .full-container, .search-container, .change-search-container {
     background-color: #f1f3f6;
 }
 
-.full-instructions .card-title, .add-intro-title, .add-ingredients-title, .add-method-title {
+.full-instructions .card-title, .change-intro-title, .change-ingredients-title, .change-method-title {
     color: #61BF3F;
 }
 
@@ -139,6 +139,13 @@ img.logo {
 .image-preview {
     width: 300px;
     height: 300px;
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+.updated-image {
+    margin-top: 3%;
+    margin-left: 2%;
 }
 
 .full-img{
@@ -190,7 +197,7 @@ img.logo {
     font-size: 3em;
 }
 
-.full-instructions .card-title, .add-intro-title, .add-ingredients-title, .add-method-title {
+.full-instructions .card-title, .change-intro-title, .change-ingredients-title, .change-method-title {
     font-family: 'Kaushan Script', cursive;
     margin-top: 2%;
     font-size: 2em;
@@ -288,22 +295,22 @@ img.logo {
     float: right;
 }
 
-.add-search-container, .edit-search-container {
+.change-search-container {
     padding: 2%;
     margin-top: 2%;
 }
 
-.add-number-field, .edit-number-field {
-    width: 40%;
+.change-number-field {
+    width: 20%;
     display: inline;
     float: right;
 }
 
-.add-input-field, .edit-input-field {
+.change-input-field {
     display: inline;
 }
 
-.diet-field, .add-recipe-form, .edit-recipe-form {
+.diet-field, .change-recipe-form {
     margin-top: 2%;  
 }
 
@@ -338,8 +345,11 @@ img.logo {
 .intro-text, .ingredients-text, .method-text {
     margin-bottom: 3%;
     padding: 1%;
-    height: 20vh;
-    
+    height: 20vh;  
+}
+
+.row-text {
+    text-align: center;
 }
 
 .intro {
@@ -412,7 +422,7 @@ img.logo {
     width: 30vh;
 }
 
-.add-recipe-form, .edit-recipe-form {
+.change-recipe-form {
     width: 70%;
 }
 

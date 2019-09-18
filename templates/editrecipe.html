@@ -1,47 +1,47 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<!--EDIT RECIPE PAGE-->
 <h3 class="edit-title">Edit Recipe</h3>
-<div class="container-fluid edit-recipe-form">
-    <form action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" method="POST" enctype="multipart/form-data">
-            <div class="row row-titles">
-                <div class="col-sm-12 col-lg-4">
-                    <!--RECIPE NAME-->
-                    <div class="row field-row">
-                        <div class="input-field col-sm-12 col-md-6">
-                            <i class="fas fa-clipboard-list recipe-icons"></i>
-                            <label for="icon-prefix">Recipe Name</label>
-                            <input class="recipe-field" name="recipe_name" type="text" class="validate"
-                                value="{{recipe.recipe_name}}">
-                        </div>
-                    </div>
+<div class="container-fluid change-recipe-form">
+        <form action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" method="POST" enctype="multipart/form-data">
+        <div class="row row-titles">
+            <div class="col-sm-12 col-lg-4">
+                <!--RECIPE NAME-->
+                <div class="change-name-field">
+                    <i class="fas fa-clipboard-list recipe-icons"></i>
+                    <label for="icon-prefix">Recipe Name</label>
+                    <input class="recipe-name" name="recipe_name" type="text" class="validate"
+                        value="{{recipe.recipe_name}}">
                 </div>
+            </div>
+            <div class="col-sm-12 col-lg-8">
                 <!--AUTHOR-->
-                <div class="row">
-                    <div class="input-field col-sm-12 col-md-6">
-                        <i class="fas fa-user recipe-icons"></i>
-                        <label for="icon-prefix">Author</label>
-                        <input class="recipe-field" name="recipe_author" type="text" class="validate"
-                            value="{{recipe.recipe_author}}">
-                    </div>
+                <div class="change-name-field">
+                    <i class="fas fa-user recipe-icons"></i>
+                    <label for="icon-prefix">Author</label>
+                    <input class="recipe-author" name="recipe_author" type="text" class="validate" value="{{recipe.recipe_author}}">
                 </div>
-            </div>    
+            </div>
+        </div>
 
-            <div class="edit-search-container">
-                <div class="row row-search">
-                    <h4 class="search-title">Choose Search Options</h4>
+        <div class="change-search-container">
+            <div class="row row-search h-100">
+                <div class="col-sm-12 col-lg-8 my-auto">
                     <!--SEARCH OPTIONS-->
-                    <div class="edit-course-field col-sm-12">
-                        <label>Course:</label>
-                        <p class="diet-p"><em>check all that apply</em></p>
-                        {% for course in courses %}
-                        <input type="checkbox" name="course" value="{{course.course}}"
-                            {{'checked' if course.course in recipe.course else ''}} />{{course.course}}
-                        {% endfor %}
+                    <h4 class="search-title">Choose Search Options</h4>
+                    <div class="edit-course-field">
+                        <!--COURSE-->
+                        <label><strong>Course</strong> <em> &nbsp;- check all that apply &nbsp;</em>
+                            {% for course in courses %}
+                            <input type="checkbox" name="course" value="{{course.course}}"
+                                {{'checked' if course.course in recipe.course else ''}} />{{course.course}}
+                            {% endfor %}
+                        </label>
                     </div>
-
-                    <div class="cuisine-field col-sm-12">
-                        <label>Cuisine:</label>
+                    <!--CUISINE-->
+                    <div class="cuisine-field">
+                        <label><strong>Cuisine - </strong>
                         <select name="cuisine">
                             <option value="">-- select one --</option>
                             {% for cuisine in cuisines %}
@@ -50,124 +50,125 @@
                             {% endfor %}
                         </select>
                     </div>
-
-                    <div class="edit-diet-field col-sm-12">
-                        <label>Diet:</label>
-                        <p class="diet-p"><em>check all that apply</em></p>
-                        {% for diet in diets %}
-                        <input type="checkbox" name="diet" value="{{diet.diet}}"
-                            {{'checked' if diet.diet in recipe.diet else ''}} />{{diet.diet}}
-                        {% endfor %}
+                    <!--DIET-->
+                    <div class="edit-diet-field">
+                        <label><strong>Diet</strong> <em> &nbsp;&nbsp;&nbsp;&nbsp; - check all that apply &nbsp;</em>
+                            {% for diet in diets %}
+                            <input type="checkbox" name="diet" value="{{diet.diet}}"
+                                {{'checked' if diet.diet in recipe.diet else ''}} />{{diet.diet}}
+                            {% endfor %}
+                        </label>
                     </div>
                 </div>
+
+
+                <!--START OF NUMBER FIELDS-->
+                <div class="col-sm-12 col-lg-4">
+                    <!--PREP TIME-->
+                    <div class="prep">
+                        <div class="change-input-field">
+                            <i class="far fa-clock recipe-icons"></i>
+                            <label for="icon-prefix">Prep Time (mins)</label>
+                            <input class="change-number-field" name="prep_time" type="text" class="validate" value="{{recipe.prep_time}}">
+                        </div>
+                    </div>    
+                        <!--COOK TIME-->
+                        <div class="cook">
+                            <div class="change-input-field">
+                                <i class="fas fa-hourglass-end recipe-icons"></i>
+                                <label for="icon-prefix">Cook Time (mins)</label>
+                                <input class="change-number-field" name="cook_time" type="text" class="validate" value="{{recipe.cook_time}}">
+                            </div>
+                        </div>
+                        <!--SERVES-->
+                        <div class="serves">
+                            <div class="change-input-field">
+                                <i class="fas fa-utensils recipe-icons"></i>
+                                <label for="icon-prefix">Serves</label>
+                                <input class="change-number-field" name="serves" type="text" class="validate" value="{{recipe.serves}}">
+                            </div>
+                        </div>
+                        <!--CALORIES-->
+                        <div class="calories">
+                            <div class="change-input-field">
+                                <i class="fas fa-balance-scale recipe-icons"></i>
+                                <label for="icon-prefix">Calories (per serve)</label>
+                                <input class="change-number-field" name="calories" type="text" class="validate" value="{{recipe.calories}}">
+                            </div>
+                        </div>
+                        <!--CARBS-->
+                        <div class="carbs">
+                            <div class="change-input-field">
+                                <i class="fas fa-pizza-slice recipe-icons"></i>
+                                <label for="icon-prefix">Carbs (per serve)</label>
+                                <input class="change-number-field" name="carbs" type="text" class="validate" value="{{recipe.carbs}}">
+                            </div>
+                        </div>
+                        <!--PROTEIN-->
+                        <div class="protein">
+                            <div class="change-input-field">
+                                <i class="fas fa-drumstick-bite recipe-icons"></i>
+                                <label for="icon-prefix">Protein (per serve)</label>
+                                <input class="change-number-field" name="protein" type="text" class="validate" value="{{recipe.protein}}">
+                            </div>
+                        </div>
+                    </div>
+                    <!--END OF NUMBER FIELDS-->
+                </div>
             </div>
-            <!--START OF NUMBER FIELDS-->
+        
+
+        <div class="row row-text">
             <div class="col-sm-12 col-lg-4">
-                <!--PREP TIME-->
-                <div class="prep">
-                    <div class="edit-input-field col-sm-12">
-                        <i class="far fa-clock recipe-icons"></i>
-                        <label for="icon-prefix">Prep Time (mins)</label>
-                        <input class="edit-number-field" name="prep_time" type="text" class="validate"
-                            value="{{recipe.prep_time}}">
-                    </div>
-                </div>
-                <!--COOK TIME-->
-                <div class="row">
-                    <div class="edit-input-field col-sm-12">
-                        <i class="fas fa-hourglass-end recipe-icons"></i>
-                        <label for="icon-prefix">Cook Time (mins)</label>
-                        <input class="edit-number-field" name="cook_time" type="text" class="validate"
-                            value="{{recipe.cook_time}}">
-                    </div>
-                </div>
-                <!--SERVES-->
-                <div class="row">
-                    <div class="edit-input-field col-sm-12">
-                        <i class="fas fa-utensils recipe-icons"></i>
-                        <label for="icon-prefix">Serves</label>
-                        <input class="edit-number-field" name="serves" type="text" class="validate"
-                            value="{{recipe.serves}}">
-                    </div>
-                </div>
-                <!--CALORIES-->
-                <div class="row">
-                    <div class="edit-input-field col-sm-12">
-                        <i class="fas fa-balance-scale recipe-icons"></i>
-                        <label for="icon-prefix">Calories (per serve)</label>
-                        <input class="number-field" name="calories" type="text" class="validate"
-                            value="{{recipe.calories}}">
-                    </div>
-                </div>
-                <!--CARBS-->
-                <div class="row">
-                    <div class="edit-input-field col-sm-12">
-                        <i class="fas fa-pizza-slice recipe-icons"></i>
-                        <label for="icon-prefix">Carbs (per serve)</label>
-                        <input class="number-field" name="carbs" type="text" class="validate" value="{{recipe.carbs}}">
-                    </div>
-                </div>
-                <!--PROTEIN-->
-                <div class="row">
-                    <div class="edit-input-field col-sm-12">
-                        <i class="fas fa-drumstick-bite recipe-icons"></i>
-                        <label for="icon-prefix">Protein (per serve)</label>
-                        <input class="number-field" name="protein" type="text" class="validate"
-                            value="{{recipe.protein}}">
-                    </div>
+                <!--INTRO-->
+                <div class="change-name-field">
+                    <label class="change-intro-title" for="intro">Introduction</label>
+                    <textarea class="intro-text" rows="4" cols="50" required name="blurb" id="blurb"
+                        placeholder="Please enter a short blurb about your recipe"></textarea>
                 </div>
             </div>
-            <!--END OF NUMBER FIELDS-->
+            <div class="col-sm-12 col-lg-4">
+                <!--INGREDIENTS-->
+                <div class="change-name-field">
+                    <label class="change-ingredients-title" for="icon-prefix">Ingredients</label>
+                    <textarea class="ingredients-text" rows="4" cols="50" required name="ingredients" id="ingredients"
+                        placeholder="Please hit enter after each ingredient so it is on a new line"></textarea>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-4">
+                <!--METHOD-->
+                <div class="change-name-field">
+                    <label class="change-method-title" for="icon-prefix">Method</label>
+                    <textarea class="method-text" rows="4" cols="50" required name="method" id="method"
+                        placeholder="Please hit enter after each instruction so it is on a new line"></textarea>
+                </div>
+            </div>
+        </div>
 
-            <!--START OF TEXT AREAS-->
-            <div class="row">
-                <div class="textareas form-group">
-                    <!--INTRO-->
-                    <div class="edit-input-field">
-                        <label for="intro">Introduction</label>
-                        <textarea class="intro-text" rows="4" cols="50" name="blurb"
-                            id="blurb">{{recipe.blurb}}</textarea>
-                    </div>
-                    <!--INGREDIENTS-->
-                    <div class="edit-input-field">
-                        <label for="icon-prefix">Ingredients</label>
-                        <textarea class="ingredients-text" rows="4" cols="50" name="ingredients"
-                            id="ingredients">{{ingredients}}</textarea>
-                    </div>
-                    <!--METHOD-->
-                    <div class="edit-input-field">
-                        <label for="icon-prefix">Method</label>
-                        <textarea class="method-text" rows="4" cols="50" name="method" id="method">{{method}}</textarea>
-                    </div>
-                </div>
+        <!--ADD IMAGE-->
+        <div class="row">
+            <div class="image-preview">
+                <img id="output" class="img-thumbnail img-fluid placeholder-img" src="{{recipe.image_url}}"
+                    alt="Photo of finished dish">
             </div>
-            <!--END OF TEXT AREAS-->
+            <div class="updated-image">
+                <input type="file" accept="image/*" required name="image_file" id="image_file"
+                    onchange="checkImageSize(event); previewFile(event)">
+            </div>
+            <div>
+                <p id="size-warning">Please select a file between 10kb and 20Mb to upload</p>
+            </div>
+        </div>
 
-
-            <!--ADD IMAGE-->
-            <div class="row">
-                <div class="image-preview">
-                    <img id="output" class="img-thumbnail img-fluid" src="{{recipe.image_url}}"
-                        alt="Photo of finished dish">
-                </div>
-                <div class="updated-image">
-                    <input type="file" accept="image/*" name="image_file" id="image_file"
-                        onchange="checkImageSize(event); previewFile(event)">
-                </div>
-                <div>
-                    <p id="size-warning">Please select a file between 10kb and 20Mb to upload</p>
-                </div>
+        <!--ADD BUTTON-->
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <button type="submit" class="btn btn-lg add-btn"><i class="fa fa-plus"></i> Add Recipe</button>
             </div>
-            <!--ADD BUTTON-->
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <button type="submit" class="btn btn-success add-btn">Update Recipe
-                        <i class="fas fa-plus recipe-icons"></i>
-                    </button>
-                </div>
-            </div>
+        </div>
     </form>
 </div>
+
 
 <!-- BUTTON TRIGGER MODAL -->
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#loginModal">

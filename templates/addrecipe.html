@@ -3,12 +3,12 @@
 {% block content %}
 <!--ADD RECIPE PAGE-->
 <h3 class="add-title">Add Recipe</h3>
-<div class="container-fluid add-recipe-form">
+<div class="container-fluid change-recipe-form">
     <form action="{{ url_for('add_recipe') }}" method="POST" enctype="multipart/form-data">
         <div class="row row-titles">
             <div class="col-sm-12 col-lg-4">
                 <!--RECIPE NAME-->
-                <div class="add-input-field">
+                <div class="change-name-field">
                     <i class="fas fa-clipboard-list recipe-icons"></i>
                     <label for="icon-prefix">Recipe Name</label>
                     <input class="recipe-name" required name="recipe_name" type="text" class="validate">
@@ -16,7 +16,7 @@
             </div>
             <div class="col-sm-12 col-lg-8">
                 <!--AUTHOR-->
-                <div class="add-input-field">
+                <div class="change-name-field">
                     <i class="fas fa-user add-fa-user recipe-icons"></i>
                     <label for="icon-prefix">Author</label>
                     <input class="recipe-author" required name="recipe_author" type="text" class="validate">
@@ -24,14 +24,13 @@
             </div>
         </div>
 
-        <div class="add-search-container">    
-            <div class="row row-search">
-                <div class="col-sm-12 col-lg-8">
+        <div class="change-search-container">    
+            <div class="row row-search h-100">
+                <div class="col-sm-12 col-lg-8 my-auto">
                     <!--SEARCH OPTIONS-->
                     <h4 class="search-title">Choose Search Options</h4>
                     <div class="add-course-field">
                         <!--COURSE-->
-                        <label>Course</label>
                         <label><strong>Course</strong> <em> &nbsp;- check all that apply &nbsp;</em>
                             {% for course in courses %}
                             <input type="checkbox" name="course" value="{{course.course}}" /> {{course.course}}
@@ -64,89 +63,79 @@
                 <div class="col-sm-12 col-lg-4">
                     <!--PREP TIME-->
                     <div class="prep">
-                        <div class="add-input-field">
+                        <div class="change-input-field">
                             <i class="far fa-clock recipe-icons"></i>
                             <label for="icon-prefix">Prep Time (mins)</label>
+                            <input class="change-number-field" required name="prep_time" type="text" class="validate">
                         </div>
-                        <div class="add-number-field">
-                        <input class="add-number-field" required name="prep_time" type="text" class="validate">
                     </div>
                     <!--COOK TIME-->
                     <div class="cook">
-                        <div class="add-input-field">
+                        <div class="change-input-field">
                             <i class="fas fa-hourglass-end recipe-icons"></i>
                             <label for="icon-prefix">Cook Time (mins)</label>
-                        </div>
-                        <div class="add-number-field">
-                            <input class="add-number-field" required name="cook_time" type="text" class="validate">
+                            <input class="change-number-field" required name="cook_time" type="text" class="validate">
                         </div>
                     </div>
                     <!--SERVES-->
                     <div class="serves">
-                        <div class="add-input-field">
+                        <div class="change-input-field">
                             <i class="fas fa-utensils recipe-icons"></i>
                             <label for="icon-prefix">Serves</label>
-                        </div>
-                        <div class="add-number-field">
-                        <input class="add-number-field" required name="serves" type="text" class="validate">
+                            <input class="change-number-field" required name="serves" type="text" class="validate">
                         </div>
                     </div>
                     <!--CALORIES-->
                     <div class="calories">
-                        <div class="add-input-field">
+                        <div class="change-input-field">
                             <i class="fas fa-balance-scale recipe-icons"></i>
                             <label for="icon-prefix">Calories (per serve)</label>
-                        </div>
-                        <div class="add-number-field">
-                            <input class="add-number-field" required name="calories" type="text" class="validate">
+                            <input class="change-number-field" required name="calories" type="text" class="validate">
                         </div>
                     </div>
                     <!--CARBS-->
                     <div class="carbs">
-                        <div class="add-input-field">
+                        <div class="change-input-field">
                             <i class="fas fa-pizza-slice recipe-icons"></i>
                             <label for="icon-prefix">Carbs (per serve)</label>
-                        </div>
-                        <div class="add-number-field">
-                            <input class="add-number-field" required name="carbs" type="text" class="validate">
+                            <input class="change-number-field" required name="carbs" type="text" class="validate">
                         </div>
                     </div>
                     <!--PROTEIN-->
                     <div class="protein">
-                        <div class="add-input-field">
+                        <div class="change-input-field">
                             <i class="fas fa-drumstick-bite recipe-icons"></i>
                             <label for="icon-prefix">Protein (per serve)</label>
-                        </div>
-                        <div class="add-number-field">
-                            <input class="add-number-field" required name="protein" type="text" class="validate">
+                            <input class="change-number-field" required name="protein" type="text" class="validate">
                         </div>
                     </div>
                 </div>
-                </div>
+                <!--END OF NUMBER FIELDS-->
             </div>        
-        </div>    
+        </div> 
+           
 
         <div class="row row-text">
             <div class="col-sm-12 col-lg-4">
                 <!--INTRO-->
-                <div class="add-input-field">
-                    <label class="add-intro-title" for="intro">Introduction</label>
+                <div class="change-input-field">
+                    <label class="change-intro-title" for="intro">Introduction</label>
                     <textarea class="intro-text" rows="4" cols="50" required name="blurb" id="blurb"
                         placeholder="Please enter a short blurb about your recipe"></textarea>
                 </div>
             </div>
             <div class="col-sm-12 col-lg-4">
                 <!--INGREDIENTS-->
-                <div class="add-input-field">
-                    <label class="add-ingredients-title" for="icon-prefix">Ingredients</label>
+                <div class="change-input-field">
+                    <label class="change-ingredients-title" for="icon-prefix">Ingredients</label>
                     <textarea class="ingredients-text" rows="4" cols="50" required name="ingredients" id="ingredients"
                         placeholder="Please hit enter after each ingredient so it is on a new line"></textarea>
                 </div>
             </div>
             <div class="col-sm-12 col-lg-4">
                 <!--METHOD-->
-                <div class="add-input-field">
-                    <label class="add-method-title" for="icon-prefix">Method</label>
+                <div class="change-input-field">
+                    <label class="change-method-title" for="icon-prefix">Method</label>
                     <textarea class="method-text" rows="4" cols="50" required name="method" id="method"
                         placeholder="Please hit enter after each instruction so it is on a new line"></textarea>
                 </div>
@@ -171,7 +160,7 @@
         <!--ADD BUTTON-->
         <div class="row">
             <div class="col-sm-12 text-center">
-                <button type="submit" class="btn btn-success add-btn"><i class="fa fa-plus"></i> Add Recipe</button>
+                <button type="submit" class="btn btn-lg add-btn"><i class="fa fa-plus"></i> Add Recipe</button>
             </div>
         </div>
     </form>
