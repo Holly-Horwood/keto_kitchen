@@ -124,7 +124,7 @@
                 <div class="change-name-field">
                     <label class="change-intro-title" for="intro">Introduction</label>
                     <textarea class="intro-text" rows="4" cols="50" required name="blurb" id="blurb"
-                        placeholder="Please enter a short blurb about your recipe"></textarea>
+                        placeholder="Please enter a short blurb about your recipe">{{recipe.blurb}}</textarea>
                 </div>
             </div>
             <div class="col-sm-12 col-lg-4">
@@ -132,7 +132,7 @@
                 <div class="change-name-field">
                     <label class="change-ingredients-title" for="icon-prefix">Ingredients</label>
                     <textarea class="ingredients-text" rows="4" cols="50" required name="ingredients" id="ingredients"
-                        placeholder="Please hit enter after each ingredient so it is on a new line"></textarea>
+                        placeholder="Please hit enter after each ingredient so it is on a new line">{{ingredients}}</textarea>
                 </div>
             </div>
             <div class="col-sm-12 col-lg-4">
@@ -140,7 +140,7 @@
                 <div class="change-name-field">
                     <label class="change-method-title" for="icon-prefix">Method</label>
                     <textarea class="method-text" rows="4" cols="50" required name="method" id="method"
-                        placeholder="Please hit enter after each instruction so it is on a new line"></textarea>
+                        placeholder="Please hit enter after each instruction so it is on a new line">{{method}}</textarea>
                 </div>
             </div>
         </div>
@@ -163,51 +163,10 @@
         <!--ADD BUTTON-->
         <div class="row">
             <div class="col-sm-12 text-center">
-                <button type="submit" class="btn btn-lg add-btn"><i class="fa fa-plus"></i> Update Recipe</button>
+                <button type="submit" class="btn btn-lg edit-btn"><i class="fa fa-plus"></i> Update Recipe</button>
             </div>
         </div>
     </form>
 </div>
-
-
-<!-- BUTTON TRIGGER MODAL -->
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#loginModal">
-    Login
-</button>
-
-<!-- START OF LOGIN MODAL -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="loginModalTitle">Login</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="loginEmail">Email address</label>
-                        <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp"
-                            placeholder="Enter email address">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                            else.</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="loginPassword">Password</label>
-                        <input type="password" class="form-control" id="loginPassword"
-                            placeholder="Enter your password">
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Login</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- END OF LOGIN MODAL -->
 
 {% endblock %}

@@ -28,7 +28,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="loginModalTitle">Only the original author can edit this recipe
+                <h5 class="modal-title" id="loginModalTitle">Only the original author can edit or delete this recipe
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -39,7 +39,7 @@
                     <div class="form-group">
                         <label for="loginEmail">Email address</label>
                         <input type="email" class="form-control" id="loginEmail"
-                            aria-describedby="emailHelp" placeholder="Enter email address">
+                            aria-describedby="emailHelp" placeholder="Enter email address" required>
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with
                             anyone
                             else.</small>
@@ -47,12 +47,12 @@
                     <div class="form-group">
                         <label for="loginPassword">Password</label>
                         <input type="password" class="form-control" id="loginPassword"
-                            placeholder="Enter your password">
+                            placeholder="Enter your password" required>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Login</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Login</button>
             </div>
         </div>
     </div>

@@ -17,7 +17,6 @@ const checkImageSize = function(event) {
     document.getElementById('size-warning').style.visibility = "visible";
   } 
 };
-  
 
 //Bootstrap autofocus for modal 
 $('#loginModal').on('shown.bs.modal', function () {

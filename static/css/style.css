@@ -172,8 +172,8 @@ img.logo {
     margin-left: 40px;
 }
 
-.add-btn {
-    margin-bottom: 70px;
+.add-btn, .edit-btn {
+    margin-bottom: 100px;
 }
 
 .edit-form {
