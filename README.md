@@ -1,4 +1,4 @@
-# Second Milestone Project by Holly Horwood
+# Third Milestone Project by Holly Horwood
 
 [Keto Kitchen Website](https://keto-kitchen-hollyci.herokuapp.com/)
 
@@ -10,7 +10,7 @@ This website was designed for educational purposes only for the Code Institute. 
 ---
 
 ## **Motivation/Purpose**
-This is my third milestone project for the Full Stack Software Development course through Code Institute.  I decided to create this website because I am a Type 1 Diabetic.  Myself and others with the condition often struggle to find good recipes and meal ideas that will not affect our blood glucose levels dramatically.  The only diet that has worked to help control this has been a low carb one so I wanted to make a site where other diabetics and followers of a low carb lifestyle can easily find delicious and healthy recipes.
+This is my third milestone project for the Full Stack Software Development course through Code Institute.  I decided to create this website because I am a Type 1 Diabetic.  Myself and others with this condition often struggle to find good recipes and meal ideas that will not affect our blood glucose levels dramatically.  The only diet that has worked to help control this has been a low carb one so I wanted to make a site where other diabetics and followers of a low carb or keto lifestyle can easily find delicious and healthy recipes.
 
 ---
 
@@ -20,11 +20,13 @@ This is my third milestone project for the Full Stack Software Development cours
 
 **Research:**
 
- I consider myself quite knowledgable in this area as I have lived the low carb lifestyle for many years now. I also created my own low carb Facebook page for diabetics in New Zealand that at the time of writting this has over 1500 members and continues to grow almost daily.  Via my Facebook page I am able to discuss, learn, teach and share ideas, the page was a great inspiration for this project which I intend to eventually extend on to include restaurant recommendation for people looking for somewhere to eat the offer low carb friendly options.  My facebook page alone has already changed so many lives for the better and I see this project as the start of another venture that will continue to help make diabetics lives easier and improve their health along the way.
+ Keto and Low Carb are very similar, the main difference is the amount of carbs allowed daily, those eating Low Carb (Low Carbohydrate) will consume usually between 50gm to 100gm of carbs per day whereas a Keto (Ketogenic) diet is stricter limiting the daily intake to less than 50gm per day to maintain a state of ketosis in the body. 
+ 
+ I consider myself quite knowledgable in this area as I have lived the low carb lifestyle for many years now. I also created my own low carb Facebook page for diabetics in New Zealand that at the time of writting this has over 1500 members and continues to grow almost daily.  Via my Facebook page I am able to discuss, learn, teach and share ideas, the page was a great inspiration for this project. I intend to eventually extend on this site to include restaurant recommendation for people looking for places to eat the offer low carb friendly options and I would also like to combine it with my previous project Keto Kitchen that shares recipes.  My facebook page alone has already changed so many lives for the better and I see this project as the start of another venture that will continue to help make diabetics lives easier and improve their health along the way.
 
 **Audience:** 
 
- Anyone with diabetes or anyone following a low carb lifestyle.
+ Anyone with diabetes or anyone following a low carb/keto lifestyle.
 
 ### **_Scope_**
 
