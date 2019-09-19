@@ -34,21 +34,33 @@ This is my third milestone project for the Full Stack Software Development cours
 
 **Home Page**
 
-On a smaller device like a mobile phone all recipes will display vertically one by one and on larger devices they will show as a Bootsrap card-deck side by side 3 across at a time.  As search box has been placed at the top of the screen so it is easy for the user to find what they are looking for quickly.  A navigation bar offers a way to add, login or return to the recipes page easily.  The logo can be clicked for quick access to the home page and each recipe contains a clickable image and a full recipe button that will both take the user to the full screen recipe. 
+On a smaller device like a mobile phone all recipes will display vertically one by one and on larger devices they will show as a Bootstrap card-deck side by side 3 across at a time.  A search box has been placed at the top of the screen so it is easy for the user to find what they are looking for quickly.  A navigation bar offers a way to add, login or return to the recipes page easily.  The logo can be clicked for quick access to the home page and each recipe contains a clickable image and a full recipe button that will both take the user to the full screen recipe. 
 
-Each recipe includes some basic information like and overview blurb about the recipe, image, cooking time, calories, carbs, ratings etc to help the user decide which recipe they would like to make. 
+Each recipe includes some basic information like an overview blurb about the recipe, image, cooking time, calories, carbs, ratings etc to help the user decide which recipe they would like to make. 
 
 **Full Recipe Page**
 
+The full recipe page goes into detail more.  It shows a larger image with the customer rating review widget below and a short blurb about the recipe.  To the right a breakdown can been seen of important information like the author, cook time, prep time and some key nutritional information relevant to those on a Low Carb diet. 
+
 **Recipe Search Results Page**
 
-**Login Page**
+Once the customer has select all required search results (they can select multiple checkboxes or leave blank) they will be redirected to the display results page.  Here they can view any recipes that match the criteria they have set when selecting search options.  The options they ticked or clicked on in the search area remain visible on the screen in the search container so the user can easily see what they had chosen to look up.
 
-This is linked to a modal that is not functioning as this is not required for this project.
+**Login**
+
+_*Note - User authentication was not required for this project so the modal is not currently functioning, authentication will be added in the future including user registration._
+
+The modal is intended to prevent users from altering recipes added by other users.  The modal (once functioning) will require the user to enter their email address and password before they are able to login.  Users will first need to register and logged in users will be able to add, edit or delete their own recipes.
+
+**Add and Edit Recipe Pages**
+
+These pages have an editable form with inputs for the recipe information.  Each time a new recipe is added a unique ID is created in the Mongo database which is then used to get the recipe from the database when required.
+
 
 ### **_Skeleton_**
 
 **Wireframes:**
+
 ![Balsamic Mockup1](static/images/kitchen-mockup4.png)
 ![Balsamic Mockup2](static/images/kitchen-mockup3.png)
 ![Balsamic Mockup3](static/images/kitchen-mockup2.png)
@@ -56,20 +68,20 @@ This is linked to a modal that is not functioning as this is not required for th
 
 ### **_Surface_** 
 
-I designed this site using modern neutral colours.  Different variations of green are used throughout the site to represent the element of nature.  I chose grey and white for the map so as not to detract from the marker colours.  The site is very simplistic making it easier for the user to identify key areas quickly so they can use the site effectively.  The map does offer some extra features like the ability to switch from terrain view to satellite so that the user can see more detail on the map.  On the larger view there are more images and links to help and inspire the user.
+I designed this site using modern neutral colours.  Different variations of green are used throughout the site to represent healthy living.  There is a logo and favicon for easy identification of the site.  The navbar is transparent however on scroll it becomes white otherwise the user may get frustrated if they try to click on anything behind the navbar as it wont work.  The bootstrap card deck was used to make it easy to identify individual recipes and where applicable the search container is at the top of the screen so the user can easily search the site.
 
 ---
 
 
 ## **User Story**
 
-As a user on the website I want the ability to find accommodation at DOC sites around New Zealand quickly and easily. 
+As a user on the website I want the ability to easily find diet friendly recipes. 
 
-**End user goal:** Find a place to stay 
+**End user goal:** Find a recipe. 
 
-**End business goal:** Make finding accommodation easier.
+**End business goal:** Make finding health concious recipes easier.
 
-**Acceptance criteria:** Able to search New Zealand DOC Campsite and Huts on the map, find information about them and click on the more info link to redirect to DOC website to book.
+**Acceptance criteria:** Able to search the site for recipes matching my search criteria and get full instruction to follow so I can make the recipe.
 
 ---
 
@@ -82,39 +94,39 @@ As a user on the website I want the ability to find accommodation at DOC sites a
 - Used to add style to the web page.
   
 **Bootstrap**
-- Bootstrap was mainly used for positioning with its grid system to position containers. It was also used to create buttons, dropdowns, navbar and cards.
+- Bootstrap was mainly used for positioning with its grid system to position containers. The card deck component was used to house each recipe.  Bootstrap was also used to create buttons, dropdowns and navbar.
 
 **Javascript**
-- Was used to connect with the APIs and to manipulate them.  It was also used to create some interactive aspects of the newsletter form.
+- Was used for modal autofocus, image size restrictions and previews as well as the changing of the navbar colour on scroll.
 
-**DOC API**
-- Used to retrieve data on Department of Conservation campsites and huts throughout New Zealand.
+**MongoDB**
+- Used to store all recipe input on a cloud based database.
 
-**Google Maps API**
-- Google maps was used to display the map of New Zealand and create markers and marker clusters.
+**Pymongo**
+- Used to interact with the MongoDB database from Python.
+
+**Flask**
+- Used to create Python routes and render or redirect them.
+
+**Jinja**
+- Used to create Python templates in HTML. 
 
 **Font Awesome**
 - Used for icons on the page such as the footer links and search icon.
 
 ### **Other resources:**
 
-**Stack Exchange**
-- Geo.js was found here courtesy of gatadeoro and converted from Python code to Javascript for use in this project. https://gis.stackexchange.com/questions/225065/converting-nztm-new-zealand-transverse-mercator-to-lat-long
-
 **Stack Overflow**
-- Used as a resource when needing help or guidance, mostly with Javascript.
+- Image preview for add and edit pages. Original code courtesy of nkon https://stackoverflow.com/questions/4459379/preview-an-image-before-it-is-uploaded
+
+**YouTube**
+- Navbar colour change on scroll - Code courtesy of System 22 I.T. Solutions https://www.youtube.com/watch?v=AM-GT_0Uu5w
 
 **W3C Markup & CSS Validators**
 - Used to check validity of HTML and CSS code used in this project.
 
 **JSHint**
 - Used to check all JS code for errors.
-
-**Ajax Loader**
-- Used to create the map loader icon.
-   
-**GIMP** 
-- Used to alter images and icons
 
 **MDN** 
 - Main resource for research and help.
@@ -125,7 +137,7 @@ As a user on the website I want the ability to find accommodation at DOC sites a
 
 **Running the Code**
 
-- Click on the following link to access the live site at Github pages https://holly-horwood.github.io/second-milestone-project/
+- Click on the following link to access the live site at Github pages https://github.com/Holly-Horwood/keto_kitchen or for Heroku https://keto-kitchen-hollyci.herokuapp.com/
 
 **Test Planning:**
   All tests were carried out manually by humans.  For the browser testing the users will interact with the map and click on all links and buttons and observe the results as well as viewing the site on different viewports. 
