@@ -111,6 +111,13 @@ As a user on the website I want the ability to easily find diet friendly recipes
 **Jinja**
 - Used to create Python templates in HTML. 
 
+UNITTEST**************************************************
+
+HEROKU***********************************************
+*************************************************
+
+RW***********************
+
 **Font Awesome**
 - Used for icons on the page such as the footer links and search icon.
 

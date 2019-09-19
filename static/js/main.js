@@ -6,7 +6,7 @@ const imageMaxSize = 1000000;
     output.src = URL.createObjectURL(event.target.files[0]);
   };
 
-//Checks file size  
+//Checks file size for images
 const checkImageSize = function(event) {
   let input = document.getElementById('image_file');
   let file = input.files[0];
