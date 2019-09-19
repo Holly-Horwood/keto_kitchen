@@ -162,6 +162,7 @@ img.logo {
 }
 
 #size-warning {
+    display: none;
     padding: 2%;
     font-size: 1.5em;   
 }
@@ -237,7 +238,6 @@ img.logo {
 .card-deck {
     font-size: 0.6em;
     margin-top: 10px;
-    margin-left: 10px;
     margin-right: 10px;
     padding: 10px;
     width: 100%;
@@ -300,6 +300,8 @@ img.logo {
     padding: 2%;
     margin-top: 2%;
 }
+
+
 
 .change-number-field {
     width: 20%;

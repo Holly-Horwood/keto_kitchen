@@ -6,8 +6,10 @@
                 <div class="course-checkbox">
                     <label><strong>Course</strong> <em> &nbsp;- check all that apply &nbsp;</em>
                         {% for course in courses %}
-                        <input type="checkbox" name="course" value="{{course.course}}"
-                            {{'checked' if course.course in courseSelected else ''}} /> {{course.course}}
+                        <label>{{course.courses}}
+                            <input type="checkbox" name="course" value="{{course.course}}"
+                                {{'checked' if course.course in courseSelected else ''}} /> {{course.course}}
+                        </label>    
                         {% endfor %}
                         <input type="hidden" name="course" value="">
                     </label>
@@ -27,8 +29,10 @@
                 <div class="diet-checkbox">
                     <label><strong>Diet</strong> <em> &nbsp;&nbsp;&nbsp;&nbsp; - check all that apply &nbsp;</em>
                         {% for diet in diets %}
-                        <input type="checkbox" name="diet" value="{{diet.diet}}"
-                            {{'checked' if diet.diet in dietSelected else ''}} /> {{diet.diet}}
+                        <label>{{diet.diets}}
+                            <input type="checkbox" name="diet" value="{{diet.diet}}"
+                                {{'checked' if diet.diet in dietSelected else ''}} /> {{diet.diet}}
+                        </label>    
                         {% endfor %}
                         <input type="hidden" name="diet" value="">
                     </label>
