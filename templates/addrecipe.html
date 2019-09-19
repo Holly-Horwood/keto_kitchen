@@ -143,18 +143,15 @@
         </div>
 
         <!--ADD IMAGE-->
-        <div class="row">
-            <div class="image-preview">
-                <img id="output" class="img-thumbnail img-fluid placeholder-img" src="static/images/placeholder.png"
-                    alt="Photo of finished dish">
+        <div class="image-row row">
+            <div class="image-preview col-lg-3 col-sm-12">
+                <img id="output" class="img-thumbnail img-fluid placeholder-img" src="static/images/placeholder.png" alt="Photo of finished dish">
             </div>
-            <div class="updated-image">
+            <div class="choose-file col-lg-9 col-sm-12" >
                 <input type="file" accept="image/*" required name="image_file" id="image_file"
-                    onchange="checkImageSize(event); previewFile(event)">
-            </div>
-            <div>
+                onchange="checkImageSize(event); previewFile(event)">
                 <p id="size-warning">Please select a file between 10kb and 1MB to upload</p>
-            </div>
+            </div>        
         </div>
 
         <!--ADD BUTTON-->
