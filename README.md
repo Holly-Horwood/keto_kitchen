@@ -97,7 +97,7 @@ As a user on the website I want the ability to easily find diet friendly recipes
 - Bootstrap was mainly used for positioning with its grid system to position containers. The card deck component was used to house each recipe.  Bootstrap was also used to create buttons, dropdowns and navbar.
 
 **Javascript**
-- Was used for modal autofocus, image size restrictions and previews as well as the changing of the navbar colour on scroll.
+- Was used for image size restrictions and previews.
 
 **MongoDB**
 - Used to store all recipe input on a cloud based database.
@@ -117,6 +117,8 @@ HEROKU***********************************************
 *************************************************
 
 RW***********************
+
+JQuery modal and nav colour
 
 **Font Awesome**
 - Used for icons on the page such as the footer links and search icon.

@@ -58,10 +58,7 @@ def update(is_edit, recipe_id=0 ):
     recipe_dict['diet'] = request.form.getlist('diet')
     recipe_dict['course'] = request.form.getlist('course') #saves all values from checkboxes
     if is_edit:
-        print("before update")
-        print(recipe_dict)
         recipes.update_one({'_id':ObjectId(recipe_id)}, {"$set": recipe_dict}, upsert=False) #updates recipe in database
-        print("yay")
     else:
         recipes.insert_one(recipe_dict) #adds recipe to database as key value pairs
 
@@ -79,7 +76,6 @@ def add_recipe():
 def edit_recipe(recipe_id):
     if request.method == 'GET':
         the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-        print(the_recipe)
         #searches fields and splits array at the pipes
         ingredients_edit = the_recipe['ingredients'].replace('|', '\n')
         method_edit = the_recipe['method'].replace('|', '\n')

@@ -11,7 +11,7 @@
                 <div class="change-name-field">
                     <i class="fas fa-clipboard-list recipe-icons"></i>
                     <label for="icon-prefix">Recipe Name</label>
-                    <input class="recipe-name" required name="recipe_name" type="text" class="validate">
+                    <input class="recipe-name validate" required name="recipe_name" type="text">
                 </div>
             </div>
             <div class="col-sm-12 col-lg-8">
@@ -19,7 +19,7 @@
                 <div class="change-name-field">
                     <i class="fas fa-user add-fa-user recipe-icons"></i>
                     <label for="icon-prefix">Author</label>
-                    <input class="recipe-author" required name="recipe_author" type="text" class="validate">
+                    <input class="recipe-author validate" required name="recipe_author" type="text">
                 </div>
             </div>
         </div>
@@ -149,7 +149,7 @@
             </div>
             <div class="choose-file col-lg-9 col-sm-12" >
                 <input type="file" accept="image/*" required name="image_file" id="image_file"
-                onchange="checkImageSize(event); previewFile(event)">
+                onchange="checkImageSize(event)">
                 <p id="size-warning">Please select a file between 10kb and 1MB to upload</p>
             </div>        
         </div>
