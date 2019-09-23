@@ -213,7 +213,7 @@ Passed. No issues were found when used on Edge.
 
 - Connect to Pinterest.
 
-- Pagination
+- Pagination for all sized devices and scroll down arrow for smaller devices.
 
 ---
 

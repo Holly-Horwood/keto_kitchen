@@ -136,12 +136,17 @@ img.logo {
     margin-bottom: 3%;
 }
 
+.full-img {
+    width: 80%;
+    margin-top: 4%;
+}
+
 .placeholder-img {
     width: 300px;
     height: 300px;
-    margin-left: 5%;
-    margin-top: 2%;
-    float: right;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .choose-file {
@@ -164,7 +169,6 @@ img.logo {
     padding: 2%;
     font-size: 1.5em;
     border-radius: 10px;
-    width: 30%;
     margin-top: 2%;
 }
 
@@ -340,11 +344,12 @@ img.logo {
 }
 
 .recipe-name {
-    width: 70%;
+    width: 80%;
+    margin-bottom: 2%;
 }
 
 .recipe-author {
-    width: 40%;
+    width: 80%;
 }
 
 .recipe-icons, .label, .time-text {
@@ -362,9 +367,10 @@ img.logo {
 }
 
 .intro-text, .ingredients-text, .method-text {
-    margin-bottom: 3%;
+    margin-bottom: 3%;  
     padding: 1%;
-    height: 20vh;  
+    height: 20vh; 
+    width: 100%; 
 }
 
 .row-text {
@@ -439,6 +445,18 @@ img.logo {
 
 .change-recipe-form {
     width: 70%;
+}
+
+.recipe-name {
+    width: 70%;
+}
+
+.recipe-author {
+    width: 40%;
+}
+
+#size-warning {
+    width: 30%;
 }
 
 }
