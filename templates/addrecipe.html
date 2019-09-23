@@ -33,7 +33,9 @@
                         <!--COURSE-->
                         <label><strong>Course</strong> <em> &nbsp;- check all that apply &nbsp;</em>
                             {% for course in courses %}
-                            <input type="checkbox" name="course" value="{{course.course}}" /> {{course.course}}
+                            <label>{{course.courses}}
+                                <input type="checkbox" name="course" value="{{course.course}}" /> {{course.course}}
+                            </label>
                             {% endfor %}
                         </label>
                     </div>
@@ -53,7 +55,9 @@
                         <label><strong>Diet</strong> <em> &nbsp;&nbsp;&nbsp;&nbsp; - check all that apply
                                 &nbsp;</em>
                             {% for diet in diets %}
-                            <input type="checkbox" name="diet" value="{{diet.diet}}" /> {{diet.diet}}
+                            <label>{{ diet.diets}}
+                                <input type="checkbox" name="diet" value="{{diet.diet}}" /> {{diet.diet}}
+                            </label>
                             {% endfor %}
                         </label>
                     </div>

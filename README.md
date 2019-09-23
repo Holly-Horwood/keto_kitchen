@@ -99,6 +99,9 @@ As a user on the website I want the ability to easily find diet friendly recipes
 **Javascript**
 - Was used for image size restrictions and previews.
 
+**JQuery**
+- Used for the navbar colour change on scroll.
+
 **MongoDB**
 - Used to store all recipe input on a cloud based database.
 
@@ -111,14 +114,15 @@ As a user on the website I want the ability to easily find diet friendly recipes
 **Jinja**
 - Used to create Python templates in HTML. 
 
-UNITTEST**************************************************
+**Unittest**
+- Support with test automation.
 
-HEROKU***********************************************
-*************************************************
+**Heroku**
+- Used in the deployment of this application.
 
-RW***********************
-
-JQuery modal and nav colour
+**Ratings Widget**
+- JS widget used for the star rating of each recipe.
+https://rating-widget.com/
 
 **Font Awesome**
 - Used for icons on the page such as the footer links and search icon.
@@ -126,7 +130,7 @@ JQuery modal and nav colour
 ### **Other resources:**
 
 **Stack Overflow**
-- Image preview for add and edit pages. Original code courtesy of nkon https://stackoverflow.com/questions/4459379/preview-an-image-before-it-is-uploaded
+- Image preview and file size check for add and edit pages. Code was altered but the original code was courtesy of nkon https://stackoverflow.com/questions/4459379/preview-an-image-before-it-is-uploaded
 
 **YouTube**
 - Navbar colour change on scroll - Code courtesy of System 22 I.T. Solutions https://www.youtube.com/watch?v=AM-GT_0Uu5w
@@ -199,23 +203,35 @@ Passed. No issues were found when used on Edge.
 
 ## **Future Updates**
 
--   In the future I would like to fix the loader to make sure it is spinning on each search page load.
+- A functioning modal and user authentication including registration.
 
-- I would also like to change the marker colours so they stand out more.
+- Keyword search bar and more search options.
 
-- Search box placement on smaller devices.  Some zoom levels proved difficult to not have part of the island covered by the search box so may look to implement a search box that resizes for smaller devices in the future.
+- User review section and change the current ratings widget to something better.
 
-- Fix image transition so it doesn't snap back to behind the map after hover.
+- Print recipe button.
+
+- Connect to Pinterest.
+
+- Pagination
 
 ---
 
 ## **Deployment**
 
-Initially this project was started in Cloud9 but after Cloud9 switched to AWS the decision was made to finish the project in VSCode due to issue using AWS.
+This project was created using Visual Studio Code.
 
-### **Running The Code:**
+### **Heroku**
 
-- Go to my repository https://github.com/Holly-Horwood/second-milestone-project
+- I created a new app in heroku called keto-kitchen-hollyci.
+- In *add-ons* under the *resources* I typed *Postgres* and selected *Heroku Postgres* on the Hobby Free plan.  This created a new DATABASE_URL in the *config vars* under *settings*.  While in the *config vars* and while there I added my secret key.
+
+
+
+
+### **Running The Code Locally:**
+
+- Go to my repository https://github.com/Holly-Horwood/keto_kitchen
 - Click on the clone or download button
 - In the Clone with HTTPs section, click  to copy the clone URL for my repository.
 - Open your environment terminal
@@ -226,7 +242,7 @@ Initially this project was started in Cloud9 but after Cloud9 switched to AWS th
 
 All coding was committed and pushed to my Github repository at:
 
-https://github.com/Holly-Horwood/second-milestone-project
+https://github.com/Holly-Horwood/keto_kitchen
 
 It was also published on Github pages at:
 
