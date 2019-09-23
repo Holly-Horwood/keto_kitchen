@@ -1,15 +1,25 @@
 const imageMinSize = 10000;
 const imageMaxSize = 1000000;
+const warning = document.getElementById('size-warning');
+
+function showWarning() {
+  warning.style.visibility = "visible";
+}
+
+function hideWarning() {
+  warning.style.visibility = "hidden";
+}
 
 //Checks file size for uploaded images Original code courtesy of nkon https://stackoverflow.com/questions/4459379/preview-an-image-before-it-is-uploaded
 const checkImageSize = function(event) {
   let input = document.getElementById('image_file');
   let file = input.files[0];
+  hideWarning();
   if (file.size >= imageMinSize && file.size <= imageMaxSize) {
-    document.getElementById('size-warning').style.visibility = "hidden";
+    previewFile(event);
   }
   else {
-    document.getElementById('size-warning').style.visibility = "visible";
+    showWarning();
   } 
 };
 

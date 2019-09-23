@@ -153,7 +153,7 @@
             </div>
             <div class="choose-file col-lg-9 col-sm-12" >
                 <input type="file" accept="image/*" required name="image_file" id="image_file"
-                onchange="checkImageSize(event)">
+                onchange="checkImageSize(event); previewFile(event)">
                 <p id="size-warning">Please select a file between 10kb and 1MB to upload</p>
             </div>        
         </div>
