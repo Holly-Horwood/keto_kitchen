@@ -219,19 +219,11 @@ Passed. No issues were found when used on Edge.
 
 ## **Deployment**
 
-This project was created using Visual Studio Code.
+This project was created using Visual Studio Code (VSCode).  Preperation for deployment is as follows:
 
-### **Heroku**
+### **Running The Code:**
 
-- I created a new app in heroku called keto-kitchen-hollyci.
-- In *add-ons* under the *resources* I typed *Postgres* and selected *Heroku Postgres* on the Hobby Free plan.  This created a new DATABASE_URL in the *config vars* under *settings*.  While in the *config vars* and while there I added my secret key.
-
-
-
-
-### **Running The Code Locally:**
-
-- Go to my repository https://github.com/Holly-Horwood/keto_kitchen
+- Go to my repository https://github.com/Holly-Horwood/keto-kitchen
 - Click on the clone or download button
 - In the Clone with HTTPs section, click  to copy the clone URL for my repository.
 - Open your environment terminal
@@ -242,17 +234,135 @@ This project was created using Visual Studio Code.
 
 All coding was committed and pushed to my Github repository at:
 
-https://github.com/Holly-Horwood/keto_kitchen
+https://github.com/Holly-Horwood/keto-kitchen
 
 It was also published on Github pages at:
 
-https://holly-horwood.github.io/second-milestone-project/
+https://holly-horwood.github.io/keto-kitchen/
 
 ### **Deploying to Github Once Cloned and Edited** ###
 
 - In your terminal type `git add .` to stage all pending updates
 - Type `git commit -m "example massage"` add your own message explaining what you are committing.
 - Type `git push -u origin master` to push to my repository
+
+
+
+### **Heroku**
+
+- I created a new app in heroku called keto-kitchen-hollyci.
+- In *add-ons* under the *resources* tab I typed *Postgres* and selected *Heroku Postgres* on the Hobby Free plan.  This created a new DATABASE_URL in the *config vars* under *settings*.  While in the *config vars* I added my secret key.
+- I then went back to VSCode and in the `env.py` file added the following library commands to connect to the database using a URL, rather than the standard database driver that Django uses: 
+
+  * `pip install dj-database-url psycopg2`
+  * `pip freeze >requirements.txt`
+
+- In `settings.py` scroll down to *DATABASES*, comment out the default and add in the new link:
+
+*When it's running live on Heroku, this will pass in that config variable of database URL and connect to our database this way.*
+
+
+Comment out the below:
+```
+DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+```
+Add in the below:
+```
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
+```
+
+- Scroll back up the page to import the library:
+
+`import dj_database_url`
+
+*When testing locally that database won't be set so it needs to be added as per below:*
+
+- Back in `env.py` add the postgres link you were given in the Heroku *config vars*:
+
+*Example only*
+```os.environ.setdefault("DATABASE_URL", "postgres://fkehkshuyusmyk:d2f90351ee01f5f75jh7254aa9e26c66119000961215199ca740c2dbc531451@ec2-107-20-155-148.compute-1.amazonaws.com:4256/d603hnrb5p22gt")```
+
+
+- Now run:
+
+  * `python manage.py makemigrations`
+
+  * `python manage.py migrate`
+
+
+- Install the remaining libraries:
+
+
+  * `pip install whitenoise` *allows us to host our static files on Heroku*
+
+  * `pip freeze > requirements.txt` *MUST be done after each install*
+
+- In `setting.py` and add under *MIDDLEWARE*:
+
+  * ```'whitenoise.middleware.WhiteNoiseMiddleware',```
+
+- Scroll down to *Static Files* and add:
+
+  * ```STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')```  
+
+- To keep the continuous integrated testing with *Travis* happening change the *DATABASE URL* info as below by adding an if statement:
+
+```if "DATABASE_URL" in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    print("Postgres URL not found, using sqlite instead")
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+```
+- Add `env.py` to `.gitignore` file.
+
+
+- Add a *Procfile* with the following:
+
+  * `web: gunicorn blog.wsgi:application`  *this is how Heroku runs the application*
+
+- Install *Gunicon* library:
+
+  * `pip install gunicorn`
+
+  * `pip freeze > requirements.txt`
+
+- Back in `settings.py` under *ALLOWED_HOSTS* add location of heroku app:
+
+
+`ALLOWED_HOSTS = ['django-test-app-hollyci.herokuapp.com']`
+
+- Add all secret Keys to *config vars*
+
+- Push to Github:
+  * `git add .`
+  * `got commit -m "add a meaningful message here"`
+  * `git push -u origin master`
+  * `enter username:`
+  * `enter password:`
+
+- In Heroku go to the *deploy* tab
+
+- Scroll down to *manual deploy* and select *deploy branch*
+
+- After build is successful go back up and select to *auto deploy*
+
+- Finally login to *Travis* to check testing is still working
+
+
 
 ---
 
