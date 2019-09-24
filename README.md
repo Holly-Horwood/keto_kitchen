@@ -363,7 +363,6 @@ else:
 - Finally login to *Travis* to check testing is still working
 
 
-
 ---
 
 ## **Credits**

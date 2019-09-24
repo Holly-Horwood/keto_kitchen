@@ -54,7 +54,7 @@ class WebTests(unittest.TestCase):
     def test_that_edit_recipe_page_found(self):
         response = app.test_client(self).get('/edit_recipe/5d58f86d4f2214bd76ef9a21', follow_redirects=True)
         self.assertEqual(response.status_code, 200, "edit_recipe returned status code %s should be 200" % str(response.status_code))
-
+        
 
     def test_that_full_recipe_page_found(self):
         response = app.test_client(self).get('/full_recipe/5d58f86d4f2214bd76ef9a21', follow_redirects=True)
