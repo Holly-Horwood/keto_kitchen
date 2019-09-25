@@ -22,7 +22,7 @@ This is my third milestone project for the Full Stack Software Development cours
 
  Keto and Low Carb are very similar, the main difference is the amount of carbs allowed daily, those eating Low Carb (Low Carbohydrate) will consume usually between 50gm to 100gm of carbs per day whereas a Keto (Ketogenic) diet is stricter limiting the daily intake to less than 50gm per day to maintain a state of ketosis in the body. 
  
- I consider myself quite knowledgable in this area as I have lived the low carb lifestyle for many years now. I also created my own low carb Facebook page for diabetics in New Zealand that at the time of writting this has over 1500 members and continues to grow almost daily.  Via my Facebook page I am able to discuss, learn, teach and share ideas, the page was a great inspiration for this project. I intend to eventually extend on this site to include restaurant recommendation for people looking for places to eat the offer low carb friendly options and I would also like to combine it with my previous project Keto Kitchen that shares recipes.  My facebook page alone has already changed so many lives for the better and I see this project as the start of another venture that will continue to help make diabetics lives easier and improve their health along the way.
+ I consider myself quite knowledgeable in this area as I have lived the low carb lifestyle for many years now. I also created my own low carb Facebook page for diabetics in New Zealand that at the time of writing this has over 1500 members and continues to grow almost daily.  Via my Facebook page I am able to discuss, learn, teach and share ideas, the page was a great inspiration for this project. I intend to eventually extend on this site to include restaurant recommendation for people looking for places to eat the offer low carb friendly options and I would also like to combine it with my previous project Keto Kitchen that shares recipes.  My Facebook page alone has already changed so many lives for the better and I see this project as the start of another venture that will continue to help make diabetics lives easier and improve their health along the way.
 
 **Audience:** 
 
@@ -79,7 +79,7 @@ As a user on the website I want the ability to easily find diet friendly recipes
 
 **End user goal:** Find a recipe. 
 
-**End business goal:** Make finding health concious recipes easier.
+**End business goal:** Make finding health conscious recipes easier.
 
 **Acceptance criteria:** Able to search the site for recipes matching my search criteria and get full instruction to follow so I can make the recipe.
 
@@ -103,7 +103,8 @@ As a user on the website I want the ability to easily find diet friendly recipes
 - Used for the navbar colour change on scroll.
 
 **MongoDB**
-- Used to store all recipe input on a cloud based database.
+- Used to store all recipe input on a cloud based database.  
+    *   MongoDB Schema - relational schema using nesting.  Diet and course are not likely to be edited by users, they are administratively designed data.  The other rational is that they are simple data as they have only have one field and that is their name.  However the recipe collection could be quite large so for the simple purpose of populating checkboxes or search and editing they are stored in their own collection as well.
 
 **Pymongo**
 - Used to interact with the MongoDB database from Python.
@@ -159,7 +160,9 @@ https://rating-widget.com/
  Users clicked on all buttons and links and interacted with the recipes in all possible variations, users also changed screen sizes throughout the process to make sure the site was responsive.
 
 **Results:** 
- All buttons and links behaved as expected, and site oveall worked as intended.
+ All buttons and links behaved as expected, and site overall worked as intended.
+
+### **Manual Testing** 
 
 #### Browser Testing: #### 
 
@@ -181,29 +184,33 @@ Passed. No issues were found when used on Edge.
 
 #### **Individual Page Testing:**
 
-**index.html**
+**Home**
 
--   
+- Any errors found via validators were corrected.  Several different searches were entered into the search area, when search was clicked the page redirected as expected and showed any recipes matching the search criteria selected.  The image on the card for each recipe was clicked to ensure this redirected to the correct full recipe, all images behaved as expected.  From the full recipe page the 'recipe' nav item was clicked and that returned the user to the idex.html page again.  All recipes are showing the correct names and details as per the database.  The 'full recipe' card button was also clicked on each recipe to ensure the user would be redirected to the correct page, this worked as expected. The login nav item was also clicked, this links to a non functioning login modal, this will be made functional in the future but for this project is not required to work, the modal behaves as intended at this stage.
+
+**Full Recipe**
+
+- Any errors found via validators were corrected.  Each recipe was checked to ensure the layout was as expected which it was.  Clicking on the Keto Kitchen logo on the top left redirects to the home page.  The 'edit' button redirects to the appropriate recipe ID in 'editrecipe.html' and the 'delete' button removes the recipe from the website and database respectively.
+
+**Edit Recipe & Add Recipe**
+
+-   Both pages are almost identical and any errors found via validators have been corrected.  In both all fields are editable and once the update or add recipe button is clicked the page will save everything to the database and populate the website.  There are some checks in place that ensure all fields are completed so if any are left blank the user is prompted to fill them out before continuing, all areas on this page are working as expected.  The images also have Javascript to check for image sizes before they are uploaded, images will also be previewed so the user can ensure they have selected the correct image for their recipe. Clicking on the Keto Kitchen logo on the top left redirects to the home page. 
+
+**Search Results**
+
+- Any errors found via validators were corrected. The page was tested by searching for several different recipes and ensuring the returned results matched the Mongo database.  All search options appear to be working correctly and returning the expected results.  The search area itself is populated with the original search criteria as expected so the user can see what they originally searched for. Clicking on the Keto Kitchen logo on the top left redirects to the home page.
 
 #### **External Testing**
 
 **W3C Markup & CSS Valiadators**
-- Used to check validity of HTML and CSS code used in this project, both returned no errors at completion.
+- Used to check validity of HTML and CSS code used in this project, both returned no errors at completion.  W3C did see Jinja as errors even though they were not.
 
 **JSHint**
 - Used to check all JS code for errors, none present on completion of this project.
 
 #### **Issues:**
 
-- DOC API is quite slow to run.
-
-- DOC API key returned CORS error.  Contacted developer of API who worked on resolving the issue, once it was fixed from their end they contacted me and I was able to connect without anymore errors.
-
-- Loader/Spinner not loading on all searches correctly.  This will be fixed in a future update.
-
-- Marker clusterer was not clearing markers as intended on reload, this was fixed with some Javascript.
-
-- Due to Google Maps using a Mercator style map it was quite difficult to get the zoom to work correctly for New Zealand. New Zealand is harder to scale than other countries due to it's very Southern location on the map which means that the latitude and longitude axes are distorted.
+- The preview images for the edit recipe add recipe pages are not working correctly for aspect ration.  In the future some type image size control will be added to handle this problem.
 
 ---
 
@@ -221,11 +228,13 @@ Passed. No issues were found when used on Edge.
 
 - Pagination for all sized devices and scroll down arrow for smaller devices.
 
+- Image aspect ratio control for uploaded images.
+
 ---
 
 ## **Deployment**
 
-This project was created using Visual Studio Code (VSCode).  Preperation for deployment is as follows:
+This project was created using Visual Studio Code (VSCode).  Preparation for deployment is as follows:
 
 ### **Running The Code Locally:**
 
@@ -257,7 +266,7 @@ https://holly-horwood.github.io/keto-kitchen/
 
 - I created a new app in heroku called keto-kitchen-hollyci.
 <br>
--  In the terminalintiialise a new git repository:
+-  In the terminal intiialise a new git repository:
     *    `git init` we want to link the GitHub repo to the app in heroku 
     *   `https://keto-kitchen-hollyci.herokuapp.com/`
 <br>
@@ -306,25 +315,21 @@ All content written by Holly Horwood.
 
 **Media:**
 
-- DOC Location Map Api - Crown Copyright: Department of Conservation Te Papa Atawhai [2019].
-- kea.jpg & cathedralcove.jpg both obtained from Flickers Creative Commons website.
-- All other images supplied by Holly Horwood and Ryan Connor from our personal collection.
-- Tent and Hut icons by icons8.com
+-   Most images were supplied by Pixabay and Flickr
+- All other images supplied by Holly Horwood
 - Favicon was generated using favicon.io
-- gatadeoro for his post on Stack Exchange that helped with the geo.js file creation https://gis.stackexchange.com/questions/225065/converting-nztm-new-zealand-transverse-mercator-to-lat-long
-- Google Maps Marker Clusterer care of the team at google maps https://github.com/googlemaps/v3-utility-library/tree/master/markerclusterer
+-   File size uploaded image checker and file preview Javascript Code, Original code courtesy of nkon https://stackoverflow.com/questions/4459379/preview-an-image-before-it-is-uploaded
+-   Star ratings widget courtesy of https://rating-widget.com/
+-   Google fonts: Kaushan Script
 
 **Acknowledgements:**
 
-Thanks to Sebastian Immel my mentor for all of his help and patience.  Thanks also to the students and staff at Code Institute especially my tutors Nakita, Haley and Dick.
+Thanks to Sebastian Immel my mentor for all of his help and patience.  Thanks also to the students and staff at Code Institute especially my tutors Sebastian and Dick.
 
-Thank you also to Mick and Julian at DOC for all of their help and awesome API.
+
 
 
 
 Star ratings app from rating widget https://rating-widget.com/get/rating/javascript/#editor
 
-MongoDB Schema
-relational schema we are using nesting.  Diet and course are not likely to be edited by users, they are administratively designed data.  The other rational is that they are simple data as they have only one field and that is tyheir name.  However the recipe collection could be quite large so for the simple purpose of populating checkboxes or search and editing we store them in their own collectiona as well.
 
-Google fonts: Kaushan Script
