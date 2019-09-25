@@ -186,24 +186,24 @@ Passed. No issues were found when used on Edge.
 
 **Home**
 
-- Any errors found via validators were corrected.  Several different searches were entered into the search area, when search was clicked the page redirected as expected and showed any recipes matching the search criteria selected.  The image on the card for each recipe was clicked to ensure this redirected to the correct full recipe, all images behaved as expected.  From the full recipe page the 'recipe' nav item was clicked and that returned the user to the idex.html page again.  All recipes are showing the correct names and details as per the database.  The 'full recipe' card button was also clicked on each recipe to ensure the user would be redirected to the correct page, this worked as expected. The login nav item was also clicked, this links to a non functioning login modal, this will be made functional in the future but for this project is not required to work, the modal behaves as intended at this stage.
+- Any errors found via validators were corrected.  Several different searches were entered into the search area, when search was clicked the page redirected to the results page as expected and showed any recipes matching the search criteria selected.  The image on the card for each recipe was clicked to ensure this redirected to the correct full recipe, all images behaved as expected.  From the full recipe page the 'recipe' nav item was clicked and that returned the user to the idex.html page again.  All recipes are showing the correct names and details as per the database.  The 'full recipe' card button was also clicked on each recipe to ensure the user would be redirected to the correct page, this worked as expected. The login nav item was also clicked, this links to a non functioning login modal, this will be made functional in the future but for this project is not required to work, the modal behaves as intended at this stage.  All colour and text is consistant, all all elements are aligned correctly.
 
 **Full Recipe**
 
-- Any errors found via validators were corrected.  Each recipe was checked to ensure the layout was as expected which it was.  Clicking on the Keto Kitchen logo on the top left redirects to the home page.  The 'edit' button redirects to the appropriate recipe ID in 'editrecipe.html' and the 'delete' button removes the recipe from the website and database respectively.
+- Any errors found via validators were corrected.  Each recipe was checked to ensure the layout was as expected which it was.  Clicking on the Keto Kitchen logo on the top left redirects to the home page.  The 'edit' button redirects to the appropriate recipe ID in 'editrecipe.html' and the 'delete' button removes the recipe from the website and database respectively. All colour and text is consistant, all all elements are aligned correctly.
 
 **Edit Recipe & Add Recipe**
 
--   Both pages are almost identical and any errors found via validators have been corrected.  In both all fields are editable and once the update or add recipe button is clicked the page will save everything to the database and populate the website.  There are some checks in place that ensure all fields are completed so if any are left blank the user is prompted to fill them out before continuing, all areas on this page are working as expected.  The images also have Javascript to check for image sizes before they are uploaded, images will also be previewed so the user can ensure they have selected the correct image for their recipe. Clicking on the Keto Kitchen logo on the top left redirects to the home page. 
+-   Both pages are almost identical and any errors found via validators have been corrected.  In both all fields are editable and once the update or add recipe button is clicked the page will save everything to the database and populate the website.  There are some checks in place that ensure all fields are completed so if any are left blank the user is prompted to fill them out before continuing, all areas on this page are working as expected.  The images also have Javascript to check for image sizes before they are uploaded, images will also be previewed so the user can ensure they have selected the correct image for their recipe. Clicking on the Keto Kitchen logo on the top left redirects to the home page. All colour and text is consistant, all all elements are aligned correctly.
 
 **Search Results**
 
-- Any errors found via validators were corrected. The page was tested by searching for several different recipes and ensuring the returned results matched the Mongo database.  All search options appear to be working correctly and returning the expected results.  The search area itself is populated with the original search criteria as expected so the user can see what they originally searched for. Clicking on the Keto Kitchen logo on the top left redirects to the home page.
+- Any errors found via validators were corrected. The page was tested by searching for several different recipes and ensuring the returned results matched the Mongo database.  All search options appear to be working correctly and returning the expected results.  The search area itself is populated with the original search criteria as expected so the user can see what they originally searched for. Clicking on the Keto Kitchen logo on the top left redirects to the home page. All colour and text is consistant, all all elements are aligned correctly.
 
 #### **External Testing**
 
 **Responsive**
--   Responsive design testing was done using google chrome dev tools to resize the screen on each page, all working as intended.
+-   Responsive design testing was done using google chrome dev tools to resize the screen on each page, all pages are responsive as intended.
 
 **W3C Markup & CSS Valiadators**
 - Used to check validity of HTML and CSS code used in this project, both returned no errors at completion.  W3C did see Jinja as errors even though they were not.
@@ -214,6 +214,8 @@ Passed. No issues were found when used on Edge.
 #### **Issues:**
 
 - The preview images for the edit recipe add recipe pages are not working correctly for aspect ration.  In the future some type image size control will be added to handle this problem.
+
+- On edit the image must be added again or it will default to the alt, this will be fixed in a future update.
 
 ---
 
@@ -232,6 +234,9 @@ Passed. No issues were found when used on Edge.
 - Pagination for all sized devices and scroll down arrow for smaller devices.
 
 - Image aspect ratio control for uploaded images.
+
+-   Add in new line functionality for adding and editing recipes.
+
 
 ---
 
