@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <div class="row recipe-row">
     {% for recipe in recipes %}
     <div class="col-lg-4 deck-col">
@@ -10,17 +11,17 @@
                     <h5 class="recipe-title">{{recipe.recipe_name}}</h5>
                     <div class="input-field col-sm-12">
                         <i class="far fa-clock recipe-icons"></i>
-                        <label class="time-text" for="icon-prefix">Prep Time (mins)</label>
+                        <label class="time-text">Prep Time (mins)</label>
                         <h6 class="time">{{recipe.prep_time}}</h6>
                     </div>
                     <div class="input-field col-sm-10">
                         <i class="fas fa-hourglass-end recipe-icons"></i>
-                        <label class="time-text" for="icon-prefix">Cook Time (mins)</label>
+                        <label class="time-text">Cook Time (mins)</label>
                         <h6 class="time">{{recipe.cook_time}}</h6>
                     </div>
                     <div class="input-field col-sm-10">
                         <i class="fas fa-utensils recipe-icons"></i>
-                        <label class="time-text" for="icon-prefix">Serves</label>
+                        <label class="time-text">Serves</label>
                         <h6 class="time">{{recipe.serves}}</h6>
                     </div>
                     <h6 class="per-serve">Per Serve - </h6>

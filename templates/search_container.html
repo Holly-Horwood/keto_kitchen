@@ -1,10 +1,11 @@
+<!DOCTYPE html>
 <div class="container-fluid search-container">
     <form action="{{ url_for('display_results') }}" method="GET">
         <div class="row select-row">
             <div class="col-sm-12 col-md-9 search-list">
                 <h4 class="search-title">Search Recipes</h4>
                 <div class="course-checkbox">
-                    <label><strong>Course</strong> <em> &nbsp;- check all that apply &nbsp;</em>
+                    <span><strong>Course</strong> <em> &nbsp;- check all that apply &nbsp;</em>
                         {% for course in courses %}
                         <label>{{course.courses}}
                             <input type="checkbox" name="course" value="{{course.course}}"
@@ -12,12 +13,12 @@
                         </label>    
                         {% endfor %}
                         <input type="hidden" name="course" value="">
-                    </label>
+                    </span>
                 </div>
                 <div class="cuisine-list">
                     <label><strong>Cuisine - </strong>
                         <select class="cusine-select" name="cuisine">
-                            <option value="">-- select one --</option>
+                            <option value="">&nbsp; -select one- &nbsp;</option>
                             {% for cuisine in cuisines %}
                             <option value="{{cuisine.cuisine}}"
                                 {{'selected' if cuisine.cuisine == cuisineSelected else ''}}>{{cuisine.cuisine}}
@@ -27,7 +28,7 @@
                     </label>
                 </div>
                 <div class="diet-checkbox">
-                    <label><strong>Diet</strong> <em> &nbsp;&nbsp;&nbsp;&nbsp; - check all that apply &nbsp;</em>
+                    <span><strong>Diet</strong> <em> &nbsp;&nbsp;&nbsp;&nbsp; - check all that apply &nbsp;</em>
                         {% for diet in diets %}
                         <label>{{diet.diets}}
                             <input type="checkbox" name="diet" value="{{diet.diet}}"
@@ -35,7 +36,7 @@
                         </label>    
                         {% endfor %}
                         <input type="hidden" name="diet" value="">
-                    </label>
+                    </span>
                 </div>
             </div>
             <div class="col-sm-12 col-md-3 search-btn-div d-flex align-items-center">

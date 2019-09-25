@@ -11,7 +11,7 @@
                 <div class="change-name-field">
                     <i class="fas fa-clipboard-list recipe-icons"></i>
                     <label for="icon-prefix">Recipe Name</label>
-                    <input class="recipe-name validate" required name="recipe_name" type="text">
+                    <input id="icon-prefix" class="recipe-name validate" required name="recipe_name" type="text">
                 </div>
             </div>
             <div class="col-sm-12 col-lg-8">
@@ -31,13 +31,13 @@
                     <h4 class="search-title">Choose Search Options</h4>
                     <div class="add-course-field">
                         <!--COURSE-->
-                        <label><strong>Course</strong> <em> &nbsp;- check all that apply &nbsp;</em>
+                        <span><strong>Course</strong> <em> &nbsp;- check all that apply &nbsp;</em>
                             {% for course in courses %}
                             <label>{{course.courses}}
                                 <input type="checkbox" name="course" value="{{course.course}}" /> {{course.course}}
                             </label>
                             {% endfor %}
-                        </label>
+                        </span>
                     </div>
                     <!--CUISINE-->
                     <div class="cuisine-field">
@@ -52,14 +52,14 @@
                     </div>
                     <!--DIET-->
                     <div class="add-diet-checkbox">
-                        <label><strong>Diet</strong> <em> &nbsp;&nbsp;&nbsp;&nbsp; - check all that apply
+                        <span><strong>Diet</strong> <em> &nbsp;&nbsp;&nbsp;&nbsp; - check all that apply
                                 &nbsp;</em>
                             {% for diet in diets %}
                             <label>{{ diet.diets}}
                                 <input type="checkbox" name="diet" value="{{diet.diet}}" /> {{diet.diet}}
                             </label>
                             {% endfor %}
-                        </label>
+                        </span>
                     </div>
                 </div>
 
@@ -70,7 +70,7 @@
                         <div class="change-input-field">
                             <i class="far fa-clock recipe-icons"></i>
                             <label for="icon-prefix">Prep Time (mins)</label>
-                            <input class="change-number-field" required name="prep_time" type="text" class="validate">
+                            <input class="change-number-field validate" required name="prep_time" type="text">
                         </div>
                     </div>
                     <!--COOK TIME-->
@@ -78,7 +78,7 @@
                         <div class="change-input-field">
                             <i class="fas fa-hourglass-end recipe-icons"></i>
                             <label for="icon-prefix">Cook Time (mins)</label>
-                            <input class="change-number-field" required name="cook_time" type="text" class="validate">
+                            <input class="change-number-field validate" required name="cook_time" type="text">
                         </div>
                     </div>
                     <!--SERVES-->
@@ -86,7 +86,7 @@
                         <div class="change-input-field">
                             <i class="fas fa-utensils recipe-icons"></i>
                             <label for="icon-prefix">Serves</label>
-                            <input class="change-number-field" required name="serves" type="text" class="validate">
+                            <input class="change-number-field validate" required name="serves" type="text">
                         </div>
                     </div>
                     <!--CALORIES-->
@@ -94,7 +94,7 @@
                         <div class="change-input-field">
                             <i class="fas fa-balance-scale recipe-icons"></i>
                             <label for="icon-prefix">Calories (per serve)</label>
-                            <input class="change-number-field" required name="calories" type="text" class="validate">
+                            <input class="change-number-field validate" required name="calories" type="text">
                         </div>
                     </div>
                     <!--CARBS-->
@@ -102,7 +102,7 @@
                         <div class="change-input-field">
                             <i class="fas fa-pizza-slice recipe-icons"></i>
                             <label for="icon-prefix">Carbs (per serve)</label>
-                            <input class="change-number-field" required name="carbs" type="text" class="validate">
+                            <input class="change-number-field validate" required name="carbs" type="text">
                         </div>
                     </div>
                     <!--PROTEIN-->
@@ -110,7 +110,7 @@
                         <div class="change-input-field">
                             <i class="fas fa-drumstick-bite recipe-icons"></i>
                             <label for="icon-prefix">Protein (per serve)</label>
-                            <input class="change-number-field" required name="protein" type="text" class="validate">
+                            <input class="change-number-field validate" required name="protein" type="text">
                         </div>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                 <!--INTRO-->
                 <div class="change-input-field">
                     <label class="change-intro-title" for="intro">Introduction</label>
-                    <textarea class="intro-text" rows="4" cols="50" required name="blurb" id="blurb"
+                    <textarea id="intro" class="intro-text blurb" rows="4" cols="50" required name="blurb"
                         placeholder="Please enter a short blurb about your recipe"></textarea>
                 </div>
             </div>

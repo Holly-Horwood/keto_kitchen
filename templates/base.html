@@ -23,40 +23,40 @@
 
 <body class="background">
     <!-- START OF LOGIN MODAL -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="loginModalTitle">Logged in authors can edit or delete their recipes
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalTitle">Logged in authors can edit or delete their recipes
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="loginEmail">Email address</label>
+                            <input type="email" class="form-control validate" id="loginEmail"
+                                aria-describedby="emailHelp" placeholder="Enter email address" required>
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                anyone
+                                else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" class="form-control validate" id="loginPassword"
+                                placeholder="Enter your password" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Login</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="loginEmail">Email address</label>
-                        <input type="email" class="form-control validate" id="loginEmail"
-                            aria-describedby="emailHelp" placeholder="Enter email address" required>
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with
-                            anyone
-                            else.</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="loginPassword">Password</label>
-                        <input type="password" class="form-control validate" id="loginPassword"
-                            placeholder="Enter your password" required>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Login</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+        </div>    
     </div>
-</div>
 <!-- END OF LOGIN MODAL -->
     <header>
         <!--START OF NAVBAR-->
@@ -90,6 +90,7 @@
         <a href="{{ url_for('home') }}">
         <img class="logo sticky-top" src="{{ url_for('static', filename='images/logo.png')}}" alt="logo" /></a>
         <!--END OF LOGO-->
+    </header>    
         {% block content %} {% endblock %}
         
         <!--START OF FOOTER-->

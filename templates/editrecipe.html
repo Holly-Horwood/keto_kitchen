@@ -11,7 +11,7 @@
                 <div class="change-name-field">
                     <i class="fas fa-clipboard-list recipe-icons"></i>
                     <label for="icon-prefix">Recipe Name</label>
-                    <input class="recipe-name" name="recipe_name" type="text" class="validate"
+                    <input id="icon-prefix" class="recipe-name validate" name="recipe_name" type="text"
                         value="{{recipe.recipe_name}}">
                 </div>
             </div>
@@ -20,7 +20,7 @@
                 <div class="change-name-field">
                     <i class="fas fa-user recipe-icons"></i>
                     <label for="icon-prefix">Author</label>
-                    <input class="recipe-author" name="recipe_author" type="text" class="validate"
+                    <input class="recipe-author validate" name="recipe_author" type="text"
                         value="{{recipe.recipe_author}}">
                 </div>
             </div>
@@ -33,14 +33,14 @@
                     <h4 class="search-title">Choose Search Options</h4>
                     <div class="edit-course-field">
                         <!--COURSE-->
-                        <label><strong>Course</strong> <em> &nbsp;- check all that apply &nbsp;</em>
+                        <span><strong>Course</strong> <em> &nbsp;- check all that apply &nbsp;</em>
                             {% for course in courses %}
                             <label>{{ course.courses}}
                                 <input type="checkbox" name="course" value="{{course.course}}"
                                 {{'checked' if course.course in recipe.course else ''}} />{{course.course}}
                             </label>
                             {% endfor %}
-                        </label>
+                        </span>
                     </div>
                     <!--CUISINE-->
                     <div class="cuisine-field">
@@ -53,17 +53,18 @@
                                 </option>
                                 {% endfor %}
                             </select>
+                        </label>    
                     </div>
                     <!--DIET-->
                     <div class="edit-diet-field">
-                        <label><strong>Diet</strong> <em> &nbsp;&nbsp;&nbsp;&nbsp; - check all that apply &nbsp;</em>
+                        <span><strong>Diet</strong> <em> &nbsp;&nbsp;&nbsp;&nbsp; - check all that apply &nbsp;</em>
                             {% for diet in diets %}
                             <label>{{ diet.diets }}
                                 <input type="checkbox" name="diet" value="{{diet.diet}}"
                                 {{'checked' if diet.diet in recipe.diet else ''}} />{{diet.diet}}
                             </label>
                             {% endfor %}
-                        </label>
+                        </span>
                     </div>
                 </div>
 
@@ -75,7 +76,7 @@
                         <div class="change-input-field">
                             <i class="far fa-clock recipe-icons"></i>
                             <label for="icon-prefix">Prep Time (mins)</label>
-                            <input class="change-number-field" name="prep_time" type="text" class="validate"
+                            <input class="change-number-field validate" name="prep_time" type="text" 
                                 value="{{recipe.prep_time}}">
                         </div>
                     </div>
@@ -84,7 +85,7 @@
                         <div class="change-input-field">
                             <i class="fas fa-hourglass-end recipe-icons"></i>
                             <label for="icon-prefix">Cook Time (mins)</label>
-                            <input class="change-number-field" name="cook_time" type="text" class="validate"
+                            <input class="change-number-field validate" name="cook_time" type="text" 
                                 value="{{recipe.cook_time}}">
                         </div>
                     </div>
@@ -93,7 +94,7 @@
                         <div class="change-input-field">
                             <i class="fas fa-utensils recipe-icons"></i>
                             <label for="icon-prefix">Serves</label>
-                            <input class="change-number-field" name="serves" type="text" class="validate"
+                            <input class="change-number-field validate" name="serves" type="text" 
                                 value="{{recipe.serves}}">
                         </div>
                     </div>
@@ -102,7 +103,7 @@
                         <div class="change-input-field">
                             <i class="fas fa-balance-scale recipe-icons"></i>
                             <label for="icon-prefix">Calories (per serve)</label>
-                            <input class="change-number-field" name="calories" type="text" class="validate"
+                            <input class="change-number-field validate" name="calories" type="text" 
                                 value="{{recipe.calories}}">
                         </div>
                     </div>
@@ -111,7 +112,7 @@
                         <div class="change-input-field">
                             <i class="fas fa-pizza-slice recipe-icons"></i>
                             <label for="icon-prefix">Carbs (per serve)</label>
-                            <input class="change-number-field" name="carbs" type="text" class="validate"
+                            <input class="change-number-field validate" name="carbs" type="text" 
                                 value="{{recipe.carbs}}">
                         </div>
                     </div>
@@ -120,7 +121,7 @@
                         <div class="change-input-field">
                             <i class="fas fa-drumstick-bite recipe-icons"></i>
                             <label for="icon-prefix">Protein (per serve)</label>
-                            <input class="change-number-field" name="protein" type="text" class="validate"
+                            <input class="change-number-field validate" name="protein" type="text" 
                                 value="{{recipe.protein}}">
                         </div>
                     </div>
@@ -135,7 +136,7 @@
                 <!--INTRO-->
                 <div class="change-name-field">
                     <label class="change-intro-title" for="intro">Introduction</label>
-                    <textarea class="intro-text" rows="4" cols="50" required name="blurb" id="blurb"
+                    <textarea id="intro" class="intro-text blurb" rows="4" cols="50" required name="blurb"
                         placeholder="Please enter a short blurb about your recipe">{{recipe.blurb}}</textarea>
                 </div>
             </div>
@@ -143,7 +144,7 @@
                 <!--INGREDIENTS-->
                 <div class="change-name-field">
                     <label class="change-ingredients-title" for="icon-prefix">Ingredients</label>
-                    <textarea class="ingredients-text" rows="4" cols="50" required name="ingredients" id="ingredients"
+                    <textarea class="ingredients-text ingredients" rows="4" cols="50" required name="ingredients"
                         placeholder="Please hit enter after each ingredient so it is on a new line">{{ingredients}}</textarea>
                 </div>
             </div>

@@ -219,6 +219,12 @@ img.logo {
     display: inline-block;
 }
 
+.change-intro-title, .change-ingredients-title, .change-method-title {
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 5px;
+}
+
 .search-title{
     font-family: 'Kaushan Script', cursive;
     text-align: left;

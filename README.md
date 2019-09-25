@@ -153,13 +153,13 @@ https://rating-widget.com/
 - Click on the following link to access the live site at Github pages https://github.com/Holly-Horwood/keto_kitchen or for Heroku https://keto-kitchen-hollyci.herokuapp.com/
 
 **Test Planning:**
-  All tests were carried out manually by humans.  For the browser testing the users will interact with the map and click on all links and buttons and observe the results as well as viewing the site on different viewports. 
+  Automated testing was implemented using Pythons [unittest](https://docs.python.org/3/library/unittest.html) and can be viewed in the *test.py* file. All remaining tests were carried out manually by humans.  For the browser testing the users will interact with the map and click on all links and buttons and observe the results as well as viewing the site on different viewports. 
 
 **Implementation:** 
- Users clicked on all buttons and links and used the map in all possible variations, users also changed screen sizes throughout the process to make sure the site was responsive.
+ Users clicked on all buttons and links and interacted with the recipes in all possible variations, users also changed screen sizes throughout the process to make sure the site was responsive.
 
 **Results:** 
- All buttons and links behaved as expected, and map zoom levels worked as intended.
+ All buttons and links behaved as expected, and site oveall worked as intended.
 
 #### Browser Testing: #### 
 
@@ -178,6 +178,12 @@ Passed. No issues were found when used on Firefox.
 **Edge**
 
 Passed. No issues were found when used on Edge.
+
+#### **Individual Page Testing:**
+
+**index.html**
+
+-   
 
 #### **External Testing**
 
