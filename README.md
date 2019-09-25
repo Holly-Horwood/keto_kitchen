@@ -202,6 +202,9 @@ Passed. No issues were found when used on Edge.
 
 #### **External Testing**
 
+**Responsive**
+-   Responsive design testing was done using google chrome dev tools to resize the screen on each page, all working as intended.
+
 **W3C Markup & CSS Valiadators**
 - Used to check validity of HTML and CSS code used in this project, both returned no errors at completion.  W3C did see Jinja as errors even though they were not.
 
