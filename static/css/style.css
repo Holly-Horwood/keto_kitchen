@@ -441,8 +441,6 @@ li.list-inline-item {
         font-size: 15px;
     }
 
-    
-
 }
 
 /****************************DESKTOP*********************/
@@ -450,28 +448,28 @@ li.list-inline-item {
 @media (min-width: 992px) {
     
 
-.home-container {
-    width: 1600px;
-}    
+    .home-container {
+        width: 1600px;
+    }    
 
-img.logo {
-    width: 30vh;
-}
+    img.logo {
+        width: 30vh;
+    }
 
-.change-recipe-form {
-    width: 70%;
-}
+    .change-recipe-form {
+        width: 70%;
+    }
 
-.recipe-name {
-    width: 70%;
-}
+    .recipe-name {
+        width: 70%;
+    }
 
-.recipe-author {
-    width: 40%;
-}
+    .recipe-author {
+        width: 40%;
+    }
 
-#size-warning {
-    width: 30%;
-}
+    #size-warning {
+        width: 30%;
+    }
 
 }
