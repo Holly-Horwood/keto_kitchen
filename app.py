@@ -49,6 +49,12 @@ def update(is_edit, recipe_id=0 ):
         keto_bucket.Object(full_file_name).put(ACL='public-read', Body=image_file, ContentType='image/jpeg')  #putting the file into our S3 bucket
         url = "https://ketokitchen.s3-ap-southeast-2.amazonaws.com/" + full_file_name   #create a URL for the uploaded image in the bucket
         recipe_dict.update( {'image_url' : url} ) #appends image_url to the other form data
+    
+    elif is_edit:
+        the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+        image_file = request.files['image_file']
+        recipe_dict.update( {'image_url' : url} )
+
     else:
         print('no file')
 
