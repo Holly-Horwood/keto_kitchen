@@ -102,6 +102,9 @@ As a user on the website I want the ability to easily find diet friendly recipes
 **JQuery**
 - Used for the navbar colour change on scroll.
 
+**Python**
+-   Python was used to implement the logic of this project.
+
 **MongoDB**
 - Used to store all recipe input on a cloud based database.  
     *   MongoDB Schema - relational schema using nesting.  Diet and course are not likely to be edited by users, they are administratively designed data.  The other rational is that they are simple data as they have only have one field and that is their name.  However the recipe collection could be quite large so for the simple purpose of populating checkboxes or search and editing they are stored in their own collection as well.
@@ -326,6 +329,7 @@ All content written by Holly Horwood.
 -   Most images were supplied by Pixabay and Flickr
 - All other images supplied by Holly Horwood
 - Favicon was generated using favicon.io
+- Python code in app.py `if 'image_file' in request.files and request.files['image_file'].filename:` courtesy of Dick Vlaanderen
 -   File size uploaded image checker and file preview Javascript Code, Original code courtesy of nkon https://stackoverflow.com/questions/4459379/preview-an-image-before-it-is-uploaded
 -   Star ratings widget courtesy of https://rating-widget.com/
 -   Google fonts: Kaushan Script
@@ -338,6 +342,6 @@ Thanks to Sebastian Immel my mentor for all of his help and patience.  Thanks al
 
 
 
-Star ratings app from rating widget https://rating-widget.com/get/rating/javascript/#editor
+
 
 

@@ -40,7 +40,7 @@ def update(is_edit, recipe_id=0 ):
     now = datetime.datetime.now() #creates time-stamp string for file names
     recipe_dict.update( {'date' : now}) # appends date recipe is created
     
-    if 'image_file' in request.files:
+    if 'image_file' in request.files and request.files['image_file'].filename:#This line courtesy of Dick Vlaanderen
         image_file = request.files['image_file'] 
         s3_resource = boto3.resource('s3') #connection to S3
         keto_bucket = s3_resource.Bucket("ketokitchen") #connection to keto bucket in S3       
@@ -50,13 +50,11 @@ def update(is_edit, recipe_id=0 ):
         url = "https://ketokitchen.s3-ap-southeast-2.amazonaws.com/" + full_file_name   #create a URL for the uploaded image in the bucket
         recipe_dict.update( {'image_url' : url} ) #appends image_url to the other form data
     
-    elif is_edit:
-        the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-        image_file = request.files['image_file']
-        recipe_dict.update( {'image_url' : url} )
-
     else:
-        print('no file')
+        if is_edit:
+            the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+            recipe_dict.update( {'image_url' : the_recipe['image_url']} )
+
 
     recipes = mongo.db.recipes
     recipe_dict['ingredients'] = request.form['ingredients'].strip().replace('\r\n', '|') #takes whats added by user and replaces | with new lines
