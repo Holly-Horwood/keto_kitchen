@@ -40,7 +40,7 @@ def update(is_edit, recipe_id=0 ):
     now = datetime.datetime.now() #creates time-stamp string for file names
     recipe_dict.update( {'date' : now}) # appends date recipe is created
     
-    if 'image_file' in request.files and request.files['image_file'].filename:#This line courtesy of Dick Vlaanderen
+    if 'image_file' in request.files and request.files['image_file'].filename: #This line courtesy of Dick Vlaanderen
         image_file = request.files['image_file'] 
         s3_resource = boto3.resource('s3') #connection to S3
         keto_bucket = s3_resource.Bucket("ketokitchen") #connection to keto bucket in S3       

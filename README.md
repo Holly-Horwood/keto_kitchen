@@ -276,29 +276,29 @@ https://holly-horwood.github.io/keto-kitchen/
 ### **Heroku**
 
 - I created a new app in heroku called keto-kitchen-hollyci.
-<br>
+
 -  In the terminal intiialise a new git repository:
     *    `git init` we want to link the GitHub repo to the app in heroku 
     *   `https://keto-kitchen-hollyci.herokuapp.com/`
-<br>
+
 - In VSCode *app.py* set the environment variables for Heroku
     *   ```app.run(host=os.environ.get('IP', '127.0.0.1'),  port=int(os.environ.get('PORT', '8080')),```
-<br>
+
 -   Then in *config.py* add:
     *   `MONGO_URI = os.environ.get('MONGO_URI')` 
-<br>
+
 - Go back to *Heroku* and in the project under *settings* and *config vars* add: 
     *   `IP = '0.0.0.0'`
     *   `PORT = 5000`
     *   `MONGO_URI = mongodb+srv://nz_user:password@myfirstcluster-clbrq.mongodb.net/keto_kitchen?retryWrites=true&w=majority`
-<br>
+
 - Add a *Procfile* with the following:
 
     *   `echo web: python run.py >Procfile`
     * In the Procfile add `web: python app.py -p $PORT`  *this is how Heroku runs the application*
     * `heroku ps:scale web=1` *This will start the app once it has deployed*
 
-<br>
+
 
 - Push to Github:
   * In terminal type `git add .`
